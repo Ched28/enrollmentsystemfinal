@@ -2,7 +2,7 @@
             
             <div class="content-footer">
                 <div class="footer-title">
-                    <img src="/img/qcu.png" alt=""> &nbsp;
+                    <img src="img/qcu.png" alt=""> &nbsp;
                         <h3>QUEZON CITY UNIVERSITY ONLINE PORTAL</h3> 
                 </div>
                 <div class="content-footer-main">
