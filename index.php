@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <iframe src="./components/header.php/"></iframe>
+        <?php include_once("../components/header.php"); ?>
     <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
           
           <main>
@@ -118,5 +118,5 @@
               </div>
           </div>
       </div>
-      <iframe src="/components/footer.php" frameborder="0"></iframe>
+      <?php include_once("../components/footer.php"); ?>
                   </div>
