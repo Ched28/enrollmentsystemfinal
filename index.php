@@ -5,20 +5,6 @@
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css/">
-    <link rel="stylesheet" href="./styles/all.css/">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-    </style>
-    <link rel="icon" href="/img/qcu.png" type="image/icon type">
-    <title>Quezon City University Online Portal</title>
-</head>
 <body>
     <div class="container">
     <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/header.php"); ?>
