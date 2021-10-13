@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <?php include_once("../components/header.php"); ?>
+    <?php include_once("$_SERVER[DOCUMENT_ROOT]/components/header.php"); ?>
     <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
           
           <main>
@@ -118,5 +118,5 @@
               </div>
           </div>
       </div>
-      <?php include_once("../components/footer.php"); ?>
+      <?php include_once("$_SERVER[DOCUMENT_ROOT]/components/footer.php"); ?>
                   </div>
