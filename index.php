@@ -99,3 +99,5 @@
       </div>
       <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/footer.php"); ?>
                   </div>
+                  </body>
+                  </html>
