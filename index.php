@@ -21,9 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <?php 
-            require("C:\xampp\htdocs\enrollmentsystem\components\header.php");
-        ?>
+        <iframe src="/components/header.php" frameborder="0"></iframe>
     <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
           
           <main>
@@ -120,7 +118,5 @@
               </div>
           </div>
       </div>
-      <?php 
-            require("C:\xampp\htdocs\enrollmentsystem\components\footer.php");
-        ?>
+      <iframe src="/components/footer.php" frameborder="0"></iframe>
                   </div>
