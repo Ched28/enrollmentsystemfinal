@@ -131,7 +131,7 @@
                             <button type="button" name="" style="background-color: #e82048"> Back </button>
                             </div>
                         </div>
-                        <div class="form-data4">
+                        <div class="form-data4 hidden">
                             <div class="form-data-bg">
                             <div class="form-data-title">
                                 <h3 style="text-align: center;">Family Background</h3>
@@ -139,16 +139,16 @@
                             </div>
                             <hr>
                                 <label for="mothername"> Mother's Name </label>
-                                <input type="text" name="" name="mothername"
+                                <input type="text"  name="mothername"
                                 placeholder="First Name MI Last Name" class="one-line" required> <br>
                                 <label for="motherjob"> Mother's Job </label>
-                                <input type="text" name="" name="motherjobs"
+                                <input type="text"  name="motherjobs"
                                 placeholder="Mother's Job" class="one-line" required> <br>
                                 <label for="fathername"> Father's Name </label>
-                                <input type="text" name="" name="fathername"
+                                <input type="text" name="fathername"
                                 placeholder="First Name MI Last Name" class="one-line" required> <br>
-                                <label for="fatherjobs"> Mother's Job </label>
-                                <input type="text" name="" name="fatherjobs"
+                                <label for="fatherjobs"> Father's Job </label>
+                                <input type="text"  name="fatherjobs"
                                 placeholder="Father's Job" class="one-line" required> <br>
                                 <br>
                             <button type="button" name="" style="background-color: #e82048"> Back </button>
@@ -156,10 +156,27 @@
                     </div>
                         <div class="form-data5">
                             <div class="form-data-title">
-                                <h3 style="text-align: center;">Family Background</h3>
+                                <h3 style="text-align: center;">Guardian</h3>
 
                             </div>
                             <hr>
+                            <label for="guardianname"> Guardian's Name </label>
+                            <input type="text"  name="guardianname"
+                            placeholder="First Name MI Last Name" class="one-line" required> <br>
+                            <label for="relationship">Relationship:</label>
+                            <select name="relationship" id="relationship_id" required>
+                                <option value="Father"> Father </option>
+                                <option value="Mother"> Mother </option>
+                                <option value="Brother"> Brother </option>
+                                <option value="Sister"> Sister </option>
+                                <option value="Relatives"> Other Relatives </option>
+                                <option value="Guardian"> Guardian </option>
+                            </select>
+                            <br>
+                            <label for="guardiancontactno"> Mother's Job </label>
+                            <input type="number" name="guardiancontactno"
+                            placeholder="09XXXXXXXXX" class="one-line" required> <br> <br>
+                            <button type="button" name="" style="background-color: #e82048"> Back </button>
                         </div>
                         <button type="button" name="" style="background-color: #3366CC"> Next </button>
                 </div>
