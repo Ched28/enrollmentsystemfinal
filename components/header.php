@@ -12,6 +12,8 @@
     <link rel="icon" href="img/qcu.png" type="image/icon type">
     <title>Quezon City University Online Portal</title>
 </head>
+<body>
+    <div class="container">
 <nav id="myHeader"> 
             <div class="logo">
                 <img class="qculogo"  src="img/qcu.png"> &nbsp;&nbsp;&nbsp;
@@ -31,5 +33,3 @@
             </ul>
           
 </nav>
-<body>
-    <div class="container">
