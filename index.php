@@ -22,7 +22,7 @@
 <body>
     <div class="container">
         <?php 
-            require("/components/header.php");
+            require("C:\xampp\htdocs\enrollmentsystem\components\header.php");
         ?>
     <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
           
@@ -121,6 +121,6 @@
           </div>
       </div>
       <?php 
-            require("/components/header.php");
+            require("C:\xampp\htdocs\enrollmentsystem\components\footer.php");
         ?>
                   </div>
