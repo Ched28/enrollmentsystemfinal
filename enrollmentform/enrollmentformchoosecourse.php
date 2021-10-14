@@ -1,6 +1,6 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/header.php"); ?>
 
-<a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+<a href="enrollmentsystem/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
        <main>
         
                 <div class="loginform">
@@ -32,8 +32,8 @@
                         <input type="hidden" name="course-btn-val" value=""><br>
                         
                     </div>
-                    <button type="button" onclick="location.href='enrollmentformchoose.html'">Proceed</button>
-                    <!--Change the Button type to submit -->
+                    <button type="button" onclick="location.href='enrollmentformchoose.php'">Proceed</button>
+                    <!--Change the Button type to submit when changing the function-->
                 </form>
             </div>
         </div>        
