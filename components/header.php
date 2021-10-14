@@ -1,15 +1,21 @@
+<?php 
+$cssfile1 = "/enrollmentsystem/styles/styles.css";
+$cssfile2 = "/enrollmentsystem/styles/all.css";
+$iconsite = "/enrollmentsystem/img/qcu.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css" type="text/css">
-    <link rel="stylesheet" href="styles/all.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $cssfile1;?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo $cssfile2;?>" type="text/css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     </style>
-    <link rel="icon" href="img/qcu.png" type="image/icon type">
+    <link rel="icon" href="<?php echo $iconsite;?>" type="image/icon type">
     <title>Quezon City University Online Portal</title>
 </head>
 <body>
