@@ -9,7 +9,7 @@
                     <h1>Please Enter Your Exam Code and Date</h1>
                     <input type="text" name="" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="date" name=""  class="one-line"> <br><br>
-                    <button type="button" name="" onclick="location.href='confirmation.html'">Proceed </button> 
+                    <button type="button" name="" onclick="location.href='confirmation.php'">Proceed </button> <!--- make this a function :)-->
                     <button type="submit" name="" style="background-color: #3366CC"> Apply as Student </button> 
                     
                 </form>

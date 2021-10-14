@@ -12,8 +12,8 @@
                     <form>
                     <input type="text" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="password" placeholder="Verification Code" class="one-line"> <br> <br>
-                    <button type="button" name="" onclick="location.href='enrollmentformchoosecourse.html'">Confirm</button>
-                        <!--change to submit after-->
+                    <button type="button" name="" onclick="location.href='enrollmentform/enrollmentformchoosecourse.php'">Confirm</button>
+                        <!--change to submit after , make it function-->
                 </form>
             </div>
         </div>   
