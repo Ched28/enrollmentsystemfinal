@@ -1,7 +1,7 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/header.php"); ?>
 
     
-    <a href="enrollmentsystem/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+    <a href="login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
           
           <main>
               <div class="cover-box">
