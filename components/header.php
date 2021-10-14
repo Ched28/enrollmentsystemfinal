@@ -1,7 +1,7 @@
 <?php 
 $cssfile1 = "/enrollmentsystem/styles/styles.css";
 $cssfile2 = "/enrollmentsystem/styles/all.css";
-$iconsite = "/enrollmentsystem/img/qcu.php";
+$iconsite = "/enrollmentsystem/img/qcu.png";
 
 ?>
 <!DOCTYPE html>
