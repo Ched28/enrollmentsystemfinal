@@ -10,7 +10,7 @@
         <form>
             <h2>Enrollment Form For Regular Students</h2>
 
-            <div class="form-data1 hidden">
+            <div class="form-data1">
                 <div class="form-data-bg">
                     <div class="form-data-title">
                         <h3 style="text-align: center;">Personal Information</h3>
@@ -34,7 +34,7 @@
                         required> <br> <br><br>
                 </div>
             </div>
-            <div class="form-data2 hidden">
+            <div class="form-data2">
                 <div class="form-data-bg">
                     <div class="form-data-title">
                         <h3 style="text-align: center;">Personal Information</h3>
@@ -68,7 +68,7 @@
                     <button type="button" name="" style="background-color: #e82048"> Back </button>
                 </div>
             </div>
-            <div class="form-data3  hidden">
+            <div class="form-data3">
                 <div class="form-data-bg">
                 <div class="form-data-title">
                     <h3 style="text-align: center;">Address</h3>
@@ -98,7 +98,7 @@
                 <button type="button" name="" style="background-color: #e82048"> Back </button>
                 </div>
             </div>
-            <div class="form-data4 hidden">
+            <div class="form-data4">
                 <div class="form-data-bg">
                 <div class="form-data-title">
                     <h3 style="text-align: center;">Family Background</h3>
@@ -121,7 +121,7 @@
                 <button type="button" name="" style="background-color: #e82048"> Back </button>
             </div>
         </div>
-            <div class="form-data5 hidden">
+            <div class="form-data5">
                 <div class="form-data-bg">
                 <div class="form-data-title">
                     <h3 style="text-align: center;">Guardian</h3>
@@ -147,7 +147,7 @@
                 <button type="button" name="" style="background-color: #e82048"> Back </button>
             </div>
             </div>
-            <div class="form-data6 hidden">
+            <div class="form-data6">
                 <div class="form-data-bg">
                     <div class="form-data-title">
                         <h3 style="text-align: center;">Educational Information</h3>
