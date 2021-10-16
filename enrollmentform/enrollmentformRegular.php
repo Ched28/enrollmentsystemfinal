@@ -8,7 +8,7 @@
 <div class="enrollment-form">
     <div class="enrollment-form-bg">
         <form>
-            <h2>Enrollment Form For Regular Students</h2>
+            <h2 style="text-align:center;">Enrollment Form For Regular Students</h2>
 
             <div class="form-data1">
                 <div class="form-data-bg">
