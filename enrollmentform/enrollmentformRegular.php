@@ -36,7 +36,7 @@
             </div>
             <div class="form-data2">
                 <div class="form-data-bg">
-                    <hr>
+                
                     <label for="civilstatus">Civil Status</label>
                     <select name="civilstatus" id="civilstatus_id" required>
                         <option value="">Please Select Here</option>
@@ -68,7 +68,7 @@
             <div class="form-data3">
                 <div class="form-data-bg">
             
-                <hr>
+                
                 <label for="address-name"> Address: </label>
                 <input type="text" name="" name="address-name"
                     placeholder="LOT NO. STREET NAME SUBDIVISION NAME" class="one-line" required> <br>
@@ -94,7 +94,7 @@
             </div>
             <div class="form-data4">
                 <div class="form-data-bg">
-                <hr>
+                
                     <label for="mothername"> Mother's Name </label>
                     <input type="text"  name="mothername"
                     placeholder="First Name MI Last Name" class="one-line" required> <br>
@@ -113,7 +113,7 @@
         </div>
             <div class="form-data5">
                 <div class="form-data-bg">
-                <hr>
+                
                 <label for="guardianname"> Guardian's Name </label>
                 <input type="text"  name="guardianname"
                 placeholder="First Name MI Last Name" class="one-line" required> <br>
