@@ -3,7 +3,7 @@
 
 <a href="enrollmentsystem/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
 
-<main class="no-bg">
+<div class="content">
 
 <div class="enrollment-form">
     <div class="enrollment-form-bg">
@@ -203,6 +203,6 @@
     </form>
 </div>
 </div>
-</main>
+</div>
 
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/footer.php"); ?>
