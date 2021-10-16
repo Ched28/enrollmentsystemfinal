@@ -36,9 +36,6 @@
             </div>
             <div class="form-data2">
                 <div class="form-data-bg">
-                    <div class="form-data-title">
-                        <h3 style="text-align: center;">Personal Information</h3>
-                    </div>
                     <hr>
                     <label for="civilstatus">Civil Status</label>
                     <select name="civilstatus" id="civilstatus_id" required>
@@ -65,15 +62,12 @@
                     <label for="email">Email:</label>
                     <input type="email" name="" name="email" placeholder="fn.mn.ln@gmail.com"
                         class="one-line" required> <br><br>
-                    <button type="button" name="" style="background-color: #e82048"> Back </button>
+                 
                 </div>
             </div>
             <div class="form-data3">
                 <div class="form-data-bg">
-                <div class="form-data-title">
-                    <h3 style="text-align: center;">Address</h3>
-
-                </div>
+            
                 <hr>
                 <label for="address-name"> Address: </label>
                 <input type="text" name="" name="address-name"
@@ -95,15 +89,11 @@
                     <option value="Discrict VI">Discrict VI</option>
                 </select>
                 <br>
-                <button type="button" name="" style="background-color: #e82048"> Back </button>
+              
                 </div>
             </div>
             <div class="form-data4">
                 <div class="form-data-bg">
-                <div class="form-data-title">
-                    <h3 style="text-align: center;">Family Background</h3>
-
-                </div>
                 <hr>
                     <label for="mothername"> Mother's Name </label>
                     <input type="text"  name="mothername"
@@ -118,15 +108,11 @@
                     <input type="text"  name="fatherjobs"
                     placeholder="Father's Job" class="one-line" required> <br>
                     <br>
-                <button type="button" name="" style="background-color: #e82048"> Back </button>
+ 
             </div>
         </div>
             <div class="form-data5">
                 <div class="form-data-bg">
-                <div class="form-data-title">
-                    <h3 style="text-align: center;">Guardian</h3>
-
-                </div>
                 <hr>
                 <label for="guardianname"> Guardian's Name </label>
                 <input type="text"  name="guardianname"
@@ -144,7 +130,7 @@
                 <label for="guardiancontactno"> Contact No. </label>
                 <input type="text" name="guardiancontactno"
                 placeholder="09XXXXXXXXX" class="one-line" required> <br> <br>
-                <button type="button" name="" style="background-color: #e82048"> Back </button>
+
             </div>
             </div>
             <div class="form-data6">
@@ -162,14 +148,13 @@
                     <label for="schoollastattendedlevel"> Highest Attained Level </label>
                     <input type="text" name="schoollastattendedlevel"
                     placeholder="Your Highest Year Level" class="one-line" required> <br> <br>
-                    <button type="button" name="" style="background-color: #e82048"> Back </button>
                 </div>
                 
             </div>   
             <div class="form-data7">
                 <div class="form-data-bg">
                     <div class="form-data-title">
-                        <h3 style="text-align: center;">Course</h3>
+                        <h3 style="text-align: center;">Enrollment Information</h3>
                     </div>
                     <hr>
                     <label for="firstcourse"> First Choice of Course</label>
@@ -194,7 +179,7 @@
                         <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
                         <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
                     </select><br><br>
-                    <button type="button" name="" style="background-color: #e82048"> Back </button>
+         
                 </div>
             </div>             
             <button type="button" name="" style="background-color: #3366CC"> Next </button>
