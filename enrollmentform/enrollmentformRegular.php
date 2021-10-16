@@ -31,7 +31,7 @@
                     <input type="date" name="birthday" class="one-line">
                     <label for="birthplace">Place of Birthdate:</label>
                     <input type="text" name="" name="birthplace" placeholder="Quezon City" class="one-line"
-                        required> <br> <br><br>
+                        required> <br> 
                 </div>
             </div>
             <div class="form-data2">
@@ -52,10 +52,6 @@
                         <option value="Female">Female</option>
 
                     </select><br>
-                    <div class="form-data-title">
-                        <h3 style="text-align: center;">Contact Information</h3>
-                    </div>
-                    <hr>
                     <label for="contactno">Contact No:</label>
                     <input type="text" name="" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
                         required> <br>
