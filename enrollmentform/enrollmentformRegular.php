@@ -3,7 +3,7 @@
 
 <a href="enrollmentsystem/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
 
-<div class="content enroll">
+<div class="contents enroll">
 
 <div class="enrollment-form">
     <div class="enrollment-form-bg">
