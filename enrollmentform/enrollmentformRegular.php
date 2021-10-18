@@ -184,23 +184,23 @@
                     
                     <div class="file1">
                         <label for="PSA">PSA Birth Certificate</label>
-                        <input type="file" name="PSA" id="" class="choose">
+                        <input type="file" name="PSA" id="" class="choose" require>
                         <label for="Form137">Form 137 w/ remarks ‘Copy for QCU’ (once enrolled)</label>
-                        <input type="file" name="Form137" id="" class="choose">
+                        <input type="file" name="Form137" id="" class="choose" require>
                         <label for="Form138">Form 138 – A</label>
-                        <input type="file" name="Form138" id="" class="choose">
+                        <input type="file" name="Form138" id="" class="choose" require>
                         <label for="Diploma">Diploma</label>
-                        <input type="file" name="Diploma" id="" class="choose">
+                        <input type="file" name="Diploma" id="" class="choose" require>
                     </div>
                     <div class="file1">
                         <label for="GoodMoral">Certificate of Good Moral Character</label>
-                        <input type="file" name="GoodMoral" id="" class="choose">
+                        <input type="file" name="GoodMoral" id="" class="choose" require>
                         <label for="BarangayClearance">Recent Barangay Clearance</label>
-                        <input type="file" name="BarangayClearance" id="" class="choose">
+                        <input type="file" name="BarangayClearance" id="" class="choose" require>
                         <label for="MedicalClearance">Medical Clearance issued by the University Health Office upon submission of medical requirements</label>
-                        <input type="file" name="MedicalClearance" id="" class="choose">
+                        <input type="file" name="MedicalClearance" id="" class="choose" require>
                         <label for="IDPicture">1pc. 2x2 with Name Tag – White Background</label>
-                        <input type="file" name="IDPicture" id="" class="choose">
+                        <input type="file" name="IDPicture" id="" class="choose" require>
                     </div>
                     
                 </div>
