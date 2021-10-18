@@ -177,7 +177,7 @@
                     </select><br><br>
                     <h3 style="text-align:center">Documents Need</h3>
                     <label for="PSA">PSA</label>
-                        <input type="file" name="PSA" id="">
+                        <input type="file" name="PSA" id="" class="choose">
                 </div>
             </div>             
             <button type="button" name="" style="background-color: #3366CC"> Next </button>
