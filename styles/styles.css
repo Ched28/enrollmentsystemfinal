@@ -73,7 +73,7 @@ footer{
 }
 main{
     grid-area: main;
-    background-image: url(/enrollmentsystem/img/QCU_COVER.png);
+    background-image: url(/enrollmentsystemfinal/img/QCU_COVER.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
