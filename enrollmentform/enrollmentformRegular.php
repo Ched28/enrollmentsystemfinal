@@ -179,7 +179,7 @@
                     
                 </div>
                 <div class="form-data8">
-                    <div class="form-bg">
+                    
                     <h3 style="text-align:center">Documents Need</h3>
                     <div class="file1">
                         <label for="PSA">PSA Birth Certificate</label>
@@ -201,7 +201,7 @@
                         <label for="IDPicture">1pc. 2x2 with Name Tag – White Background</label>
                         <input type="file" name="IDPicture" id="" class="choose">
                     </div>
-                    </div>
+                    
                 </div>
             </div>             
             <button type="button" name="" style="background-color: #3366CC"> Next </button>
