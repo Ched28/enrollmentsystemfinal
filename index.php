@@ -1,4 +1,4 @@
-<?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/header.php"); ?>
+<?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); ?>
 
     
     <a href="login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
@@ -97,7 +97,7 @@
               </div>
           </div>
       </div>
-      <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystem/components/footer.php"); ?>
+      <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
                   </div>
                   </body>
                   </html>
