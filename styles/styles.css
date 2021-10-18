@@ -297,5 +297,6 @@ main{
     white-space: nowrap;
     cursor: pointer;
     font-size: 10pt;
+    width: 100%;
     
   }
