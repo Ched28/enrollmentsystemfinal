@@ -302,7 +302,7 @@ main{
   .form-data8{
       display: flex;
       align-items: center;
-      flex-direction: column;
+
   }
   .file1{
     flex-grow: 1;
