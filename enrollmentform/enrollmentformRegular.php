@@ -210,7 +210,7 @@
 
     </form>
 </div>
-
+</div>
 
 
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
