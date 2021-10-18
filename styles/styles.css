@@ -296,7 +296,7 @@ main{
     border-radius: 3px;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 10pt;
-    width: 100%;
+    font-size: 1em;
+    
     
   }
