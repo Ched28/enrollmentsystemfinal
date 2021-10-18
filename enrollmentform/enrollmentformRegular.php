@@ -178,9 +178,10 @@
 
                     
                 </div>
+                <h3 style="text-align:center">Documents Need</h3>
                 <div class="form-data8">
                     
-                    <h3 style="text-align:center">Documents Need</h3>
+                    
                     <div class="file1">
                         <label for="PSA">PSA Birth Certificate</label>
                         <input type="file" name="PSA" id="" class="choose">
