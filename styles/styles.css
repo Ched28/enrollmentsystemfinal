@@ -325,5 +325,5 @@ input[type=file]::file-selector-button{
     font-size: 1em; 
   }
   .filecat{
-    border: 5px black;
+    border: 10px black;
   }
