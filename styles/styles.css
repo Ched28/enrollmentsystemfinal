@@ -302,12 +302,13 @@ main{
   .form-data8{
       display: flex;
       align-items: center;
+      flex-direction: column;
   }
   .file1{
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
-    flex-direction: column;
+    
   }
 
 input[type=file]::file-selector-button{
