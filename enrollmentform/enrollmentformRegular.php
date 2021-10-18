@@ -175,7 +175,9 @@
                         <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
                         <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
                     </select><br><br>
-         
+                    <h3 style="text-align:center">Documents Need</h3>
+                    <label for="PSA">PSA</label>
+                        <input type="file" name="PSA" id="">
                 </div>
             </div>             
             <button type="button" name="" style="background-color: #3366CC"> Next </button>
