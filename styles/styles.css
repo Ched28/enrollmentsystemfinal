@@ -289,7 +289,7 @@ main{
 .choose::-webkit-file-upload-button {
     color: white;
     display: inline-block;
-    background: #1CB6E0;
+    background: #e82048 ;
     border: 1px black;
     padding: 1em;
     font-weight: 700;
@@ -297,6 +297,6 @@ main{
     white-space: nowrap;
     cursor: pointer;
     font-size: 1em;
-    
+    content: "<i class='fas fa-upload'></i>"
     
   }
