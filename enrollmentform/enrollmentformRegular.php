@@ -175,9 +175,33 @@
                         <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
                         <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
                     </select><br><br>
+
+                    
+                </div>
+                <div class="form-data8">
+                    <div class="form-bg">
                     <h3 style="text-align:center">Documents Need</h3>
-                    <label for="PSA">PSA</label>
+                    <div class="file1">
+                        <label for="PSA">PSA Birth Certificate</label>
                         <input type="file" name="PSA" id="" class="choose">
+                        <label for="Form137">Form 137 w/ remarks ‘Copy for QCU’ (once enrolled)</label>
+                        <input type="file" name="Form137" id="" class="choose">
+                        <label for="Form138">Form 138 – A</label>
+                        <input type="file" name="Form138" id="" class="choose">
+                        <label for="Diploma">Diploma</label>
+                        <input type="file" name="Diploma" id="" class="choose">
+                    </div>
+                    <div class="file1">
+                        <label for="GoodMoral">Certificate of Good Moral Character</label>
+                        <input type="file" name="GoodMoral" id="" class="choose">
+                        <label for="BarangayClearance">Recent Barangay Clearance</label>
+                        <input type="file" name="BarangayClearance" id="" class="choose">
+                        <label for="MedicalClearance">Medical Clearance issued by the University Health Office upon submission of medical requirements</label>
+                        <input type="file" name="MedicalClearance" id="" class="choose">
+                        <label for="IDPicture">1pc. 2x2 with Name Tag – White Background</label>
+                        <input type="file" name="IDPicture" id="" class="choose">
+                    </div>
+                    </div>
                 </div>
             </div>             
             <button type="button" name="" style="background-color: #3366CC"> Next </button>
