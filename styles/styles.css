@@ -291,12 +291,12 @@ main{
     display: inline-block;
     background: #1CB6E0;
     border: 1px black;
-    padding: 7px 15px;
+    padding: 1em;
     font-weight: 700;
     border-radius: 3px;
     white-space: nowrap;
     cursor: pointer;
     font-size: 1em;
-    width: 40%;
+    
     
   }
