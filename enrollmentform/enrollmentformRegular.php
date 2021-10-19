@@ -138,7 +138,7 @@
                     <label for="schoollastattended"> Name of your Previous School </label>
                     <input type="text" name="schoollastattended"
                     placeholder="Name of the School" class="one-line" required> <br> <br>
-                    <label for="schoollastattended"> School Address </label>
+                    <label for="schoollastattendedaddress"> School Address </label>
                     <input type="text" name="schoollastattendedaddress"
                     placeholder="Address of the School" class="one-line" required> <br> <br>
                     <label for="schoollastattendedlevel"> Highest Attained Level </label>
