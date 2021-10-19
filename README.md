@@ -98,3 +98,24 @@ TransfeeesDocumentsNeed
 - Username
 - Password
 
+NEW UPDATE: 
+
+    StudentExamResultsTemp
+
+    - ID 
+    - ExamNo
+    - ExamDate
+    - Email
+    - Vcode //Verification Code
+
+DONE! 
+tables
+
+ADMIN ->
+    admin, StudentApprovals (Read&Write), 
+
+    Other Table For Read Only.. 
+
+
+
+    
