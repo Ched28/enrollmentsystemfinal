@@ -36,7 +36,7 @@
                                               
                                 echo "<script>
                                 alert('OTP sent!');
-                                location.replace('confirmation.html');
+                                location.replace('confirmation.php');
                                 
                                 </script>";
                             }
