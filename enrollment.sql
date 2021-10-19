@@ -81,6 +81,17 @@ CREATE TABLE `studentaccount` (
   `Password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Table structure for table `studentexamresultstemp`
+--
+
+CREATE TABLE `studentexamresultstemp` (
+  `ID` int(11) NOT NULL,
+  `ExamNo` int(11) NOT NULL,
+  `ExamDate` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `vcode` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 
 --
@@ -221,6 +232,11 @@ ALTER TABLE `studentinfo`
 --
 ALTER TABLE `transfeeesdocumentsneed`
   ADD PRIMARY KEY (`ID`);
+--
+-- Indexes for table `studentexamresultstemp`
+--
+ALTER TABLE `studentexamresultstemp`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -273,7 +289,10 @@ ALTER TABLE `studentinfo`
 --
 ALTER TABLE `transfeeesdocumentsneed`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+  
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
