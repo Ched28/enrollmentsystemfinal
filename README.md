@@ -46,19 +46,22 @@ StudentInfo
 
 StudentEducationalInfo
 - ID 
+- StudentID
 - schoollastattended
 - schoollastattendedaddress
 - schoollastattendedlevel
 
 StudentEnrollmentInfo
 - ID
+- StudentID
 - category 
 - firstcourse
 - secondcourse 
 - thirdcourse
 
 RegularDocumentsNeed
-- ID 
+- ID
+- StudentID
 - PSA
 - Form137
 - Form138
@@ -71,6 +74,7 @@ RegularDocumentsNeed
 
 ReturneesDocumentsNeed
 - ID 
+- StudentID
 - GeneralClearance
 - Form137
 - TrueCopyofGrades
@@ -78,8 +82,8 @@ ReturneesDocumentsNeed
 - MedicalClearance
 
 TransfeeesDocumentsNeed
-
 - ID 
+- StudentID
 - PSA
 - TOR
 - CertificateofTransferCredential
