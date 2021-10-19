@@ -27,9 +27,9 @@
 
                             $mail -> setFrom("tempqcuenroll2021@gmail.com");
 
-                            $mail -> Body = "OTP is $Otp";
+                            $mail -> Body = "OTP is 12345";
 
-                            $mail -> addAddress("$email");
+                            $mail -> addAddress("tempqcuenroll2021@gmail.com");
                             
                            
                             if($mail -> Send()){
