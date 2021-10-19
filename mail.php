@@ -19,17 +19,17 @@
 
                             $mail -> Port ="587";
 
-                            $mail -> Username ="jc.sia111@gmail.com";
+                            $mail -> Username ="tempqcuenroll2021@gmail.com";
 
-                            $mail -> Password ="sia11111";
+                            $mail -> Password ="YnKak4qw";
 
                             $mail -> Subject ="Your Verification code";
 
-                            $mail -> setFrom("jc.sia111@gmail.com");
+                            $mail -> setFrom("tempqcuenroll2021@gmail.com");
 
-                            $mail -> Body = "OTP is 12345";
+                            $mail -> Body = "OTP is $Otp";
 
-                            $mail -> addAddress("jc.sia111@gmail.com");
+                            $mail -> addAddress("$email");
                             
                            
                             if($mail -> Send()){
