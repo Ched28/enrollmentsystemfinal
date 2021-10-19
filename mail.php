@@ -9,7 +9,7 @@
 
                             $mail = new PHPMailer();
 
-                           // $mail -> isSMTP();
+                           $mail -> isSMTP();
 
                             $mail -> Host = "smtp.gmail.com";
 
