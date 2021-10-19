@@ -42,6 +42,7 @@
                             }
                             else{
                                 echo "Error";
+                                echo 'Mailer Error: ' . $mail->ErrorInfo;
                             }
 
                             $mail -> smtpClose();
