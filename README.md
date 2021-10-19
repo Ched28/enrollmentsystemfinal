@@ -15,6 +15,7 @@ Database Design
 Admin 
 - Username
 - Password
+
 StudentApprovals
 - ID 
 - StudentID
