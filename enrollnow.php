@@ -14,6 +14,7 @@ if(isset($_POST['SUBMIT'])){
                     echo "<script>alert('You have passed!')</script>";
                 }
     }
+    echo "Error";
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
 }
