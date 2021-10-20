@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
 
                     echo "<script>
                     alert('this is okay');
+                    
                     location.replace('mail.php?id=$id');
                     
                     </script>
@@ -35,7 +36,7 @@ if(isset($_POST['submit'])){
         
                 <div class="loginform">
                 <div class="form-bg">
-                <form method="POST" action='confirmation.php'>
+                <form method="POST">
                     <h1>Please Enter Your Exam Code and Date</h1>
                     <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="date" name="examdate"  class="one-line"> <br><br>
