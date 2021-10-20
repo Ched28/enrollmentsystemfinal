@@ -3,7 +3,7 @@ session_start();
 include("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
 
 $id = 0;
-if(isset($_POST['SUBMIT'])){
+if(isset($_POST['CONFIRM'])){
     $examcode = $_POST['examcode'];
     $examdate = $_POST['examdate'];
     if(!empty($examcode) && !empty($examdate))
@@ -30,5 +30,5 @@ if(isset($_POST['SUBMIT'])){
 <form method="post">
    <input type="text" name="examcode">
    <input type="date" name="examdate">
-   <input type="submit">
+   <input type="submit" name="confirm">
 </form>
