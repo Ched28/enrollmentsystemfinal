@@ -17,10 +17,9 @@ if(isset($_POST['CONFIRM'])){
                 
 while ($row = mysqli_fetch_array($result)) { 
                     
-    $id = $row['id'];
-    $code = $row['ExamCode'];
-    echo $id;
-    echo $code;
+    echo $row['id'];
+    echo $row['ExamCode'];
+    
 }
 }
 
