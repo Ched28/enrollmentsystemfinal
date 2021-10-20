@@ -2,7 +2,8 @@
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 include_once("dbcon.php");
 
-if(isset($_POST['SUBMIT'])){
+if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
     $examcode = $_POST['examcode'];
     $examdate = $_POST['examdate']; 
     if(!empty($examcode) && !empty($examdate)){
