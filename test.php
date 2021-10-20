@@ -1,11 +1,12 @@
 <?php 
-ini_set('display_errors', 1); 
-ini_set('display_startup_errors', 1); 
-error_reporting(E_ALL);
+
 session_start();
 include("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
 
 $id = 0;
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL);
 if(isset($_POST['CONFIRM'])){
     $examcode = $_POST['examcode'];
     $examdate = $_POST['examdate'];
