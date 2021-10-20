@@ -15,7 +15,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     
                     while ($row = mysqli_fetch_array($result)){
                         $examcode1 = $row['ExamNo'];
-                        echo "<script>alert('You have passed! Your Exam No is $examcode1 ')</script>";
+                        $id = $row['id'];
+                        echo "<script>alert('You have passed! Your Exam No is $examcode1 ')
+                        
+                        location.replace('mail.php?id=$id');
+                        </script>";
                     }
                 }
                 
