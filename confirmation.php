@@ -1,6 +1,8 @@
-<?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
+<?php
+session_start();
+include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
-//include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/functions.php");
+include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/functions.php");
 ?>
 
 <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>

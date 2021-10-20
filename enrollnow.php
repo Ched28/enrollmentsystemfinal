@@ -2,7 +2,6 @@
 session_start();
 include("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
-
 $id = 0;
 if(isset($_POST['submit'])){
     $examcode = $_POST['examcode'];
