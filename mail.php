@@ -1,5 +1,5 @@
 <?php
-                            include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
+                            include_once("dbcon.php");
                             require 'includes/PHPMailer.php';
                             require 'includes/SMTP.php';
                             require 'includes/Exception.php';
