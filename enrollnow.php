@@ -12,11 +12,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         if($result){
             if($result && mysqli_num_rows($result) > 0)
 				{
-                    echo "<script>alert('You have passed!')</script>";
+                    
+                    while ($row = mysqli_fetch_array($result)){
+                        $examcode1 = $row['ExamNo'];
+                        echo "<script>alert('You have passed! Your Exam No is $examcode1 ')</script>";
+                    }
                 }
-                echo "<script>alert('Sorry you didn't passed')</script>";
+                
     }
-    echo "<script>alert('Error')</script>";
+    echo "<script>alert('You didn't passed')</script>";
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
 }
