@@ -9,10 +9,10 @@ include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.ph
         
                 <div class="loginform">
                 <div class="form-bg">
-                <form>
+                <form method="POST" action=''>
                     <h1>Please Enter Your Exam Code and Date</h1>
-                    <input type="text" name="" placeholder="Exam Code" class="one-line"> <br><br>
-                    <input type="date" name=""  class="one-line"> <br><br>
+                    <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
+                    <input type="date" name="examdate"  class="one-line"> <br><br>
                     <button type="button" name="" onclick="location.href='mail.php'">Proceed </button> <!--- make this a function :)-->
                     <button type="submit" name="" style="background-color: #3366CC"> Apply as Student </button> 
                     
