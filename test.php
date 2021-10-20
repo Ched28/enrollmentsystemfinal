@@ -29,9 +29,9 @@ while ($row = mysqli_fetch_array($result)) {
 
 ?>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
    <input type="text" name="examcode">
-   <input type="date" name="examdate">
+   <input type="text" name="examdate">
    <input type="submit" name="confirm">
 
 </form>
