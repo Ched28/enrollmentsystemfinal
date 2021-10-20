@@ -1,6 +1,18 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
+
+if(isset($_POST['SUBMIT'])){
+    $examcode = $_POST['examcode'];
+    $examdate = $_POST['examdate']; 
+    if(!empty($examcode) && !empty($examdate)){
+        $query = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND ExamDate = '$examdate' LIMIT 1";
+        $result = mysqli_query($con, $query);
+
+      
+
+    }
+}
 ?>
 
 <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
