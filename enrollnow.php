@@ -8,6 +8,8 @@ if(isset($_POST['SUBMIT'])){
     if(!empty($examcode) && !empty($examdate)){
         $query = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND ExamDate = '$examdate' LIMIT 1";
         $result = mysqli_query($con, $query);
+
+        echo "<script>alert('You have passed!')</script>";
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
 }
@@ -18,7 +20,7 @@ if(isset($_POST['SUBMIT'])){
         
                 <div class="loginform">
                 <div class="form-bg">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <h1>Please Enter Your Exam Code and Date</h1>
                     <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="text" name="examdate"  class="one-line"> <br><br>
