@@ -21,7 +21,9 @@ if(isset($_POST['CONFIRM'])){
    <input type="text" name="examcode">
    <input type="date" name="examdate">
    <input type="submit" name="confirm">
-   <?php 
+
+</form>
+<?php 
 
 while ($row = mysqli_fetch_array($result)) { 
                     
@@ -34,4 +36,3 @@ while ($row = mysqli_fetch_array($result)) {
 
 }  
 ?>
-</form>
