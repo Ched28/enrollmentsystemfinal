@@ -23,11 +23,7 @@ if(isset($_POST['submit'])){
                     
                     </script>
                     ";
-                }
-            }
-
-    }    
-}
+             
 
 ?>
 
@@ -36,7 +32,14 @@ if(isset($_POST['submit'])){
         
                 <div class="loginform">
                 <div class="form-bg">
-                <form method="POST" action="mail.php?id=<?php echo $id;?>">
+                <form method="POST" action="mail.php?id=<?php echo $id;
+                       }
+                    }
+        
+            }    
+        }
+                
+                ?>">
                     <h1>Please Enter Your Exam Code and Date</h1>
                     <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="date" name="examdate"  class="one-line"> <br><br>
