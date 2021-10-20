@@ -1,6 +1,6 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
-require("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
+require("enrollmentsystemfinal/connections/dbcon.php");
 $id = "";
 if(isset($_POST['submit'])){
     $examcode = $_POST['examcode'];
