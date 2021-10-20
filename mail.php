@@ -35,12 +35,12 @@
 
                             $mail -> addAddress("tempqcuenroll2021@gmail.com");
                             
-                           
+                           //location.replace('confirmation.php');
                             if($mail -> Send()){
                                               
                                 echo "<script>
                                 alert('OTP sent!');
-                                location.replace('confirmation.php');
+                               
                                 
                                 </script>";
                             }
