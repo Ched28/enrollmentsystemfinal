@@ -17,13 +17,6 @@ if(isset($_POST['submit'])){
                     
                     $id = $row['id'];
 
-                    echo "<script>
-                    alert('this is okay');
-                    
-                    location.replace('mail.php?id=$id');
-                    
-                    </script>
-                    ";
                 }
             }
 
