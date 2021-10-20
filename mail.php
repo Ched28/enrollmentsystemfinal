@@ -4,8 +4,9 @@
                             require 'includes/SMTP.php';
                             require 'includes/Exception.php';
                             
+                            $id = $_GET['id'];
+                            
 
-                                
                             use PHPMailer\PHPMailer\PHPMailer;
                             use PHPMailer\PHPMailer\SMTP;
                             use PHPMailer\PHPMailer\Exception;

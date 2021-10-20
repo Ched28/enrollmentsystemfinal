@@ -1,30 +1,32 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
+if(isset($_POST['submit'])){
+    $examcode = $_POST['examcode'];
+    $examdate = $_POST['examdate'];
+    if(!empty($examcode) && !empty($examdate))
+    {
+        $query ="SELECT * FROM `studentexamresultstemp` WHERE ExamNo = '$examcode' AND ExamDate= '$examdate' LIMIT 1";
+        $result = mysqli_query($con, $query);
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$examcode = $_POST['examcode'];
-		$examdate = $_POST['examdate'];
-        if(!empty($examcode) && !empty($examdate))
-		{
-            $query ="SELECT * FROM `studentexamresultstemp` WHERE ExamNo = '$examcode' AND ExamDate= '$examdate' LIMIT 1";
-			$result = mysqli_query($con, $query);
-
-            if($result && mysqli_num_rows($result) > 0)
-				{
-                    $user_data = mysqli_fetch_assoc($result);
-                    $id = $user_data['id'];
-                    echo "<script>
+        if($result && mysqli_num_rows($result) > 0)
+            {
+                $user_data = mysqli_fetch_assoc($result);
+                while ($row = mysqli_fetch_array($result)) { 
                     
+                    $id = $row['id'];
+
+                    echo "<script>
                     location.replace('mail.php?id=$id');
                     
-                    </script>";
+                    </script>
+                    ";
                 }
+            }
 
-        }
-    }
+    }    
+}
+
 ?>
 
 <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
