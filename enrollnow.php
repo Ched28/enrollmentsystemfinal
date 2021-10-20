@@ -15,9 +15,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             if($result && mysqli_num_rows($result) > 0)
 				{
                     $user_data = mysqli_fetch_assoc($result);
+                    $id = $user_data['id'];
                     echo "<script>
                     
-                    location.replace('mail.php');
+                    location.replace('mail.php?id=$id');
                     
                     </script>";
                 }

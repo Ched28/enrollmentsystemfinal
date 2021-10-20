@@ -1,8 +1,11 @@
 <?php
+                            include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
                             require 'includes/PHPMailer.php';
                             require 'includes/SMTP.php';
                             require 'includes/Exception.php';
+                            
 
+                                
                             use PHPMailer\PHPMailer\PHPMailer;
                             use PHPMailer\PHPMailer\SMTP;
                             use PHPMailer\PHPMailer\Exception;
