@@ -14,8 +14,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 				{
                     echo "<script>alert('You have passed!')</script>";
                 }
+                echo "<script>alert('Sorry you didn't passed')</script>";
     }
-    echo "Error";
+    echo "<script>alert('Error')</script>";
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
 }
