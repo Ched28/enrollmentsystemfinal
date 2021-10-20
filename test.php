@@ -35,4 +35,7 @@ while ($row = mysqli_fetch_array($result)) {
 }
 
 }  
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL);
 ?>
