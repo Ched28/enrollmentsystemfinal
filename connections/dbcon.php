@@ -9,4 +9,5 @@ die("failed to connect!");
 
 
 }
+echo 'Database Connected successfully';
 ?>
