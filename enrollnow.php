@@ -1,5 +1,5 @@
 <?php 
-include("enrollmentsystemfinal/connections/dbcon.php");
+include("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 
 $id = "";
