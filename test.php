@@ -4,9 +4,7 @@ session_start();
 include("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
 
 $id = 0;
-ini_set('display_errors', 1); 
-ini_set('display_startup_errors', 1); 
-error_reporting(E_ALL);
+
 if(isset($_POST['CONFIRM'])){
     $examcode = $_POST['examcode'];
     $examdate = $_POST['examdate'];
@@ -16,19 +14,7 @@ if(isset($_POST['CONFIRM'])){
         $result = mysqli_query($con, $query);
                // $user_data = mysqli_fetch_assoc($result);
 
-                 
-
-
-?>
-
-<form method="post">
-   <input type="text" name="examcode">
-   <input type="date" name="examdate">
-   <input type="submit" name="confirm">
-
-</form>
-<?php 
-
+                
 while ($row = mysqli_fetch_array($result)) { 
                     
     $id = $row['id'];
@@ -39,5 +25,15 @@ while ($row = mysqli_fetch_array($result)) {
 }
 
 }  
+ 
+
 
 ?>
+
+<form method="post">
+   <input type="text" name="examcode">
+   <input type="date" name="examdate">
+   <input type="submit" name="confirm">
+
+</form>
+
