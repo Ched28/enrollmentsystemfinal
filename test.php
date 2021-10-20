@@ -12,17 +12,7 @@ if(isset($_POST['CONFIRM'])){
         $result = mysqli_query($con, $query);
                // $user_data = mysqli_fetch_assoc($result);
 
-                while ($row = mysqli_fetch_array($result)) { 
-                    
-                    $id = $row['id'];
-                    $code = $row['ExamCode'];
-                    echo $id;
-                    echo $code;
-                }
-            }
-        echo print_r($result);
-
-    }    
+                 
 
 
 ?>
@@ -31,4 +21,17 @@ if(isset($_POST['CONFIRM'])){
    <input type="text" name="examcode">
    <input type="date" name="examdate">
    <input type="submit" name="confirm">
+   <?php 
+
+while ($row = mysqli_fetch_array($result)) { 
+                    
+    $id = $row['id'];
+    $code = $row['ExamCode'];
+    echo $id;
+    echo $code;
+}
+}
+
+}  
+?>
 </form>
