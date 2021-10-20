@@ -1,6 +1,7 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/connections/dbcon.php");
+$id = "";
 if(isset($_POST['submit'])){
     $examcode = $_POST['examcode'];
     $examdate = $_POST['examdate'];
@@ -23,7 +24,11 @@ if(isset($_POST['submit'])){
                     
                     </script>
                     ";
-             
+                }
+            }
+
+    }    
+}
 
 ?>
 
@@ -32,14 +37,7 @@ if(isset($_POST['submit'])){
         
                 <div class="loginform">
                 <div class="form-bg">
-                <form method="POST" action="mail.php?id=<?php echo $id;
-                       }
-                    }
-        
-            }    
-        }
-                
-                ?>">
+                <form method="POST" action="mail.php?id=<?php echo $id;?>">
                     <h1>Please Enter Your Exam Code and Date</h1>
                     <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="date" name="examdate"  class="one-line"> <br><br>
