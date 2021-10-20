@@ -16,8 +16,10 @@ if(isset($_POST['submit'])){
                 while ($row = mysqli_fetch_array($result)) { 
                     
                     $id = $row['id'];
-                    echo $row['ExamCode'];
-
+                    $code = $row['ExamCode'];
+                    echo "<script>
+                    console.log('$code');
+                    </script>";
                 }
             }
 
