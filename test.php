@@ -13,7 +13,8 @@ if(isset($_POST['submit'])){
 
         if($result && mysqli_num_rows($result) > 0)
             {
-                $user_data = mysqli_fetch_assoc($result);
+               // $user_data = mysqli_fetch_assoc($result);
+
                 while ($row = mysqli_fetch_array($result)) { 
                     
                     $id = $row['id'];
