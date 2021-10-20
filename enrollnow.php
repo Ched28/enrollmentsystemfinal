@@ -8,10 +8,8 @@ if(isset($_POST['SUBMIT'])){
     if(!empty($examcode) && !empty($examdate)){
         $query = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND ExamDate = '$examdate' LIMIT 1";
         $result = mysqli_query($con, $query);
-
-      
-
     }
+    echo "<script>alert('Please Fill Up the Form!')</script>";
 }
 ?>
 
