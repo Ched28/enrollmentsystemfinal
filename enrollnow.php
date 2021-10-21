@@ -1,7 +1,8 @@
 <?php 
+session_start();
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 include_once("dbcon.php");
-
+include "functions.php";
 if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
     $examcode = $_POST['examcode'];
@@ -12,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         if($result){
             if($result && mysqli_num_rows($result) > 0)
 				{
-                    
+                    $user_data = mysqli_fetch_assoc($result);
                     while ($row = mysqli_fetch_array($result)){
                         $examcode1 = $row['ExamNo'];
                         $id = $row['ID'];

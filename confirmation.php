@@ -2,7 +2,11 @@
 session_start();
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 include_once("dbcon.php");
+include_once('functions.php');
+$user_data = check_login($con);
+
 $id = $_GET['id'];
+
 function hideEmailAddress($email)
 {
     if(filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -28,7 +32,30 @@ if($result){
 }
 }
 $emailfinal = $_SESSION['email'];
+if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+        $examcode = $_POST['examcode'];
+        $verifycode = $_POST['verifycode'];
+        if(!empty($examcode) && !empty($verifycode)){
+            $query = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND vcode = '$verifycode' LIMIT 1";
+            $result = mysqli_query($con, $query);
+            if($result){
+                if($result && mysqli_num_rows($result) > 0)
+				{
 
+                    while ($row = mysqli_fetch_array($result)){
+                        $realcode = $row['vcode'];
+                        $realexamcode = $row['Email'];
+                        if($verifycode == $realcode && $examcode == $realexamcode){
+                            echo "<script> 
+                            location.replace('enrollmentform/enrollmentformchoosecourse.php');
+                            </script>";
+                        }
+                    }
+                }
+            }
+    }
+}
 ?>
 
 <a href="/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
@@ -41,11 +68,11 @@ $emailfinal = $_SESSION['email'];
 
                     <p>A <em><span style="color: #e82048"> temporary code </span></em> has been sent to your respective email.</p>
                     <p> <em> <?php echo hideEmailAddress($emailfinal) ?> </em></p>
-                    <form>
-                    <input type="text" placeholder="Exam Code" class="one-line"> <br><br>
-                    <input type="password" placeholder="Verification Code" class="one-line"> <br> <br>
-                    <button type="button" name="" onclick="location.href='enrollmentform/enrollmentformchoosecourse.php'">Confirm</button>
-                        <!--change to submit after , make it function-->
+                    <form method = "POST" enctype="multipart/form-data">
+                    <input type="text" placeholder="Exam Code" name="examcode"class="one-line"> <br><br>
+                    <input type="password" placeholder="Verification Code" name="verifycode" class="one-line"> <br> <br>
+                    <button type="submit">Confirm</button>
+                        <!--change to submit after , make it function onclick="location.href='enrollmentform/enrollmentformchoosecourse.php'"-->
                 </form>
             </div>
         </div>   
