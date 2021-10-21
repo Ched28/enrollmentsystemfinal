@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
+include_once("dbcon.php");
 $id = $_GET['id'];
 function hideEmailAddress($email)
 {
