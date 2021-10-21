@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     while ($row = mysqli_fetch_array($result)){
                         $examcode1 = $row['ExamNo'];
                         $id = $row['ID'];
+                        $_SESSION['id'] = $user_data['id'];
                         //alert('You have passed! Your Exam No is $examcode1 and id is $id')
                         echo "<script>
                         
