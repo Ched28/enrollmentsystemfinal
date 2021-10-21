@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     while ($row = mysqli_fetch_array($result1)){
                         $realcode = $row['vcode'];
                         $realexamcode = $row['ExamNo'];
-                        if($verifycode == $realcode && $verifycode == $realexamcode){
+                        if($verifycode == $realcode && $examcode == $realexamcode){
                             echo "<script> 
                             location.replace('enrollmentform/enrollmentformchoosecourse.php');
                             alert('$verifycode,,, $realcode,,, $examcode,,,,, $realexamcode');
