@@ -13,17 +13,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         if($result){
             if($result && mysqli_num_rows($result) > 0)
 				{
-                    $user_data = mysqli_fetch_assoc($result);
+                   
                     while ($row = mysqli_fetch_array($result)){
                         $examcode1 = $row['ExamNo'];
                         $id = $row['ID'];
-                        $_SESSION['id'] = $user_data['id'];
+                        
                         //alert('You have passed! Your Exam No is $examcode1 and id is $id')
                         echo "<script>
                         
                         location.replace('mail.php?id=$id');
                         </script>";
                     }
+                   
                 }
                 
     //alert('You didn't passed')
