@@ -36,16 +36,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $examcode = $_POST['examcode'];
         $verifycode = $_POST['verifycode'];
         if(!empty($examcode) && !empty($verifycode)){
-            $query = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND vcode = '$verifycode' LIMIT 1";
-            $result = mysqli_query($con, $query);
+            $query1 = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND vcode = '$verifycode' LIMIT 1";
+            $result1 = mysqli_query($con, $query1);
             if($result){
-                if($result && mysqli_num_rows($result) > 0)
+                if($result1 && mysqli_num_rows($result1) > 0)
 				{
 
-                    while ($row = mysqli_fetch_array($result)){
+                    while ($row = mysqli_fetch_array($result1)){
                         $realcode = $row['vcode'];
                         $realexamcode = $row['Email'];
-                        if($verifycode == $realcode && $examcode == $realexamcode){
+                        if($verifycode == $realcode){
                             echo "<script> 
                             location.replace('enrollmentform/enrollmentformchoosecourse.php');
                             alert('$verifycode,,, $realcode,,, $examcode,,,,, $realexamcode');
