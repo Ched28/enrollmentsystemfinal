@@ -14,7 +14,7 @@ function check_login($con) {
             return $user_data;
         }
     }
-    header("Location: enrollmentsystemfinal/enrollnow.php");
+    header("Location: enrollnow.php");
 	die;
    
 
