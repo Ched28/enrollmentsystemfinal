@@ -14,7 +14,7 @@ $_SESSION['email'] = '';
                             if($result){
                                 while ($row = mysqli_fetch_array($result)){
                                     $examcode1 = $row['ExamNo'];
-                                    $email = $row['email'];
+                                    $email = $row['Email'];
                                     $_SESSION['email'] = $email;
 
 
