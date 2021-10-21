@@ -1,10 +1,13 @@
 <?php
+session_start();
                             include_once("dbcon.php");
                             require 'includes/PHPMailer.php';
                             require 'includes/SMTP.php';
                             require 'includes/Exception.php';
                             
                             $id = $_GET['id'];
+
+
                             
 
                             use PHPMailer\PHPMailer\PHPMailer;
@@ -39,7 +42,7 @@
                             if($mail -> Send()){
                                               
                                 echo "<script>
-                                alert('OTP sent!');
+                                alert('OTP sent! your id is $id');
                                
                                 
                                 </script>";
