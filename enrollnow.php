@@ -16,15 +16,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     while ($row = mysqli_fetch_array($result)){
                         $examcode1 = $row['ExamNo'];
                         $id = $row['ID'];
-                        echo "<script>alert('You have passed! Your Exam No is $examcode1 and id is $id')
+                        //alert('You have passed! Your Exam No is $examcode1 and id is $id')
+                        echo "<script>
                         
                         location.replace('mail.php?id=$id');
                         </script>";
                     }
                 }
                 
-    }
-    echo "<script>alert('You didn't passed')</script>";
+    //alert('You didn't passed')
+            echo "<script>location.replace('confirmation_failed.php')</script>";
+            }
+    
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
 }
