@@ -1,7 +1,7 @@
 <?php
 session_start();
 $verfication_code = substr(number_format(time() * rand(), 0,'',''), 0,6);
-$email = '';
+$_SESSION['email'] = '';
                             include_once("dbcon.php");
                             require 'includes/PHPMailer.php';
                             require 'includes/SMTP.php';
@@ -15,10 +15,12 @@ $email = '';
                                 while ($row = mysqli_fetch_array($result)){
                                     $examcode1 = $row['ExamNo'];
                                     $email = $row['email'];
+                                    $_SESSION['email'] = $email;
 
 
                             }
                             }
+                            $emailfinal = $_SESSION['email'];
                             $query1 = "UPDATE `studentexamresultstemp` SET `vcode`= '$verfication_code' WHERE id='$id'";
                             mysqli_query($con, $query1);
 
@@ -48,7 +50,7 @@ $email = '';
 
                             $mail -> Body = "OTP is $verfication_code";
 
-                            $mail -> addAddress("$email");
+                            $mail -> addAddress("$emailfinal");
                             
                            //location.replace('confirmation.php');
                             if($mail -> Send()){
