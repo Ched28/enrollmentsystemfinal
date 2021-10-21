@@ -52,12 +52,12 @@ $_SESSION['email'] = '';
 
                             $mail -> addAddress("$emailfinal");
                             
-                           //location.replace('confirmation.php');
+                           // alert('OTP sent! your id is $id');
                             if($mail -> Send()){
                                               
                                 echo "<script>
-                                alert('OTP sent! your id is $id');
                                
+                                location.replace('confirmation.php?id=$id');
                                 
                                 </script>";
                             }
