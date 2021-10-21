@@ -53,8 +53,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         }
                     }
                 }
+                echo "<script> alert('Error Here');</script>";
             }
+            "<script> alert('Error Here1');</script>";
     }
+    "<script> alert('Error Here2');</script>";
 }
 ?>
 
