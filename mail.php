@@ -1,5 +1,6 @@
 <?php
 session_start();
+$verfication_code = substr(number_format(time() * rand(), 0,'',''), 0,6);
                             include_once("dbcon.php");
                             require 'includes/PHPMailer.php';
                             require 'includes/SMTP.php';
@@ -7,8 +8,18 @@ session_start();
                             
                             $id = $_GET['id'];
 
+                            $query = "select * from `studentexamresultstemp` where id = $id LIMIT 1";
+                            $result = mysqli_query($con, $query);
+                            if($result){
+                                while ($row = mysqli_fetch_array($result)){
+                                    $examcode1 = $row['ExamNo'];
+                                    $email = $row['email'];
 
-                            
+
+                            }
+                            }
+                            $query1 = "UPDATE `studentexamresultstemp` SET `vcode`= '$verfication_code' WHERE id='$id'";
+                            mysqli_query($con, $query1);
 
                             use PHPMailer\PHPMailer\PHPMailer;
                             use PHPMailer\PHPMailer\SMTP;
@@ -34,9 +45,9 @@ session_start();
 
                             $mail -> setFrom("tempqcuenroll2021@gmail.com");
 
-                            $mail -> Body = "OTP is 12345";
+                            $mail -> Body = "OTP is $verfication_code";
 
-                            $mail -> addAddress("tempqcuenroll2021@gmail.com");
+                            $mail -> addAddress("$email");
                             
                            //location.replace('confirmation.php');
                             if($mail -> Send()){
