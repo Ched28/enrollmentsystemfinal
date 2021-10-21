@@ -46,9 +46,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         $realcode = $row['vcode'];
                         $realexamcode = $row['ExamNo'];
                         if($verifycode == $realcode && $examcode == $realexamcode){
+                            //alert('$verifycode,,, $realcode,,, $examcode,,,,, $realexamcode');
                             echo "<script> 
                             location.replace('enrollmentform/enrollmentformchoosecourse.php');
-                            alert('$verifycode,,, $realcode,,, $examcode,,,,, $realexamcode');
+                            
                             </script>";
                         }
                     }
