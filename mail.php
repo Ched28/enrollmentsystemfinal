@@ -1,6 +1,7 @@
 <?php
 session_start();
 $verfication_code = substr(number_format(time() * rand(), 0,'',''), 0,6);
+$email = '';
                             include_once("dbcon.php");
                             require 'includes/PHPMailer.php';
                             require 'includes/SMTP.php';
