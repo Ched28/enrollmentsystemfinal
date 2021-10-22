@@ -1,8 +1,6 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 include_once("dbcon.php");
-include_once('functions.php');
-$user_data = check_login($con);
 
 ?>
 
