@@ -26,11 +26,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     }
                    
                 }
-    
+                echo "<script>location.replace('confirmation_failed.php')</script>";
     //alert('You didn't passed')
             
             }
-            echo "<script>location.replace('confirmation_failed.php')</script>";
+           
     
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
