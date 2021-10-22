@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     //alert('You didn't passed')
             
             }
-           
+            echo "<script>location.replace('confirmation_failed.php')</script>";
     
     }
     echo "<script>alert('Please Fill Up the Form!')</script>";
