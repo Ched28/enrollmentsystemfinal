@@ -155,7 +155,7 @@
                     <hr>
                     <label for="firstcourse"> First Choice of Course</label>
                     <select name="firstcourse" value=""> 
-                        <option value=" ">Second Choice of Course</option>  
+                        <option value=" ">First Choice of Course</option>  
                         <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
                         <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
                         <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
