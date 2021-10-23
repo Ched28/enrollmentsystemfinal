@@ -1,7 +1,18 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 
 include_once('dbcon.php');
+if(isset($_POST['submit'])){
+    $FullName_Last = $_POST['FullName-Last'];
+    $FullName_First = $_POST['FullName-First'];
+    $FullName_Middle = $_POST['FullName-Middle'];
+    $Age = $_POST['Age'];
+    $birthday = $_POST['birthday'];
+    $birthplace = $_POST['birthplace'];
+    $civilstatus = $_POST['civilstatus'];
+    $gender = $_POST['gender'];
+    $contactno = $_POST['contactno'];
 
+}
 
 ?>
 
@@ -71,24 +82,10 @@ include_once('dbcon.php');
                 
                 
                 <label for="address-name"> Address: </label>
-                <input type="text" name="" name="address-name"
-                    placeholder="LOT NO. STREET NAME SUBDIVISION NAME" class="one-line" required> <br>
-                <label for="address-brgy"> Barangay: </label>
-                <select name="address-brgy" id="address-brgy_id" required>
-                    <option value="">Please Select Here</option>
-                    <option value="">Sample Barangay</option>
-                </select>
-                <br>
-                <label for="address-district"> District: </label>
-                <select name="address-district" id="address-district_id" required>
-                    <option value="">Please Select Here</option>
-                    <option value="Discrict I">Discrict I</option>
-                    <option value="Discrict II">Discrict II</option>
-                    <option value="Discrict III">Discrict III</option>
-                    <option value="Discrict IV">Discrict IV</option>
-                    <option value="Discrict V">Discrict V</option>
-                    <option value="Discrict VI">Discrict VI</option>
-                </select>
+                <input type="textarea" name="address-name"
+                    placeholder="LOT NO. BLOCK NO. STREET, SUBDIVISION/VILLAGE, BARANGAY, TOWN, CITY, REGION" class="one-line" required> <br>
+                <label for="zip_code"> Zip Code </label>
+                <input type="text" name="zip_code" placeholder="1003" required class="one-line">
                 <br>
               
                 </div>
