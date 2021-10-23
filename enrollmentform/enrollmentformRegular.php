@@ -22,8 +22,9 @@ if(isset($_POST['submit'])){
     $relationship = $_POST['relationship'];
     $guardiancontactno = $_POST['guardiancontactno'];
     //regular documents 
-
     
+    $PSA = $_FILES['PSA']['temp_name'];
+
 }
 
 ?>
