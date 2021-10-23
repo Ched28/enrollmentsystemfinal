@@ -257,6 +257,7 @@ main{
     border-radius: 6px;
     color: white;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 
 }
 .form-bg button[type=button]{
