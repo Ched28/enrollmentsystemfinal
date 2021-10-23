@@ -233,7 +233,7 @@ include_once('dbcon.php');
                     
                 </div>
             </div>             
-            <button type="button" name="" style="background-color: #3366CC"> Next </button>
+            <button type="submit" name="" style="background-color: #3366CC"> Submit </button>
     </div>
 
     </form>
