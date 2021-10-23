@@ -11,7 +11,19 @@ if(isset($_POST['submit'])){
     $civilstatus = $_POST['civilstatus'];
     $gender = $_POST['gender'];
     $contactno = $_POST['contactno'];
+    $email = $_POST['email'];
+    $address_name = $_POST['address-name'];
+    $zip_code = $_POST['zip_code'];
+    $mothername = $_POST['mothername'];
+    $motherjob = $_POST['motherjob'];
+    $fathername = $_POST['fathername'];
+    $fatherjob = $_POST['fatherjob'];
+    $guardianname = $_POST['guardianname'];
+    $relationship = $_POST['relationship'];
+    $guardiancontactno = $_POST['guardiancontactno'];
+    //regular documents 
 
+    
 }
 
 ?>
