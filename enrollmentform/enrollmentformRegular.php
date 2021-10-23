@@ -7,7 +7,7 @@
 
 <div class="enrollment-form">
     <div class="enrollment-form-bg">
-        <form>
+        <form method="POST" enctype="multipart/form-data">
             <h2 style="text-align:center;">Enrollment Form For Regular Students</h2>
 
             <div class="form-data1">
