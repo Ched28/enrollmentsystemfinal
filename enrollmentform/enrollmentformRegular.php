@@ -154,8 +154,15 @@
                     </div>
                     <hr>
                     <label for="firstcourse"> First Choice of Course</label>
-                    <input type="text" name="firstcourse"
-                    placeholder="First Choice" class="one-line" required readonly> <br> <br>
+                    <select name="firstcourse" value=""> 
+                        <option value=" ">Second Choice of Course</option>  
+                        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+                        <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
+                        <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
+                        <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
+                        <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
+          
+                    </select> <br> <br>
                     <label for="secondcourse"> Second Choice of Course</label>
                     <select name="secondcourse" value=""> 
                         <option value=" ">Second Choice of Course</option>  
