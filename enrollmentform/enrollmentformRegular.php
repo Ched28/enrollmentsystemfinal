@@ -25,7 +25,20 @@ if(isset($_POST['submit'])){
     
     $PSA = $_FILES['PSA']['name'];
     $PSA_temp = $_FILES['PSA']['temp_name'];
-    
+    $Form137 = $_FILES['Form137']['name'];
+    $Form137_temp = $_FILES['Form137']['temp_name'];
+    $Diploma = $_FILES['Diploma']['name'];
+    $Diploma_temp = $_FILES['Diploma']['temp_name'];
+    $GoodMoral = $_FILES['GoodMoral']['name'];
+    $GoodMoral_temp = $_FILES['GoodMoral']['temp_name'];
+    $BarangayClearance = $_FILES['BarangayClearance']['name'];
+    $BarangayClearance_temp = $_FILES['BarangayClearance']['temp_name'];
+    $MedicalClearance = $_FILES['MedicalClearance']['name'];
+    $MedicalClearance_temp = $_FILES['MedicalClearance']['temp_name'];
+    $IDPicture = $_FILES['IDPicture']['name'];
+    $IDPicture_temp = $_FILES['IDPicture']['temp_name'];
+
+    $location = "$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/files";
 
 }
 
