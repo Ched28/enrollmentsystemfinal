@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
     $IDPicture = $_FILES['IDPicture']['name'];
     $IDPicture_temp = $_FILES['IDPicture']['temp_name'];
 
-    $location = "$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/files";
+    $location = "../files/";
 
 }
 
