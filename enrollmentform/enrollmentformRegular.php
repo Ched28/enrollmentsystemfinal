@@ -23,7 +23,9 @@ if(isset($_POST['submit'])){
     $guardiancontactno = $_POST['guardiancontactno'];
     //regular documents 
     
-    $PSA = $_FILES['PSA']['temp_name'];
+    $PSA = $_FILES['PSA']['name'];
+    $PSA_temp = $_FILES['PSA']['temp_name'];
+    
 
 }
 
