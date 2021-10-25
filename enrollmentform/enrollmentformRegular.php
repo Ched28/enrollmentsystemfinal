@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 ?>
 
 
-<a href="enrollmentsystem/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+<a href="$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
 
 <div class="contents enroll">
 
