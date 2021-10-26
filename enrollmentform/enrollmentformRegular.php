@@ -63,6 +63,11 @@ if(isset($_POST['submit'])){
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
             $inc_number = $get_numbers+1;
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
+            $studentid = "$enrollmentyear-$get_numbers";
+            $_SESSION['studentid'] = $studentid;
+        }
+        else{
+            echo "error";
         }
     }else{
         
