@@ -17,7 +17,7 @@
 
 //echo "21-$idint";
 include_once('dbcon.php');
-
+$enrollmentyear = date("y");
 $select1 = "SELECT StudentID FROM `studentinfo`;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
