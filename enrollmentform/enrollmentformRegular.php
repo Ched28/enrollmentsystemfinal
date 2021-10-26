@@ -2,54 +2,61 @@
 session_start();
 include_once('dbcon.php');
 if(isset($_POST['submit'])){
-    $FullName_Last = $_POST['FullName-Last'];
-    $FullName_First = $_POST['FullName-First'];
-    $FullName_Middle = $_POST['FullName-Middle'];
-    $Age = $_POST['Age'];
-    $birthday = $_POST['birthday'];
-    $birthplace = $_POST['birthplace'];
-    $civilstatus = $_POST['civilstatus'];
-    $gender = $_POST['gender'];
-    $contactno = $_POST['contactno'];
-    $email = $_POST['email'];
-    $address_name = $_POST['address-name'];
-    $zip_code = $_POST['zip_code'];
-    $mothername = $_POST['mothername'];
-    $motherjob = $_POST['motherjob'];
-    $fathername = $_POST['fathername'];
-    $fatherjob = $_POST['fatherjob'];
-    $guardianname = $_POST['guardianname'];
-    $relationship = $_POST['relationship'];
-    $guardiancontactno = $_POST['guardiancontactno'];
+    $FullName_Last = mysqli_real_escape_string($con,$_POST['FullName-Last']);
+    $FullName_First = mysqli_real_escape_string($con,$_POST['FullName-First']);
+    $FullName_Middle = mysqli_real_escape_string($con,$_POST['FullName-Middle']);
+    $Age = mysqli_real_escape_string($con,$_POST['Age']);
+    $birthday = mysqli_real_escape_string($con,$_POST['birthday']);
+    $birthplace = mysqli_real_escape_string($con,$_POST['birthplace']);
+    $civilstatus = mysqli_real_escape_string($con,$_POST['civilstatus']);
+    $gender = mysqli_real_escape_string($con,$_POST['gender']);
+    $contactno = mysqli_real_escape_string($con,$_POST['contactno']);
+    $email = mysqli_real_escape_string($con,$_POST['email']);
+    $address_name = mysqli_real_escape_string($con,$_POST['address-name']);
+    $zip_code = mysqli_real_escape_string($con,$_POST['zip_code']);
+    $mothername = mysqli_real_escape_string($con,$_POST['mothername']);
+    $motherjob = mysqli_real_escape_string($con,$_POST['motherjob']);
+    $fathername = mysqli_real_escape_string($con,$_POST['fathername']);
+    $fatherjob = mysqli_real_escape_string($con,$_POST['fatherjob']);
+    $guardianname = mysqli_real_escape_string($con,$_POST['guardianname']);
+    $relationship = mysqli_real_escape_string($con,$_POST['relationship']);
+    $guardiancontactno = mysqli_real_escape_string($con,$_POST['guardiancontactno']);
     //regular documents 
     
     $PSA = $_FILES['PSA']['name'];
+    $PSA_temp = $_FILES['PSA']['temp_name'];
     $Form137 = $_FILES['Form137']['name'];
+    $Form137_temp = $_FILES['Form137']['temp_name'];
     $Diploma = $_FILES['Diploma']['name'];
-    $GoodMoral = $_FILES['GoodMoral']['name']; 
+    $Diploma_temp = $_FILES['Diploma']['temp_name'];
+    $GoodMoral = $_FILES['GoodMoral']['name'];
+    $GoodMoral_temp = $_FILES['GoodMoral']['temp_name']; 
     $BarangayClearance = $_FILES['BarangayClearance']['name'];
+    $BarangayClearance_temp = $_FILES['BarangayClearance']['temp_name'];
     $MedicalClearance = $_FILES['MedicalClearance']['name'];
+    $MedicalClearance_temp = $_FILES['MedicalClearance']['temp_name'];
     $IDPicture = $_FILES['IDPicture']['name'];
+    $IDPicture_temp = $_FILES['IDPicture']['temp_name'];
     $location = "../files/";
 
     //enrollmentstatus 
 
     $category = "Regular";
-    $firstcourse = $_POST['firstcourse'];
-    $secondcourse = $_POST['secondcourse'];
-    $thirdcourse = $_POST['thirdcourse'];
+    $firstcourse = mysqli_real_escape_string($con,$_POST['firstcourse']);
+    $secondcourse = mysqli_real_escape_string($con,$_POST['secondcourse']);
+    $thirdcourse = mysqli_real_escape_string($con,$_POST['thirdcourse']);
 
     //educationalinfo 
-    $schoollastattended = $_POST['schoollastattended'];
-    $schoollastattendedaddress = $_POST['schoollastattendedaddress'];
-    $schoollastattendedlevel = $_POST['schoollastattendedlevel'];
+    $schoollastattended = mysqli_real_escape_string($con,$_POST['schoollastattended']);
+    $schoollastattendedaddress = mysqli_real_escape_string($con,$_POST['schoollastattendedaddress']);
+    $schoollastattendedlevel = mysqli_real_escape_string($con,$_POST['schoollastattendedlevel']);
     
     // queries
-    $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ();";
+    //     $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ();";
     //     $select1 = "SELECT `StudentID` FROM `studentinfo`;";
-    $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ();";
-    $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`ID`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ();";
-
+    //$insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ();";
+   // $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`ID`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ();";
+//mysqli_real_escape_string($con,
     $enrollmentyear = date("y");
     $studentidint = 1;
     $studentid = "$enrollmentyear-000$studentidint";
@@ -64,16 +71,63 @@ if(isset($_POST['submit'])){
             $inc_number = $get_numbers+1;
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
             $studentid = "$enrollmentyear-$get_numbers";
-            $_SESSION['studentid'] = $studentid;
+            
+            $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
+            $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
+            $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
+            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+            $query = $insertsql1;
+            $query .=$insertsql2;
+            $query .=$insertsql3;
+            $query .=$insertfile;
+
+            if ($insertqueries = $con->multi_query($query)){
+                move_uploaded_file($PSA_temp, $location.$PSA);
+                move_uploaded_file($Form137_temp, $location.$Form137);
+                move_uploaded_file($Form138_temp, $location.$Form138);
+                move_uploaded_file($Diploma_temp, $location.$Diploma);
+                move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
+                move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
+                move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
+                move_uploaded_file($IDPicture_temp, $location.$IDPicture);
+
+            }else{
+
+                echo "<script> alert('error moving file');</script>";
+            }
+        
         }
         else{
-            echo "error";
+            echo "<script> alert('error checkresult');</script>";
         }
-    }else{
-        
-        $_SESSION['studentid'] = $studentid;
     }
+    else{
+        
+        $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
+            $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
+            $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
+            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+            $query = $insertsql1;
+            $query .=$insertsql2;
+            $query .=$insertsql3;
+            $query .=$insertfile;
 
+            if ($insertqueries = $con->multi_query($query)){
+                move_uploaded_file($PSA_temp, $location.$PSA);
+                move_uploaded_file($Form137_temp, $location.$Form137);
+                move_uploaded_file($Form138_temp, $location.$Form138);
+                move_uploaded_file($Diploma_temp, $location.$Diploma);
+                move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
+                move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
+                move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
+                move_uploaded_file($IDPicture_temp, $location.$IDPicture);
+
+            }else{
+
+                echo "<script> alert('error moving file');</script>";
+            }
+    
+        }
 }
 
 ?>
