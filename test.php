@@ -34,7 +34,7 @@ $select1 = "SELECT StudentID FROM `studentinfo`;";
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
             echo $get_string;
             echo "<br>";
-            $studentid = "$enrollmentyear-$get_numbers";
+            $studentid = "$enrollmentyear-$get_string";
             echo $studentid;
         }
     }
