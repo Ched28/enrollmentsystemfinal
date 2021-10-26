@@ -20,7 +20,7 @@
 include_once('dbcon.php');
 $lastid = $con->insert_id;
 $enrollmentyear = date("y");
-$select1 = "SELECT * FROM `studentinfo` ORDER BY 'StudentID' DESC LIMIT 1;";
+$select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
