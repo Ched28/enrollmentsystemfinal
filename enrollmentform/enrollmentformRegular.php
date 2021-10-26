@@ -1,5 +1,5 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
-
+session_start();
 include_once('dbcon.php');
 if(isset($_POST['submit'])){
     $FullName_Last = $_POST['FullName-Last'];
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
     $schoollastattended = $_POST['schoollastattended'];
     $schoollastattendedaddress = $_POST['schoollastattendedaddress'];
     $schoollastattendedlevel = $_POST['schoollastattendedlevel'];
-    $studentid = "";
+    
     // queries
     $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ();";
     //     $select1 = "SELECT `StudentID` FROM `studentinfo`;";
@@ -51,16 +51,22 @@ if(isset($_POST['submit'])){
     $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`ID`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ();";
 
     $enrollmentyear = date("y");
-
+    $studentidint = 1;
+    $studentid = "$enrollmentyear-000$studentidint";
 
     //select student id 
     $select1 = "SELECT `StudentID` FROM `studentinfo`;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
-
+        if($row = mysqli_fetch_assoc($checkresult)){
+            $tempid = $row['StudentID'];
+            $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
+            $inc_number = $get_numbers+1;
+            $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
+        }
     }else{
-        $studentidint = 0001;
-        $studentid = "$enrollmentyear-$studentidint";
+        
+        $_SESSION['studentid'] = $studentid;
     }
 
 }
