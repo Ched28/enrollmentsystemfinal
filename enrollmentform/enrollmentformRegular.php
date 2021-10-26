@@ -101,6 +101,33 @@ if(isset($_POST['submit'])){
         else{
             echo "<script> alert('error checkresult');</script>";
         }
+    } else{
+        $studentidint = 1;
+        $studentid = "$enrollmentyear-000$studentidint";
+        $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
+        $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
+        $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
+        $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+        $query = $insertsql1;
+        $query .=$insertsql2;
+        $query .=$insertsql3;
+        $query .=$insertfile;
+
+        if ($insertqueries = $con->multi_query($query)){
+            move_uploaded_file($PSA_temp, $location.$PSA);
+            move_uploaded_file($Form137_temp, $location.$Form137);
+            move_uploaded_file($Form138_temp, $location.$Form138);
+            move_uploaded_file($Diploma_temp, $location.$Diploma);
+            move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
+            move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
+            move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
+            move_uploaded_file($IDPicture_temp, $location.$IDPicture);
+
+        }else{
+
+            echo "<script> alert('error moving file');</script>";
+        }
+
     }
     
 }
