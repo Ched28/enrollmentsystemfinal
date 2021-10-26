@@ -24,12 +24,16 @@ $select1 = "SELECT StudentID FROM `studentinfo`;";
         if($row = mysqli_fetch_assoc($checkresult)){
             $tempid = $row['StudentID'];
             echo $tempid;
+            echo "<br>";
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
             echo $get_numbers;
+            echo "<br>";
             $inc_number = $get_numbers+1;
             echo $inc_number;
+            echo "<br>";
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
             echo $get_string;
+            echo "<br>";
             $studentid = "$enrollmentyear-$get_numbers";
             echo $studentid;
         }
