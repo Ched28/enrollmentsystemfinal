@@ -24,23 +24,44 @@ if(isset($_POST['submit'])){
     //regular documents 
     
     $PSA = $_FILES['PSA']['name'];
-    $PSA_temp = $_FILES['PSA']['temp_name'];
     $Form137 = $_FILES['Form137']['name'];
-    $Form137_temp = $_FILES['Form137']['temp_name'];
     $Diploma = $_FILES['Diploma']['name'];
-    $Diploma_temp = $_FILES['Diploma']['temp_name'];
-    $GoodMoral = $_FILES['GoodMoral']['name'];
-    $GoodMoral_temp = $_FILES['GoodMoral']['temp_name'];
+    $GoodMoral = $_FILES['GoodMoral']['name']; 
     $BarangayClearance = $_FILES['BarangayClearance']['name'];
-    $BarangayClearance_temp = $_FILES['BarangayClearance']['temp_name'];
     $MedicalClearance = $_FILES['MedicalClearance']['name'];
-    $MedicalClearance_temp = $_FILES['MedicalClearance']['temp_name'];
     $IDPicture = $_FILES['IDPicture']['name'];
-    $IDPicture_temp = $_FILES['IDPicture']['temp_name'];
-
     $location = "../files/";
 
-    
+    //enrollmentstatus 
+
+    $category = "Regular";
+    $firstcourse = $_POST['firstcourse'];
+    $secondcourse = $_POST['secondcourse'];
+    $thirdcourse = $_POST['thirdcourse'];
+
+    //educationalinfo 
+    $schoollastattended = $_POST['schoollastattended'];
+    $schoollastattendedaddress = $_POST['schoollastattendedaddress'];
+    $schoollastattendedlevel = $_POST['schoollastattendedlevel'];
+    $studentid = "";
+    // queries
+    $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ();";
+    //     $select1 = "SELECT `StudentID` FROM `studentinfo`;";
+    $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ();";
+    $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`ID`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ();";
+
+    $enrollmentyear = date("y");
+
+
+    //select student id 
+    $select1 = "SELECT `StudentID` FROM `studentinfo`;";
+    $checkresult = mysqli_query($con, $select1);
+    if(mysqli_num_rows($checkresult)>0){
+
+    }else{
+        $studentidint = 0001;
+        $studentid = "$enrollmentyear-$studentidint";
+    }
 
 }
 
