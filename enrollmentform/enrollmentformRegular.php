@@ -24,19 +24,19 @@ if(isset($_POST['submit'])){
     //regular documents 
     
     $PSA = $_FILES['PSA']['name'];
-    $PSA_temp = $_FILES['PSA']['temp_name'];
+    $PSA_temp = $_FILES['PSA']['tmp_name'];
     $Form137 = $_FILES['Form137']['name'];
-    $Form137_temp = $_FILES['Form137']['temp_name'];
+    $Form137_temp = $_FILES['Form137']['tmp_name'];
     $Diploma = $_FILES['Diploma']['name'];
-    $Diploma_temp = $_FILES['Diploma']['temp_name'];
+    $Diploma_temp = $_FILES['Diploma']['tmp_name'];
     $GoodMoral = $_FILES['GoodMoral']['name'];
-    $GoodMoral_temp = $_FILES['GoodMoral']['temp_name']; 
+    $GoodMoral_temp = $_FILES['GoodMoral']['tmp_name']; 
     $BarangayClearance = $_FILES['BarangayClearance']['name'];
-    $BarangayClearance_temp = $_FILES['BarangayClearance']['temp_name'];
+    $BarangayClearance_temp = $_FILES['BarangayClearance']['tmp_name'];
     $MedicalClearance = $_FILES['MedicalClearance']['name'];
-    $MedicalClearance_temp = $_FILES['MedicalClearance']['temp_name'];
+    $MedicalClearance_temp = $_FILES['MedicalClearance']['tmp_name'];
     $IDPicture = $_FILES['IDPicture']['name'];
-    $IDPicture_temp = $_FILES['IDPicture']['temp_name'];
+    $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
     $location = "../files/";
 
     //enrollmentstatus 
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
     $studentid = "$enrollmentyear-000$studentidint";
 
     //select student id 
-    $select1 = "SELECT `StudentID` FROM `studentinfo`;";
+    $select1 = "SELECT StudentID FROM `studentinfo`;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
