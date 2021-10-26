@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2021 at 07:04 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.10
+-- Generation Time: Oct 26, 2021 at 02:35 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -81,17 +80,6 @@ CREATE TABLE `studentaccount` (
   `Password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Table structure for table `studentexamresultstemp`
---
-
-CREATE TABLE `studentexamresultstemp` (
-  `ID` int(11) NOT NULL,
-  `ExamNo` int(11) NOT NULL,
-  `ExamDate` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `vcode` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 
 --
@@ -136,31 +124,54 @@ CREATE TABLE `studentenrollmentinfo` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `studentexamresultstemp`
+--
+
+CREATE TABLE `studentexamresultstemp` (
+  `ID` int(11) NOT NULL,
+  `ExamNo` int(11) NOT NULL,
+  `ExamDate` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `vcode` varchar(50) NOT NULL,
+  `verify_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `studentexamresultstemp`
+--
+
+INSERT INTO `studentexamresultstemp` (`ID`, `ExamNo`, `ExamDate`, `Email`, `vcode`, `verify_at`) VALUES
+(3, 211821, '11/28/2020', 'chedrick.follero.rowy@gmail.com', '288000', '2021-10-21'),
+(4, 211822, '11/28/2020', '8bougainvillea@gmail.com', '345730', '2021-10-21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `studentinfo`
 --
 
 CREATE TABLE `studentinfo` (
   `ID` int(11) NOT NULL,
+  `StudentID` int(20) NOT NULL,
   `FullName-Last` varchar(50) NOT NULL,
   `FullName-First` varchar(50) NOT NULL,
   `FullName-Middle` varchar(50) NOT NULL,
-  `Age` int(11) NOT NULL,
-  `birthday` date NOT NULL,
+  `Age` varchar(11) NOT NULL,
+  `birthday` varchar(50) NOT NULL,
   `birthplace` varchar(50) NOT NULL,
   `civilstatus` varchar(25) NOT NULL,
   `gender` varchar(25) NOT NULL,
-  `contactno` int(25) NOT NULL,
+  `contactno` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `address-name` varchar(100) NOT NULL,
-  `address-brgy` varchar(100) NOT NULL,
-  `address-district` varchar(100) NOT NULL,
+  `zip_code` varchar(10) NOT NULL,
   `mothername` varchar(50) NOT NULL,
   `motherjob` varchar(50) NOT NULL,
   `fathername` varchar(50) NOT NULL,
   `fatherjob` varchar(50) NOT NULL,
   `guardianname` varchar(50) NOT NULL,
   `relationship` varchar(50) NOT NULL,
-  `guardiancontactno` int(50) NOT NULL
+  `guardiancontactno` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -222,6 +233,12 @@ ALTER TABLE `studentenrollmentinfo`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `studentexamresultstemp`
+--
+ALTER TABLE `studentexamresultstemp`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `studentinfo`
 --
 ALTER TABLE `studentinfo`
@@ -231,11 +248,6 @@ ALTER TABLE `studentinfo`
 -- Indexes for table `transfeeesdocumentsneed`
 --
 ALTER TABLE `transfeeesdocumentsneed`
-  ADD PRIMARY KEY (`ID`);
---
--- Indexes for table `studentexamresultstemp`
---
-ALTER TABLE `studentexamresultstemp`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -279,6 +291,12 @@ ALTER TABLE `studentenrollmentinfo`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `studentexamresultstemp`
+--
+ALTER TABLE `studentexamresultstemp`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `studentinfo`
 --
 ALTER TABLE `studentinfo`
@@ -289,10 +307,7 @@ ALTER TABLE `studentinfo`
 --
 ALTER TABLE `transfeeesdocumentsneed`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
-  
 COMMIT;
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
