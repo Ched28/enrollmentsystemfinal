@@ -16,9 +16,11 @@
 //$idint = 0001; 
 
 //echo "21-$idint";
+
 include_once('dbcon.php');
+$lastid = $con->insert_id;
 $enrollmentyear = date("y");
-$select1 = "SELECT StudentID FROM `studentinfo`;";
+$select1 = "SELECT StudentID FROM `studentinfo` WHERE id=$lastid;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
