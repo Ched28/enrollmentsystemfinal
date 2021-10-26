@@ -27,6 +27,8 @@ if(isset($_POST['submit'])){
     $PSA_temp = $_FILES['PSA']['tmp_name'];
     $Form137 = $_FILES['Form137']['name'];
     $Form137_temp = $_FILES['Form137']['tmp_name'];
+    $Form138 = $_FILES['Form138']['name'];
+    $Form138_temp = $_FILES['Form138']['tmp_name'];
     $Diploma = $_FILES['Diploma']['name'];
     $Diploma_temp = $_FILES['Diploma']['tmp_name'];
     $GoodMoral = $_FILES['GoodMoral']['name'];
@@ -58,8 +60,7 @@ if(isset($_POST['submit'])){
    // $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`ID`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ();";
 //mysqli_real_escape_string($con,
     $enrollmentyear = date("y");
-    $studentidint = 1;
-    $studentid = "$enrollmentyear-000$studentidint";
+    
 
     //select student id 
     $select1 = "SELECT StudentID FROM `studentinfo`;";
@@ -102,8 +103,9 @@ if(isset($_POST['submit'])){
         }
     }
     else{
-        
-        $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
+            $studentidint = 1;
+            $studentid = "$enrollmentyear-000$studentidint";
+            $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
             $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
             $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
             $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
