@@ -80,8 +80,8 @@ if(isset($_POST['submit'])){
             $query .=$insertsql2;
             $query .=$insertsql3;
             $query .=$insertfile;
-
-            if ($insertqueries = $con->multi_query($query)){
+            $insertqueries = $con->multi_query($query);
+            if ($insertqueries){
                 move_uploaded_file($PSA_temp, $location.$PSA);
                 move_uploaded_file($Form137_temp, $location.$Form137);
                 move_uploaded_file($Form138_temp, $location.$Form138);
@@ -149,20 +149,20 @@ if(isset($_POST['submit'])){
                     </div>
                     <hr>
                     <label for="FullName-Last">Last Name:</label>
-                    <input type="text" name="" name="FullName-Last" placeholder="DELA CRUZ/DELA CRUZ JR."
+                    <input type="text" name="FullName-Last" placeholder="DELA CRUZ/DELA CRUZ JR."
                         class="one-line" required> <br>
                     <label for="FullName-First">First Name:</label>
-                    <input type="text" name="" name="FullName-First" placeholder="JUAN" class="one-line"
+                    <input type="text" name="FullName-First" placeholder="JUAN" class="one-line"
                         required> <br>
                     <label for="FullName-Middle">Middle Name:</label>
-                    <input type="text" name="" name="FullName-Middle" placeholder="LUNA" class="one-line"
+                    <input type="text" name="FullName-Middle" placeholder="LUNA" class="one-line"
                         required> <br>
                     <label for="Age">Age:</label>
-                    <input type="text" name="" name="Age" placeholder="20" class="one-line" required> <br>
+                    <input type="text" name="Age" placeholder="20" class="one-line" required> <br>
                     <label for="birthday">Birthdate:</label>
                     <input type="date" name="birthday" class="one-line">
                     <label for="birthplace">Place of Birthdate:</label>
-                    <input type="text" name="" name="birthplace" placeholder="Quezon City" class="one-line"
+                    <input type="text" name="birthplace" placeholder="Quezon City" class="one-line"
                         required> <br> 
                 </div>
             </div>
@@ -185,10 +185,10 @@ if(isset($_POST['submit'])){
 
                     </select><br>
                     <label for="contactno">Contact No:</label>
-                    <input type="text" name="" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
+                    <input type="text" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
                         required> <br>
                     <label for="email">Email:</label>
-                    <input type="email" name="" name="email" placeholder="fn.mn.ln@gmail.com"
+                    <input type="email" name="email" placeholder="fn.mn.ln@gmail.com"
                         class="one-line" required> <br><br>
                  
                 </div>
@@ -213,13 +213,13 @@ if(isset($_POST['submit'])){
                     <input type="text"  name="mothername"
                     placeholder="First Name MI Last Name" class="one-line" required> <br>
                     <label for="motherjob"> Mother's Job </label>
-                    <input type="text"  name="motherjobs"
+                    <input type="text"  name="motherjob"
                     placeholder="Mother's Job" class="one-line" required> <br>
                     <label for="fathername"> Father's Name </label>
                     <input type="text" name="fathername"
                     placeholder="First Name MI Last Name" class="one-line" required> <br>
-                    <label for="fatherjobs"> Father's Job </label>
-                    <input type="text"  name="fatherjobs"
+                    <label for="fatherjob"> Father's Job </label>
+                    <input type="text"  name="fatherjob"
                     placeholder="Father's Job" class="one-line" required> <br>
                     <br>
  
