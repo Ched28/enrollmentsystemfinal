@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
     
 
     //select student id 
-    $select1 = "SELECT StudentID FROM `studentinfo`;";
+    $select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
@@ -96,6 +96,7 @@ if(isset($_POST['submit'])){
 
                 echo "<script> alert('error moving file');</script>";
             }
+
         
         }
         else{
