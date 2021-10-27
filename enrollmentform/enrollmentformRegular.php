@@ -190,7 +190,7 @@ if(isset($_POST['submit'])){
                     <label for="contactno">Contact No:</label>
                     <input type="text" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
                         required> <br>
-                    <label for="email">Email: <span id="text"></span></label>
+                    <label for="email">Email: </label><p id="text"></p>
                     <input type="email" name="email" placeholder="fn.mn.ln@gmail.com"
                         class="one-line" required id="email" onkeydown="validation()"> <br><br>
                  
