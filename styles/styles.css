@@ -248,6 +248,9 @@ main{
     padding: 12px 20px;
     border-radius: 10px;
 }
+.enrollment-form-bg input, select{
+    text-transform: uppercase;
+}
 
 .form-bg button[type=submit]{
     padding: 1em;
