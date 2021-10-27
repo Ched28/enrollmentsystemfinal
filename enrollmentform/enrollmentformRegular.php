@@ -142,7 +142,7 @@ if(isset($_POST['submit'])){
 
 <div class="enrollment-form">
     <div class="enrollment-form-bg">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" id="form">
             <h2 style="text-align:center;">Enrollment Form For Regular Students</h2>
 
             <div class="form-data1">
@@ -190,9 +190,9 @@ if(isset($_POST['submit'])){
                     <label for="contactno">Contact No:</label>
                     <input type="text" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
                         required> <br>
-                    <label for="email">Email:</label>
+                    <label for="email">Email: <span id="text"></span></label>
                     <input type="email" name="email" placeholder="fn.mn.ln@gmail.com"
-                        class="one-line" required> <br><br>
+                        class="one-line" required id="email" onkeydown="validation()"> <br><br>
                  
                 </div>
             </div>
@@ -355,6 +355,34 @@ if(isset($_POST['submit'])){
     </form>
 </div>
 </div>
+<script type="text/javascript">
+function validation(){
+    var form = document.getElementById("form");
+    var email = document.getElementById("email").value;
 
+    var text = document.getElementById("text");
+    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(email.match(pattern)){
+        form.classList.add("valid");
+        form.classList.remove("invalid");
+        text.innerHtML = "Your Email is Valid";
+        text.style.color = "#00ff00";
+    }else{
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        text.innerHtML = "Please Enter Valid Email";
+        text.style.color = "#ff0000";
+    }
+
+    if(email == ""){
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        text.innerHtML = "Please Enter Email";
+        text.style.color = "#ff0000";
+
+    }
+}
+</script> 
 
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
