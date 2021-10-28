@@ -252,12 +252,7 @@ main{
     text-transform: uppercase;
 }
 
-#form.invalid .form-data2:before{
-    border-color: #ff0000;
-}
-#form.valid .form-data2:before{
-    border-color: #00ff00;
-}
+
 
 
 .form-bg button[type=submit]{
