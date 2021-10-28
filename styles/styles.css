@@ -252,6 +252,14 @@ main{
     text-transform: uppercase;
 }
 
+#form:invalid::before{
+    border-color: #ff0000;
+}
+#form:valid::before{
+    border-color: #00ff00;
+}
+
+
 .form-bg button[type=submit]{
     padding: 1em;
     margin: 0;
