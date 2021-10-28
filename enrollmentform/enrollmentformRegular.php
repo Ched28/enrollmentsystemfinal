@@ -367,19 +367,19 @@ function validation(){
     if(email.match(pattern)){
         form.classList.add("valid");
         form.classList.remove("invalid");
-        emailtextbox.style.border = "1px #00ff00";
+        emailtextbox.style.border-color = "#00ff00";
         //text.style.color = "#00ff00";
     }else{
         form.classList.remove("valid");
         form.classList.add("invalid");
-        emailtextbox.style.border = "1px #ff0000";
+        emailtextbox.style.border-color = "#ff0000";
         //text.style.color = "#ff0000";
     }
 
     if(email == ""){
         form.classList.remove("valid");
         form.classList.add("invalid");
-        emailtextbox.style.border = " 1px #ff0000";
+        emailtextbox.style.border-color = "#ff0000";
         //text.style.color = "#ff0000";
 
     }
