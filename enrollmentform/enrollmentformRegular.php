@@ -2,24 +2,24 @@
 session_start();
 include_once('dbcon.php');
 if(isset($_POST['submit'])){
-    $FullName_Last = mysqli_real_escape_string($con,$_POST['FullName-Last']);
-    $FullName_First = mysqli_real_escape_string($con,$_POST['FullName-First']);
-    $FullName_Middle = mysqli_real_escape_string($con,$_POST['FullName-Middle']);
+    $FullName_Last = strtoupper(mysqli_real_escape_string($con,$_POST['FullName-Last']));
+    $FullName_First = strtoupper(mysqli_real_escape_string($con,$_POST['FullName-First']));
+    $FullName_Middle = strtoupper(mysqli_real_escape_string($con,$_POST['FullName-Middle']));
     $Age = mysqli_real_escape_string($con,$_POST['Age']);
     $birthday = mysqli_real_escape_string($con,$_POST['birthday']);
-    $birthplace = mysqli_real_escape_string($con,$_POST['birthplace']);
-    $civilstatus = mysqli_real_escape_string($con,$_POST['civilstatus']);
-    $gender = mysqli_real_escape_string($con,$_POST['gender']);
+    $birthplace = strtoupper(mysqli_real_escape_string($con,$_POST['birthplace']));
+    $civilstatus = strtoupper(mysqli_real_escape_string($con,$_POST['civilstatus']));
+    $gender = strtoupper(mysqli_real_escape_string($con,$_POST['gender']));
     $contactno = mysqli_real_escape_string($con,$_POST['contactno']);
     $email = mysqli_real_escape_string($con,$_POST['email']);
-    $address_name = mysqli_real_escape_string($con,$_POST['address-name']);
+    $address_name = strtoupper(mysqli_real_escape_string($con,$_POST['address-name']));
     $zip_code = mysqli_real_escape_string($con,$_POST['zip_code']);
-    $mothername = mysqli_real_escape_string($con,$_POST['mothername']);
-    $motherjob = mysqli_real_escape_string($con,$_POST['motherjob']);
-    $fathername = mysqli_real_escape_string($con,$_POST['fathername']);
-    $fatherjob = mysqli_real_escape_string($con,$_POST['fatherjob']);
-    $guardianname = mysqli_real_escape_string($con,$_POST['guardianname']);
-    $relationship = mysqli_real_escape_string($con,$_POST['relationship']);
+    $mothername = strtoupper(mysqli_real_escape_string($con,$_POST['mothername']));
+    $motherjob = strtoupper(mysqli_real_escape_string($con,$_POST['motherjob']));
+    $fathername = strtoupper(mysqli_real_escape_string($con,$_POST['fathername']));
+    $fatherjob = strtoupper(mysqli_real_escape_string($con,$_POST['fatherjob']));
+    $guardianname = strtoupper(mysqli_real_escape_string($con,$_POST['guardianname']));
+    $relationship = strtoupper(mysqli_real_escape_string($con,$_POST['relationship']));
     $guardiancontactno = mysqli_real_escape_string($con,$_POST['guardiancontactno']);
     //regular documents 
     
@@ -43,15 +43,15 @@ if(isset($_POST['submit'])){
 
     //enrollmentstatus 
 
-    $category = "Regular";
-    $firstcourse = mysqli_real_escape_string($con,$_POST['firstcourse']);
-    $secondcourse = mysqli_real_escape_string($con,$_POST['secondcourse']);
-    $thirdcourse = mysqli_real_escape_string($con,$_POST['thirdcourse']);
+    $category = strtoupper("Regular");
+    $firstcourse = strtoupper(mysqli_real_escape_string($con,$_POST['firstcourse']));
+    $secondcourse = strtoupper(mysqli_real_escape_string($con,$_POST['secondcourse']));
+    $thirdcourse = strtoupper(mysqli_real_escape_string($con,$_POST['thirdcourse']));
 
     //educationalinfo 
-    $schoollastattended = mysqli_real_escape_string($con,$_POST['schoollastattended']);
-    $schoollastattendedaddress = mysqli_real_escape_string($con,$_POST['schoollastattendedaddress']);
-    $schoollastattendedlevel = mysqli_real_escape_string($con,$_POST['schoollastattendedlevel']);
+    $schoollastattended = strtoupper(mysqli_real_escape_string($con,$_POST['schoollastattended']));
+    $schoollastattendedaddress = strtoupper(mysqli_real_escape_string($con,$_POST['schoollastattendedaddress']));
+    $schoollastattendedlevel = strtoupper(mysqli_real_escape_string($con,$_POST['schoollastattendedlevel']));
     
     // queries
     //     $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ();";
