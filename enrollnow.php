@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 }
 ?>
 
-<a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+<a href="users/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
        <main>
         
                 <div class="loginform">
