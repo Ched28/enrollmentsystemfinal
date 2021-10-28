@@ -252,10 +252,10 @@ main{
     text-transform: uppercase;
 }
 
-#form.invalid input:before{
+#form.invalid .form-data2:before{
     border-color: #ff0000;
 }
-#form.valid input:before{
+#form.valid .form-data2:before{
     border-color: #00ff00;
 }
 
