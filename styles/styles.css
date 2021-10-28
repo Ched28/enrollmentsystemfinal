@@ -252,10 +252,10 @@ main{
     text-transform: uppercase;
 }
 
-#email:invalid::before{
+#form.invalid input:before{
     border-color: #ff0000;
 }
-#email:valid::before{
+#form.valid input:before{
     border-color: #00ff00;
 }
 
