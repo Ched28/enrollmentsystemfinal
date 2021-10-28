@@ -364,7 +364,7 @@ function validation(){
     var contactTB = document.getElementId("contactno");
     var text = document.getElementById("text");
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    var pattern2 = /^\d{10}$/;
+    var pattern2 = /^\d{11}$/;
 
     if(email.match(pattern)){
         form.classList.add("valid");
