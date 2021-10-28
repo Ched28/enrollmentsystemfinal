@@ -360,8 +360,8 @@ function validation(){
     var form = document.getElementById("form");
     var email = document.getElementById("email").value;
     var emailtextbox = document.getElementById("email");
-    var contact = document.getElementId("contactno").value;
-    var contactTB = document.getElementId("contactno");
+    var contact = document.getElementById("contactno").value;
+    var contactTB = document.getElementById("contactno");
     var text = document.getElementById("text");
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     var pattern2 = /^\d{10}$/;
