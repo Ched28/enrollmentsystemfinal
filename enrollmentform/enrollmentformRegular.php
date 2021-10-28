@@ -188,8 +188,8 @@ if(isset($_POST['submit'])){
 
                     </select><br>
                     <label for="contactno">Contact No:</label>
-                    <input type="text" name="contactno" id="contactno" placeholder="09XXXXXXXXX" class="one-line"
-                        required onkeydown="validation()"> <br>
+                    <input type="text" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
+                        required id="contactno" onkeydown="validation()"> <br>
                     <label for="email">Email: </label>
                     <input type="email" name="email" placeholder="fn.mn.ln@gmail.com"
                         class="one-line" required id="email" onkeydown="validation()"> <br><br>
@@ -245,8 +245,8 @@ if(isset($_POST['submit'])){
                 </select>
                 <br>
                 <label for="guardiancontactno"> Contact No. </label>
-                <input type="text" name="guardiancontactno" id="contactno"
-                placeholder="09XXXXXXXXX" class="one-line" required onkeydown="validation()"> <br> <br>
+                <input type="text" name="guardiancontactno"
+                placeholder="09XXXXXXXXX" class="one-line" required  id="contactno" onkeydown="validation()"> <br> <br>
 
             </div>
             </div>
