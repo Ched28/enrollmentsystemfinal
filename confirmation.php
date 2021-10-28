@@ -76,6 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     <input type="text" placeholder="Exam Code" name="examcode"class="one-line"> <br><br>
                     <input type="password" placeholder="Verification Code" name="verifycode" class="one-line"> <br> <br>
                     <button type="submit">Confirm</button>
+                    <button type="button" onclick="location.href='mail.php?id=<?php echo $id ?>'">> Resend </button>
                         <!--change to submit after , make it function onclick="location.href='enrollmentform/enrollmentformchoosecourse.php'"-->
                 </form>
             </div>
