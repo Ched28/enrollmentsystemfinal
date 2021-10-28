@@ -188,8 +188,8 @@ if(isset($_POST['submit'])){
 
                     </select><br>
                     <label for="contactno">Contact No:</label>
-                    <input type="text" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
-                        required> <br>
+                    <input type="text" name="contactno" id="contactno" placeholder="09XXXXXXXXX" class="one-line"
+                        required onkeydown="validation()"> <br>
                     <label for="email">Email: </label>
                     <input type="email" name="email" placeholder="fn.mn.ln@gmail.com"
                         class="one-line" required id="email" onkeydown="validation()"> <br><br>
@@ -245,8 +245,8 @@ if(isset($_POST['submit'])){
                 </select>
                 <br>
                 <label for="guardiancontactno"> Contact No. </label>
-                <input type="text" name="guardiancontactno"
-                placeholder="09XXXXXXXXX" class="one-line" required> <br> <br>
+                <input type="text" name="guardiancontactno" id="contactno"
+                placeholder="09XXXXXXXXX" class="one-line" required onkeydown="validation()"> <br> <br>
 
             </div>
             </div>
@@ -360,9 +360,11 @@ function validation(){
     var form = document.getElementById("form");
     var email = document.getElementById("email").value;
     var emailtextbox = document.getElementById("email");
-
+    var contact = document.getElementId("contactno").value;
+    var contactTB = document.getElementId("contactno");
     var text = document.getElementById("text");
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    var pattern2 = /^\d{10}$/;
 
     if(email.match(pattern)){
         form.classList.add("valid");
@@ -374,6 +376,22 @@ function validation(){
         form.classList.add("invalid");
         emailtextbox.style.borderColor = "#ff0000";
         //text.style.color = "#ff0000";
+    }
+    if(contact.match(pattern2)){
+        form.classList.add("valid");
+        form.classList.remove("invalid");
+        contactTB.style.borderColor = "#00ff00";
+    } else {
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        emailtextbox.style.borderColor = "#ff0000";
+    }
+    if(contact == ""){
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        emailtextbox.style.borderColor = "#ff0000";
+        //text.style.color = "#ff0000";
+
     }
 
     if(email == ""){
