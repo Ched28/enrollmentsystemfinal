@@ -359,6 +359,7 @@ if(isset($_POST['submit'])){
 function validation(){
     var form = document.getElementById("form");
     var email = document.getElementById("email").value;
+    var emailtextbox = document.getElementById("email");
 
     var text = document.getElementById("text");
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -366,20 +367,20 @@ function validation(){
     if(email.match(pattern)){
         form.classList.add("valid");
         form.classList.remove("invalid");
-        text.innerHtML = "Your Email is Valid";
-        text.style.color = "#00ff00";
+        emailtextbox.style.border = "1px #00ff00";
+        //text.style.color = "#00ff00";
     }else{
         form.classList.remove("valid");
         form.classList.add("invalid");
-        text.innerHtML = "Please Enter Valid Email";
-        text.style.color = "#ff0000";
+        emailtextbox.style.border = "1px #ff0000";
+        //text.style.color = "#ff0000";
     }
 
     if(email == ""){
         form.classList.remove("valid");
         form.classList.add("invalid");
-        text.innerHtML = "Please Enter Email";
-        text.style.color = "#ff0000";
+        emailtextbox.style.border = " 1px #ff0000";
+        //text.style.color = "#ff0000";
 
     }
 }
