@@ -364,40 +364,27 @@ function validation(){
     var contactTB = document.getElementId("contactno");
     var text = document.getElementById("text");
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    var pattern2 = /^\d{11}$/;
+    var pattern2 = /^\d{10}$/;
 
-    if(email.match(pattern)){
+    if(email.match(pattern) && contact.match(pattern2)){
         form.classList.add("valid");
         form.classList.remove("invalid");
         emailtextbox.style.borderColor = "#00ff00";
+        contactTB.style.borderColor = "#00ff00";
         //text.style.color = "#00ff00";
     }else{
         form.classList.remove("valid");
         form.classList.add("invalid");
         emailtextbox.style.borderColor = "#ff0000";
+        contactTB.style.borderColor = "#ff0000";
         //text.style.color = "#ff0000";
     }
-    if(contact.match(pattern2)){
-        form.classList.add("valid");
-        form.classList.remove("invalid");
-        contactTB.style.borderColor = "#00ff00";
-    } else {
-        form.classList.remove("valid");
-        form.classList.add("invalid");
-        emailtextbox.style.borderColor = "#ff0000";
-    }
-    if(contact == ""){
-        form.classList.remove("valid");
-        form.classList.add("invalid");
-        emailtextbox.style.borderColor = "#ff0000";
-        //text.style.color = "#ff0000";
 
-    }
-
-    if(email == ""){
+    if(email == "" && contact == ""){
         form.classList.remove("valid");
         form.classList.add("invalid");
         emailtextbox.style.borderColor = "#ff0000";
+        contactTB.style.borderColor = "#ff0000";
         //text.style.color = "#ff0000";
 
     }
