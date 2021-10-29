@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <form method="POST" enctype="multipart/form-data">
                     <h1>Please Enter Your Exam Code and Date</h1>
                     <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
-                    <input type="text" name="examdate"  class="one-line"> <br><br>
+                    <input type="text" name="examdate" placeholder="Exam Date MM/DD/YYYY" class="one-line"> <br><br>
                     <button type="submit">Proceed </button> <!--- make this a function :)-->
                     <button type="button" name="" style="background-color: #3366CC"> Apply as Student </button> 
                     
