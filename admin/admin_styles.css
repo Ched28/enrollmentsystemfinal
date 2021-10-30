@@ -63,3 +63,23 @@ footer{
     
     
 }
+.quicklinks,
+.content-footer-contact{
+    
+    font-size: .6em;
+    
+    
+}
+.quicklinks a{
+   color: white;
+   text-decoration: none;
+}
+.quicklinks h4,
+.content-footer-contact h4{
+    font-size: 2em;
+}
+
+.content-footer-main{
+    display: flex;
+    
+}
