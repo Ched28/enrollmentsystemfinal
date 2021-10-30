@@ -61,6 +61,7 @@ main{
 }
 .nav-list{
     text-decoration: none;
+    padding:.5em;
 }
 .nav-list .list-items{
     display: inline-block;
