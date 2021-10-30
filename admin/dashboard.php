@@ -24,8 +24,13 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 <nav>
             <div class="logo">
                 <img class="qculogo"  src="<?php echo $iconsite;?>"> &nbsp;&nbsp;&nbsp;
-                    <h3>Quezon City University | <span style="font-size:15px;">  Online Portal</span></h3>
+                    <h3>Quezon City University | <span style="font-size:15px;">  Admin Portal</span></h3>
             </div>
+            <ul class="nav-list">
+                <li class="list-items">
+                <a href="../login.php" class="login-btn"> <i class="fas fa-user"></i> &nbsp; Log Out</a>
+                </li>
+            </ul>
 
 </nav>
 <main>fgfdgfd g</main>
