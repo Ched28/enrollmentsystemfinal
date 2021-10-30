@@ -21,7 +21,10 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     
 <div class="container">
 
-<nav>gfdgfdgfd</nav>
+<nav>
+    <img src="<?php echo $iconsite;?>">
+    
+</nav>
 <main>fgfdgfd g</main>
 <div class="content">fdgfdgfdgfdgfd</div>
 
