@@ -57,6 +57,15 @@ footer{
     
     
 }
+.content-footer{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    padding: .2em;
+    margin: .2em;
+    white-space: normal;
+    justify-content: space-between;
+    
 
 .content-footer li{
     list-style: none;
