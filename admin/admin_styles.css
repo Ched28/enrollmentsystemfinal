@@ -29,15 +29,37 @@
 
 nav{
     grid-area: nav;
+    background-color: #002347;
 }
 
 main{
     grid-area: main;
 }
 footer{
+    background: #000017;
     grid-area: footer;
+    bottom: 0;
 }
 .content{
     grid-area: content;
 }
 
+.footer-title{
+    display: flex;
+
+    font-size: 1em;
+   
+}
+.footer-title img{
+    width: 4em;
+    height: 4em;
+    padding: .5em;
+    
+    
+}
+
+.content-footer li{
+    list-style: none;
+    
+    
+}
