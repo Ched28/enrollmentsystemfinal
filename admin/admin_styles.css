@@ -30,6 +30,8 @@
 nav{
     grid-area: nav;
     background-color: #002347;
+    display: flex;
+    justify-content: space-around;
 }
 
 main{
