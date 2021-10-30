@@ -28,7 +28,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
             </div>
             <ul class="nav-list">
                 <li class="list-items">
-                <a href="../login.php" class="login-btn"> <i class="fas fa-user"></i> &nbsp; Log Out</a>
+                <a href="../login.php" class="login-btn"> Log Out &nbsp; <i class="fas fa-sign-out-alt"></i></a>
                 </li>
             </ul>
 
