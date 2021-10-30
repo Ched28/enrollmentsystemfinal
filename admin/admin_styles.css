@@ -59,3 +59,9 @@ main{
     margin: 1em;
     border-radius: 6px;
 }
+.nav-list{
+    text-decoration: none;
+}
+.nav-list .list-items{
+    display: inline-block;
+}
