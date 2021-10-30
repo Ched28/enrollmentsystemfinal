@@ -61,7 +61,7 @@ main{
 }
 .nav-list{
     text-decoration: none;
-    padding:.5em;
+    padding: 1em;
 }
 .nav-list .list-items{
     display: inline-block;
