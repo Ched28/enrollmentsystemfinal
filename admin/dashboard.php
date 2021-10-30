@@ -26,4 +26,4 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 <div class="content">fdgfdgfdgfdgfd</div>
 
 
-<?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
+<?php //include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>

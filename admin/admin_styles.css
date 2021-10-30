@@ -21,9 +21,9 @@
     grid-template-rows: .2fr, 1.5fr, 1.2fr, .8fr;
     grid-template-areas: 
     "nav nav nav nav"
-    "main main main main"
-    "content content content content"
-    "footer footer footer footer"
+    "main content content content"
+    "main content content content"
+    "main content content content"
     ;
 }
 
@@ -34,64 +34,9 @@ nav{
 
 main{
     grid-area: main;
-}
-footer{
     background: #000017;
-    grid-area: footer;
-    bottom: 0;
 }
+
 .content{
     grid-area: content;
 }
-
-.content-footer{
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
-    padding: .2em;
-    margin: .2em;
-    white-space: normal;
-    justify-content: space-between;
-    
-
- }
-
- .footer-title{
-     display: flex;
-
-     font-size: 1em;
-    
- }
- .footer-title img{
-     width: 4em;
-     height: 4em;
-     padding: .5em;
-     
-     
- }
-
- .content-footer li{
-     list-style: none;
-     
-     
- }
- .quicklinks,
- .content-footer-contact{
-     
-     font-size: .6em;
-     
-     
- }
- .quicklinks a{
-    color: white;
-    text-decoration: none;
- }
- .quicklinks h4,
- .content-footer-contact h4{
-     font-size: 2em;
- }
-
- .content-footer-main{
-     display: flex;
-     
- }
