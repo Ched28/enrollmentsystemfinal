@@ -40,3 +40,14 @@ main{
 .content{
     grid-area: content;
 }
+
+.logo{
+    padding: 1em;
+    display: flex;
+}
+.logo img{
+    width: 4em;
+    height: 4em;
+    padding: .5em;
+    
+}
