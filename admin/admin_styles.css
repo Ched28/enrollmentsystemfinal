@@ -105,6 +105,9 @@ main{
     grid-area: content1;
     padding: 1em;
     margin: 1em;
+    text-align: center;
+    color: white;
+    font-weight: 900;
 }
 .content2{
     grid-area: content2;

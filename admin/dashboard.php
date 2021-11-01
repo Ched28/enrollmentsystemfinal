@@ -38,13 +38,13 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <li class="ul-list"><i class="fas fa-chart-line"></i> &nbsp; Dashboard </li>
     <li class="ul-list"><i class="fas fa-list-ol"></i> &nbsp; List of Enrollees </li>
     <li class="ul-list"><i class="far fa-folder"></i> &nbsp; Documents </li>
-    <li> <script> document.write(new Date().toDateString()); </script>  </li>
+    <li>   </li>
 
 </ul>
 </main>
 <div class="content">
     <div class="content-main">
-    <div class="content-date"> fdf sdfsadf af</div>
+    <div class="content-date"> <h1> As of <script> document.write(new Date().toDateString()); </script></h1></div>
     <div class="content1"> afdfdsf dsf </div>
     <div class="content2"> f afdsfasd f asdf</div>
     <div class="content3">dfad fdsf fdsd </div>
