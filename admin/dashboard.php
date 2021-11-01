@@ -34,7 +34,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 
 </nav>
 <main>
-<ul class="nav-list">
+<ul class="side-list">
     <li class = "ul-list"> Dashboard </li>
     <li> List of Enrollees </li>
     <li> Enrollees Documents </li>

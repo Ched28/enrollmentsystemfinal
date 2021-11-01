@@ -67,3 +67,7 @@ main{
 .nav-list .list-items{
     display: inline-block;
 }
+
+.side-list{
+    text-decoration: none;
+}
