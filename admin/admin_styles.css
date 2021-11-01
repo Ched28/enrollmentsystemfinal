@@ -85,3 +85,24 @@ main{
 .side-list li:hover{
     background-color: #e82048 ;
 }
+
+.content-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: .3hr, 1hr;
+    grid-template-areas: 
+    "date date date"
+    "content1 content2 content3";
+}
+.content-date{
+    grid-area: date;
+}
+.content1{
+    grid-area: content1;
+}
+.content2{
+    grid-area: content2;
+}
+.content3{
+    grid-area: content3;
+}
