@@ -93,7 +93,7 @@ main{
     grid-template-areas: 
     "date date date"
     "content1 content2 content3";
-    color: black;
+    
     gap: .2em;
 }
 .content-date{
@@ -107,7 +107,8 @@ main{
 }
 .content1{
     grid-area: content1;
-    padding: 1.2em;
+    padding: 1em;
+    margin: 1em;
     border-radius: 8px;
     
     background-color: #e82048;
@@ -115,14 +116,16 @@ main{
 }
 .content2{
     grid-area: content2;
-    padding: 1.2em;
+    padding: 1em;
+    margin: 1em;
     border-radius: 8px;
     
     background-color: #e82048;
 }
 .content3{
     grid-area: content3;
-    padding: 1.2em;
+    padding: 1em;
+    margin: 1em;
     border-radius: 8px;
     
     background-color: #e82048;
