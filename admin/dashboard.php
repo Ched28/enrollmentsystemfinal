@@ -33,7 +33,15 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
             </ul>
 
 </nav>
-<main>fgfdgfd g</main>
+<main>
+<ul>
+    <li> Dashboard </li>
+    <li> List of Enrollees </li>
+    <li> Enrollees Documents </li>
+    <li> <script > document.write(new Date().toDateString()); </script>  </li>
+
+</ul>
+</main>
 <div class="content">fdgfdgfdgfdgfd</div>
 
 
