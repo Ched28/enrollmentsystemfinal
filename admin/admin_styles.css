@@ -100,14 +100,15 @@ main{
     padding: 1em;
     margin: 1em;
     background-color: #e82048;
+    text-align: center;
+    color: white;
+    font-weight: 900;
 }
 .content1{
     grid-area: content1;
     padding: 1em;
     margin: 1em;
-    text-align: center;
-    color: white;
-    font-weight: 900;
+    
 }
 .content2{
     grid-area: content2;
