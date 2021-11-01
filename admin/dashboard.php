@@ -38,7 +38,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <li class="ul-list"> Dashboard </li>
     <li class="ul-list"> List of Enrollees </li>
     <li class="ul-list"> Enrollees Documents </li>
-    <li class="ul-list"> <script > document.write(new Date().toDateString()); </script>  </li>
+    <li> <script > document.write(new Date().toDateString()); </script>  </li>
 
 </ul>
 </main>
