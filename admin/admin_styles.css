@@ -35,6 +35,7 @@ nav{
 main{
     grid-area: main;
     background: #000017;
+    height: 1vh;
 }
 
 .content{
