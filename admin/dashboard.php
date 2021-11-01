@@ -45,7 +45,9 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 <div class="content">
     <div class="content-main">
     <div class="content-date"> <h3> As of <script> document.write(new Date().toDateString()); </script> </h3></div>
-    <div class="content1"> <h5> Applicants </h5> </div>
+    <div class="content1">
+     <h1> 100 <i class="fas fa-percentage"></i> </h1> 
+        <h5> Applicants </h5> </div>
     <div class="content2"> <h5> Enrolled </h5></div>
     <div class="content3"> <h5> Officially Enrolled  </h5> </div>
     </div>
