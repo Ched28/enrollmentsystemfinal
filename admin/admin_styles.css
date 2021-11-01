@@ -97,11 +97,11 @@ main{
 }
 .content-date{
     grid-area: date;
-    padding: 1em;
-    margin: 1em;
-    background-color: #e82048;
+    padding: .4em;
+    margin: .4em;
+ 
     text-align: center;
-    color: white;
+
     font-weight: 900;
 }
 .content1{
