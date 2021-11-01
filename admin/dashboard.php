@@ -47,7 +47,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <div class="content-main">
     <div class="content-date"> <h3> As of <script> document.write(new Date().toDateString()); </script> </h3></div>
     <div class="content1">
-     <h1> 100 Passers <br><span style="font-size: .3em;padding: 0;margin: 0;"> out of</span> <br></h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> 500 Examinees </span>
+     <h1> 100 Passers <br> <hr> <br></h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> 500 Examinees </span>
          </div>
     <div class="content2"> <h5> Enrolled </h5></div>
     <div class="content3"> <h5> Officially Enrolled  </h5> </div>
@@ -55,4 +55,4 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </div>
 
 
-<?php //include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); <i class="fas fa-percentage"></i> ?>
+<?php //include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); <i class="fas fa-percentage"></i>  <span style="font-size: .3em;padding: 0;margin: 0;"> out of</span>?>
