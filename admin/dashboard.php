@@ -47,7 +47,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <div class="content-main">
     <div class="content-date"> <h3> As of <script> document.write(new Date().toDateString()); </script> </h3></div>
     <div class="content1">
-     <h1> 100 <span style="font-size: .6em;"> out of 500</h1> 
+     <h1> 100 <br><span style="font-size: .6em;"> out of</span> <br>500</h1> 
         <h5> Passers </h5> </div>
     <div class="content2"> <h5> Enrolled </h5></div>
     <div class="content3"> <h5> Officially Enrolled  </h5> </div>
