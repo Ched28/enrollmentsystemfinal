@@ -93,6 +93,7 @@ main{
     grid-template-areas: 
     "date date date"
     "content1 content2 content3";
+    color: black;
 }
 .content-date{
     grid-area: date;
