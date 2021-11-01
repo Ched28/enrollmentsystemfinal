@@ -44,10 +44,10 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </main>
 <div class="content">
     <div class="content-main">
-    <div class="content-date"></div>
-    <div class="content1"></div>
-    <div class="content2"></div>
-    <div class="content3"></div>
+    <div class="content-date"> fdf sdfsadf af</div>
+    <div class="content1"> afdfdsf dsf </div>
+    <div class="content2"> f afdsfasd f asdf</div>
+    <div class="content3">dfad fdsf fdsd </div>
     </div>
 </div>
 
