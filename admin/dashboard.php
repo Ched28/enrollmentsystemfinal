@@ -35,10 +35,11 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </nav>
 <main>
 <ul class="side-list">
+    <li class="ul-list"> <i class="fas fa-user-shield"> &nbsp; Admin</i>  </li>
     <li class="ul-list"><i class="fas fa-chart-line"></i> &nbsp; Dashboard </li>
     <li class="ul-list"><i class="fas fa-list-ol"></i> &nbsp; List of Enrollees </li>
     <li class="ul-list"><i class="far fa-folder"></i> &nbsp; Documents </li>
-    <li>   </li>
+    
 
 </ul>
 </main>
