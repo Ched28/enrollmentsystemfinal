@@ -107,17 +107,16 @@ main{
 .content1{
     grid-area: content1;
     padding: 1em;
-    margin: 1em;
-    
+  
 }
 .content2{
     grid-area: content2;
     padding: 1em;
-    margin: 1em;
-    background-color: #e82048
+   
+    background-color: #e82048;
 }
 .content3{
     grid-area: content3;
     padding: 1em;
-    margin: 1em;
+
 }
