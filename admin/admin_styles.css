@@ -78,6 +78,10 @@ main{
 .ul-list{
     padding: 1em;
     margin: 0em;
-    background-color: #e82048 ;
+    
 
+}
+
+.side-list li:hover{
+    background-color: #e82048 ;
 }
