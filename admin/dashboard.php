@@ -51,6 +51,16 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
          </div>
     <div class="content2"> <h1> 1000  <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> New Enrollees </span></div>
     <div class="content3"> <h1> 500   <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> Officially Enrolled </span> </div>
+    <div class="content1">
+     <h1> 100 Passers  <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> 500 Examinees </span>
+         </div>
+    <div class="content2"> <h1> 1000  <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> New Enrollees </span></div>
+    <div class="content3"> <h1> 500   <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> Officially Enrolled </span> </div>
+    <div class="content1">
+     <h1> 100 Passers  <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> 500 Examinees </span>
+         </div>
+    <div class="content2"> <h1> 1000  <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> New Enrollees </span></div>
+    <div class="content3"> <h1> 500   <hr> </h1> <span style="font-size: 1.3em;padding: 0;margin: 0;"> Officially Enrolled </span> </div>
     </div>
 </div>
 

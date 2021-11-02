@@ -89,10 +89,13 @@ main{
 .content-main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: .3hr, 1hr;
+    grid-template-rows: .3fr, 1fr, 1fr, 1fr;
     grid-template-areas: 
     "date date date"
-    "content1 content2 content3";
+    "content1 content2 content3"
+    "content1 content2 content3"
+    "content1 content2 content3"
+    ;
     text-align: center;
     gap: .2em;
 }
