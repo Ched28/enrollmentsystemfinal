@@ -68,7 +68,7 @@ main{
 .nav-list .list-items{
     display: inline-block;
 }
-.side-list .ul-list li a{
+.side-list li a{
     text-decoration: none;
     color: white;
 
