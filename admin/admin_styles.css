@@ -91,6 +91,9 @@ main{
     background-color: #e82048 ;
 }
 
+.active{
+    background-color: #e82048 ;
+}
 .content-main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
