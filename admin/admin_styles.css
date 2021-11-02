@@ -97,7 +97,7 @@ main{
     "content7 content8 content9"
     ;
     text-align: center;
-    gap: 10px;
+    gap: .1em;
 }
 .content-date{
     grid-area: date;
