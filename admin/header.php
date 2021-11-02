@@ -35,7 +35,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </nav>
 <main>
 <ul class="side-list">
-    <li class="ul-list"> <a class="<?php echo (basename($_SERVER['PHP_SELF']) == "admin.php")?"active":"";?>" href="admin.php"> <i class="fas fa-user-shield"> &nbsp; </i>  Admin</a> </li>
+    <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "admin.php")?"active":"";?>"> <a href="admin.php"> <i class="fas fa-user-shield"> &nbsp; </i>  Admin</a> </li>
     <li class="ul-list"><a href="dashboard.php"> <i class="fas fa-chart-line"></i> &nbsp; Dashboard </a></li>
     <li class="ul-list"><a href="enrollees.php"> <i class="fas fa-list-ol"></i> &nbsp; List of Enrollees</a> </li>
     <li class="ul-list"><a href="documents.php"> <i class="far fa-folder"></i> &nbsp; Documents</a> </li>
