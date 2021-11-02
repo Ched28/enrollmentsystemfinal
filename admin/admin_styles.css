@@ -93,8 +93,8 @@ main{
     grid-template-areas: 
     "date date date"
     "content1 content2 content3"
-    "content1 content2 content3"
-    "content1 content2 content3"
+    "content4 content5 content6"
+    "content7 content8 content9"
     ;
     text-align: center;
     gap: .2em;
@@ -108,29 +108,45 @@ main{
     color: black;
     font-weight: 900;
 }
-.content1{
-    grid-area: content1;
+.content1, .content2, .content3, .content4,
+.content5, .content6, .content7, .content8, .content9{
     padding: 1em;
     margin: 1em;
     border-radius: 8px;
-
     background-color: #e82048;
   
 }
+
+.content1{
+    grid-area: content1;
+}
 .content2{
     grid-area: content2;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 8px;
-    
-    background-color: #e82048;
 }
 .content3{
     grid-area: content3;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 8px;
-    
-    background-color: #e82048;
-
 }
+.content4{
+    grid-area: content4;
+}
+
+.content5{
+    grid-area: content5;
+}
+.content6{
+    grid-area: content6;
+}
+.content7{
+    grid-area: content7;
+}
+.content8{
+    grid-area: content8;
+}
+.content9{
+    grid-area: content9;
+}
+
+
+
+
+
