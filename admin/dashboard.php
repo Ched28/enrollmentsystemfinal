@@ -65,4 +65,4 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </div>
 
 
-<?php //include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); <i class="fas fa-percentage"></i>  <span style="font-size: .3em;padding: 0;margin: 0;"> out of</span>?>
+<?php  //include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); <i class="fas fa-percentage"></i>  <span style="font-size: .3em;padding: 0;margin: 0;"> out of</span>?>
