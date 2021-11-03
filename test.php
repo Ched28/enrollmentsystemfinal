@@ -18,27 +18,71 @@
 //echo "21-$idint";
 
 include_once('dbcon.php');
-$lastid = $con->insert_id;
-$enrollmentyear = date("y");
-$select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
+//$lastid = $con->insert_id;
+//$enrollmentyear = date("y");
+//$select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
+ //   $checkresult = mysqli_query($con, $select1);
+  //  if(mysqli_num_rows($checkresult)>0){
+    //    if($row = mysqli_fetch_assoc($checkresult)){
+      //      $tempid = $row['StudentID'];
+        //    echo $tempid;
+          //  echo "<br>";
+          //  $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
+           // echo $get_numbers;
+           // echo "<br>";
+            // $inc_number = $get_numbers+1;
+            // echo $inc_number;
+            //echo "<br>";
+            ///$get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
+            //echo $get_string;
+            ///echo "<br>";
+            //$studentid = "$enrollmentyear-$get_string";
+            //echo $studentid;
+        //}
+    //}
+    $PSA = $_FILES['PSA']['name'];
+    $PSA_temp = $_FILES['PSA']['tmp_name'];
+    $Form137 = $_FILES['Form137']['name'];
+    $Form137_temp = $_FILES['Form137']['tmp_name'];
+    $Form138 = $_FILES['Form138']['name'];
+    $Form138_temp = $_FILES['Form138']['tmp_name'];
+    $Diploma = $_FILES['Diploma']['name'];
+    $Diploma_temp = $_FILES['Diploma']['tmp_name'];
+    $GoodMoral = $_FILES['GoodMoral']['name'];
+    $GoodMoral_temp = $_FILES['GoodMoral']['tmp_name']; 
+    $BarangayClearance = $_FILES['BarangayClearance']['name'];
+    $BarangayClearance_temp = $_FILES['BarangayClearance']['tmp_name'];
+    $MedicalClearance = $_FILES['MedicalClearance']['name'];
+    $MedicalClearance_temp = $_FILES['MedicalClearance']['tmp_name'];
+    $IDPicture = $_FILES['IDPicture']['name'];
+    $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
+    $location = "../files/";
+    $enrollmentyear = date("y");
+    $select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
             $tempid = $row['StudentID'];
-            echo $tempid;
-            echo "<br>";
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
-            echo $get_numbers;
-            echo "<br>";
             $inc_number = $get_numbers+1;
-            echo $inc_number;
-            echo "<br>";
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
-            echo $get_string;
-            echo "<br>";
             $studentid = "$enrollmentyear-$get_string";
-            echo $studentid;
-        }
-    }
+    $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+    $insertqueries = $con->mysqli_query($insertfile);
+    if ($insertqueries){
+        move_uploaded_file($PSA_temp, $location.$PSA);
+        move_uploaded_file($Form137_temp, $location.$Form137);
+        move_uploaded_file($Form138_temp, $location.$Form138);
+        move_uploaded_file($Diploma_temp, $location.$Diploma);
+        move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
+        move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
+        move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
+        move_uploaded_file($IDPicture_temp, $location.$IDPicture);
 
+    }else{
+
+        echo "<script> alert('error moving file');</script>";
+    }
+}
+    }
 ?>
