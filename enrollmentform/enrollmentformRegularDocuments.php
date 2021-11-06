@@ -4,7 +4,7 @@ include_once('dbcon.php');
 
 
 $id = $_GET['id'];
-if(isset($_POST['submit'])){
+if(isset($_POST['upload'])){
 
    //regular documents 
    $enrollmentyear = date("y");
@@ -113,7 +113,7 @@ if(isset($_POST['submit'])){
                     </div>
                     
                 </div>
-                <button type="submit" name="submit" style="background-color: #3366CC"> Submit </button>
+                <button type="submit" name="upload" style="background-color: #3366CC"> Submit </button>
     </div>
 
     </form>
