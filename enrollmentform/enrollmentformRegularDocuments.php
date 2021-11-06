@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
             $tempid = $row['StudentID'];
             $studentid = $tempid;
             
-            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSAName', '$Form137Name', '$Form138Name', '$DiplomaName', '$GoodMoralName', '$BarangayClearanceName', '$MedicalClearanceName', '$IDPictureName');";
+            $insertfile = "INSERT INTO `regulardocumentsneed` (`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSAName', '$Form137Name', '$Form138Name', '$DiplomaName', '$GoodMoralName', '$BarangayClearanceName', '$MedicalClearanceName', '$IDPictureName');";
             $insertqueries = $con->mysqli_query($insertfile);
             echo print_r($insertqueries);
             if ($insertqueries){
