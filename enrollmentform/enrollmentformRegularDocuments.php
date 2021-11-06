@@ -108,3 +108,4 @@ if(isset($_POST['submit'])){
     </div>
 
     </form>
+    <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
