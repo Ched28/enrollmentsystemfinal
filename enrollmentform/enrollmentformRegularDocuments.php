@@ -67,11 +67,16 @@ if(isset($_POST['upload'])){
 
                 echo "<script> alert('error moving file');</script>";
             }
-
+            echo "<script> alert('error moving file1');</script>";
         }
-    }
-}
+        echo "<script> alert('error moving file2');</script>";
 
+    }
+    echo "<script> alert('error moving file4');</script>";
+}
+else{
+echo "<script> alert('error moving file8');</script>";
+}
 ?>
 <a href="../login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
 
