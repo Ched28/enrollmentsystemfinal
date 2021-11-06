@@ -21,7 +21,25 @@ if(isset($_POST['submit'])){
     $guardianname = strtoupper(mysqli_real_escape_string($con,$_POST['guardianname']));
     $relationship = strtoupper(mysqli_real_escape_string($con,$_POST['relationship']));
     $guardiancontactno = mysqli_real_escape_string($con,$_POST['guardiancontactno']);
- 
+    //regular documents 
+    
+    $PSA = $_FILES['PSA']['name'];
+    $PSA_temp = $_FILES['PSA']['tmp_name'];
+    $Form137 = $_FILES['Form137']['name'];
+    $Form137_temp = $_FILES['Form137']['tmp_name'];
+    $Form138 = $_FILES['Form138']['name'];
+    $Form138_temp = $_FILES['Form138']['tmp_name'];
+    $Diploma = $_FILES['Diploma']['name'];
+    $Diploma_temp = $_FILES['Diploma']['tmp_name'];
+    $GoodMoral = $_FILES['GoodMoral']['name'];
+    $GoodMoral_temp = $_FILES['GoodMoral']['tmp_name']; 
+    $BarangayClearance = $_FILES['BarangayClearance']['name'];
+    $BarangayClearance_temp = $_FILES['BarangayClearance']['tmp_name'];
+    $MedicalClearance = $_FILES['MedicalClearance']['name'];
+    $MedicalClearance_temp = $_FILES['MedicalClearance']['tmp_name'];
+    $IDPicture = $_FILES['IDPicture']['name'];
+    $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
+    $location = "../files/";
 
     //enrollmentstatus 
 
@@ -50,32 +68,35 @@ if(isset($_POST['submit'])){
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
             $tempid = $row['StudentID'];
-            $id = $row['id'];
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
             $inc_number = $get_numbers+1;
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
             $studentid = "$enrollmentyear-$get_string";
-            $_SESSION['studentid'] = $studentid;
+            
             $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
             $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
             $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
-            
+            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;
-          
+            $query .=$insertfile;
             $insertqueries = $con->multi_query($query);
-            if($insertqueries){
-                echo "<script>
-                        
-                        location.replace('enrollmentformRegularDocuments.php?id=$id');
-                        </script>";
+            if ($insertqueries){
+                move_uploaded_file($PSA_temp, $location.$PSA);
+                move_uploaded_file($Form137_temp, $location.$Form137);
+                move_uploaded_file($Form138_temp, $location.$Form138);
+                move_uploaded_file($Diploma_temp, $location.$Diploma);
+                move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
+                move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
+                move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
+                move_uploaded_file($IDPicture_temp, $location.$IDPicture);
+
             }else{
-                echo "error";
+
+                echo "<script> alert('error moving file');</script>";
             }
 
-            
-           
         
         }
         else{
@@ -84,26 +105,31 @@ if(isset($_POST['submit'])){
     } else{
         $studentidint = 1;
         $studentid = "$enrollmentyear-000$studentidint";
-        $_SESSION['studentid'] = $studentid;
         $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
         $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
         $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
-       // $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+        $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
-        
-        $insertqueries = $con->multi_query($query);
-        if($insertqueries){
-            echo "<script>
-                    
-                    location.replace('enrollmentformRegularDocuments.php?id=1');
-                    </script>";
+        $query .=$insertfile;
+
+        if ($insertqueries = $con->multi_query($query)){
+            move_uploaded_file($PSA_temp, $location.$PSA);
+            move_uploaded_file($Form137_temp, $location.$Form137);
+            move_uploaded_file($Form138_temp, $location.$Form138);
+            move_uploaded_file($Diploma_temp, $location.$Diploma);
+            move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
+            move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
+            move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
+            move_uploaded_file($IDPicture_temp, $location.$IDPicture);
+
         }else{
-            echo "error";
+
+            echo "<script> alert('error moving file');</script>";
         }
+
     }
- 
     
 }
 
@@ -280,7 +306,48 @@ if(isset($_POST['submit'])){
 
                     
                 </div>
-                
+                <h3 style="text-align:center">Documents Need</h3>
+                <div class="form-data8">
+                    
+                    
+                    <div class="file1">
+                        <div class="filecat">
+                            <label for="PSA">PSA Birth Certificate</label>
+                            <input type="file" name="PSA" id="" class="choose" require>
+                        </div>
+                        <div class="filecat">
+                            <label for="Form137">Form 137 w/ remarks ‘Copy for QCU’ (once enrolled)</label>
+                            <input type="file" name="Form137" id="" class="choose" require>
+                        </div>
+                        <div class="filecat">
+                            <label for="Form138">Form 138 – A</label>
+                            <input type="file" name="Form138" id="" class="choose" require>
+                        </div>
+                        <div class="filecat">
+                            <label for="Diploma">Diploma</label>
+                            <input type="file" name="Diploma" id="" class="choose" require>
+                        </div>
+                    </div>
+                    <div class="file1">
+                        <div class="filecat">
+                            <label for="GoodMoral">Certificate of Good Moral Character</label>
+                            <input type="file" name="GoodMoral" id="" class="choose" require>
+                        </div>
+                        <div class="filecat">
+                            <label for="BarangayClearance">Recent Barangay Clearance</label>
+                            <input type="file" name="BarangayClearance" id="" class="choose" require>
+                        </div>
+                        <div class="filecat">
+                            <label for="MedicalClearance">Medical Clearance issued by the University Health Office upon submission of medical requirements</label>
+                            <input type="file" name="MedicalClearance" id="" class="choose" require>
+                        </div>
+                        <div class="filecat">
+                            <label for="IDPicture">1pc. 2x2 with Name Tag – White Background</label>
+                            <input type="file" name="IDPicture" id="" class="choose" require>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>             
             <button type="submit" name="submit" style="background-color: #3366CC"> Submit </button>
     </div>
