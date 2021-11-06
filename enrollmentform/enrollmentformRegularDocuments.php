@@ -26,14 +26,14 @@ if(isset($_POST['submit'])){
    $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
    $location = "../files/";
 
-   $PSAName = mysqli_real_escape_string($PSA);
-   $Form137Name = mysqli_real_escape_string($Form137);
-   $Form138Name = mysqli_real_escape_string($Form138);
-   $DiplomaName = mysqli_real_escape_string($Diploma);
-   $GoodMoralName = mysqli_real_escape_string($GoodMoral);
-   $BarangayClearanceName = mysqli_real_escape_string($BarangayClearance);
-   $MedicalClearanceName = mysqli_real_escape_string($MedicalClearance);
-   $IDPictureName  = mysqli_real_escape_string($IDPicture);
+   $PSAName = mysqli_real_escape_string($con, $PSA);
+   $Form137Name = mysqli_real_escape_string($con, $Form137);
+   $Form138Name = mysqli_real_escape_string($con, $Form138);
+   $DiplomaName = mysqli_real_escape_string($con, $Diploma);
+   $GoodMoralName = mysqli_real_escape_string($con, $GoodMoral);
+   $BarangayClearanceName = mysqli_real_escape_string($con, $BarangayClearance);
+   $MedicalClearanceName = mysqli_real_escape_string($con, $MedicalClearance);
+   $IDPictureName  = mysqli_real_escape_string($con, $IDPicture);
    $select1 = "SELECT * FROM `studentinfo` WHERE id=$id LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
