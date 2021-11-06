@@ -26,6 +26,14 @@ if(isset($_POST['submit'])){
    $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
    $location = "../files/";
 
+   $PSAName = mysqli_real_escape_string($PSA);
+   $Form137Name = mysqli_real_escape_string($Form137);
+   $Form138Name = mysqli_real_escape_string($Form138);
+   $DiplomaName = mysqli_real_escape_string($Diploma);
+   $GoodMoralName = mysqli_real_escape_string($GoodMoral);
+   $BarangayClearanceName = mysqli_real_escape_string($BarangayClearance);
+   $MedicalClearanceName = mysqli_real_escape_string($MedicalClearance);
+   $IDPictureName  = mysqli_real_escape_string($IDPicture);
    $select1 = "SELECT * FROM `studentinfo` WHERE id=$id LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
@@ -33,7 +41,7 @@ if(isset($_POST['submit'])){
             $tempid = $row['StudentID'];
             $studentid = $tempid;
             
-            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSAName', '$Form137Name', '$Form138Name', '$DiplomaName', '$GoodMoralName', '$BarangayClearanceName', '$MedicalClearanceName', '$IDPictureName');";
             $insertqueries = $con->mysqli_query($insertfile);
             if ($insertqueries){
                 move_uploaded_file($PSA_temp, $location.$PSA);
