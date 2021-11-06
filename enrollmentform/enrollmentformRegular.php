@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
             if($insertqueries){
                 echo "<script>
                         
-                        location.replace('enrollmentRegularDocuments.php?id=$studentid');
+                        location.replace('enrollmentformRegularDocuments.php?id=$studentid');
                         </script>";
             }else{
                 echo "error";
@@ -96,7 +96,7 @@ if(isset($_POST['submit'])){
         if($insertqueries){
             echo "<script>
                     
-                    location.replace('enrollmentRegularDocuments.php?id=$studentid');
+                    location.replace('enrollmentformRegularDocuments.php?id=$studentid');
                     </script>";
         }else{
             echo "error";
