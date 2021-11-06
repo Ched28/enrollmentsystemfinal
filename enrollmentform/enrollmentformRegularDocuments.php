@@ -72,7 +72,7 @@ if(isset($_POST['upload'])){
         echo "<script> alert('error moving file2');</script>";
 
     }else {
-        echo  "<script> alert('error moving filefff');</script>";
+        echo print_r(mysqli_num_rows($checkresult));
     }
     
 }
