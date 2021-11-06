@@ -40,10 +40,19 @@ if(isset($_POST['upload'])){
         if($row = mysqli_fetch_assoc($checkresult)){
             $tempid = $row['StudentID'];
             $studentid = $tempid;
-            
+           echo $PSAName;
+           echo $Form137Name;
+           echo $Form138Name;
+           echo $DiplomaName;
+           echo $GoodMoralName;
+           echo $BarangayClearanceName;
+           echo $MedicalClearanceName;
+           echo $IDPictureName;
+           echo $studentid;
             $insertfile = "INSERT INTO `regulardocumentsneed` (`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSAName', '$Form137Name', '$Form138Name', '$DiplomaName', '$GoodMoralName', '$BarangayClearanceName', '$MedicalClearanceName', '$IDPictureName');";
             $insertqueries = $con->mysqli_query($insertfile);
             echo print_r($insertqueries);
+
             if ($insertqueries){
                 move_uploaded_file($PSA_temp, $location.$PSA);
                 move_uploaded_file($Form137_temp, $location.$Form137);
