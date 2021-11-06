@@ -77,7 +77,7 @@ if(isset($_POST['upload'])){
     
 }
 else{
-echo "<script> alert('error moving file8');</script>";
+echo isset($_POST['upload']);
 }
 ?>
 <a href="../login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
