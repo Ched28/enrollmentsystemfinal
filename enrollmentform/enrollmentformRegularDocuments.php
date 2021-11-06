@@ -72,7 +72,7 @@ if(isset($_POST['upload'])){
         echo "<script> alert('error moving file2');</script>";
 
     }
-    echo "<script> alert('error moving file4');</script>";
+    error_reporting(E_ALL);
 }
 else{
 echo "<script> alert('error moving file8');</script>";
