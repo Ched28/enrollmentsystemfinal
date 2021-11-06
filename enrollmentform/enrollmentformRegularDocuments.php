@@ -34,7 +34,7 @@ if(isset($_POST['upload'])){
    $BarangayClearanceName = mysqli_real_escape_string($con, $BarangayClearance);
    $MedicalClearanceName = mysqli_real_escape_string($con, $MedicalClearance);
    $IDPictureName  = mysqli_real_escape_string($con, $IDPicture);
-   $select1 = "SELECT * FROM `studentinfo` WHERE id=$id LIMIT 1;";
+   $select1 = "SELECT * FROM `studentinfo` WHERE ID=$id LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
