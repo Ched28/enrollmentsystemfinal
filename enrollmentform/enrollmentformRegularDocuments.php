@@ -3,9 +3,9 @@ session_start();
 include_once('dbcon.php');
 
 
+$id = $_GET['id'];
 if(isset($_POST['submit'])){
 
-    $id = $_GET['id'];
    //regular documents 
    $enrollmentyear = date("y");
    $PSA = $_FILES['PSA']['name'];
