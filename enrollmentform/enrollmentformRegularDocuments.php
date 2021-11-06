@@ -100,7 +100,7 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="filecat">
                             <label for="BarangayClearance">Recent Barangay Clearance</label>
-                            <input type="file" name="BarangayClearance>
+                            <input type="file" name="BarangayClearance">
                         </div>
                         <div class="filecat">
                             <label for="MedicalClearance">Medical Clearance issued by the University Health Office upon submission of medical requirements</label>
