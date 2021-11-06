@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
             $inc_number = $get_numbers+1;
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
             $studentid = "$enrollmentyear-$get_string";
-
+            
             $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
             $insertqueries = $con->mysqli_query($insertfile);
             if ($insertqueries){

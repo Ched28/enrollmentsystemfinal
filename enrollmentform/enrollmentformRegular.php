@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
             $inc_number = $get_numbers+1;
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
             $studentid = "$enrollmentyear-$get_string";
-            
+            $_SESSION['studentid'] = $studentid;
             $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
             $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
             $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
@@ -64,6 +64,16 @@ if(isset($_POST['submit'])){
             $query .=$insertsql3;
           
             $insertqueries = $con->multi_query($query);
+            if($insertqueries){
+                echo "<script>
+                        
+                        location.replace('enrollmentRegularDocuments.php?id=$studentid');
+                        </script>";
+            }else{
+                echo "error";
+            }
+
+            
            
         
         }
@@ -73,6 +83,7 @@ if(isset($_POST['submit'])){
     } else{
         $studentidint = 1;
         $studentid = "$enrollmentyear-000$studentidint";
+        $_SESSION['studentid'] = $studentid;
         $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
         $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
         $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
@@ -82,7 +93,16 @@ if(isset($_POST['submit'])){
         $query .=$insertsql3;
         
         $insertqueries = $con->multi_query($query);
+        if($insertqueries){
+            echo "<script>
+                    
+                    location.replace('enrollmentRegularDocuments.php?id=$studentid');
+                    </script>";
+        }else{
+            echo "error";
+        }
     }
+ 
     
 }
 
