@@ -154,6 +154,14 @@ main{
     grid-area: content9;
 }
 
+.content-admin{
+    display:grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "content-admin1"
+    "content-admin2"
+    ;
+}
 
 
 
