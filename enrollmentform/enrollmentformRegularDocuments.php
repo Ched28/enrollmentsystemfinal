@@ -4,6 +4,8 @@ include_once('dbcon.php');
 
 
 if(isset($_POST['submit'])){
+
+    $id = $_GET['id'];
    //regular documents 
    $enrollmentyear = date("y");
    $PSA = $_FILES['PSA']['name'];
@@ -24,15 +26,12 @@ if(isset($_POST['submit'])){
    $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
    $location = "../files/";
 
-   $select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
+   $select1 = "SELECT * FROM `studentinfo` WHERE id=$id LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
             $tempid = $row['StudentID'];
-            $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
-            $inc_number = $get_numbers+1;
-            $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
-            $studentid = "$enrollmentyear-$get_string";
+            $studentid = $tempid;
             
             $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
             $insertqueries = $con->mysqli_query($insertfile);

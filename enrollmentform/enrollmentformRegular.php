@@ -50,6 +50,7 @@ if(isset($_POST['submit'])){
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
             $tempid = $row['StudentID'];
+            $id = $row['id'];
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
             $inc_number = $get_numbers+1;
             $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
@@ -67,7 +68,7 @@ if(isset($_POST['submit'])){
             if($insertqueries){
                 echo "<script>
                         
-                        location.replace('enrollmentformRegularDocuments.php?id=$studentid');
+                        location.replace('enrollmentformRegularDocuments.php?id=$id');
                         </script>";
             }else{
                 echo "error";
@@ -96,7 +97,7 @@ if(isset($_POST['submit'])){
         if($insertqueries){
             echo "<script>
                     
-                    location.replace('enrollmentformRegularDocuments.php?id=$studentid');
+                    location.replace('enrollmentformRegularDocuments.php?id=1');
                     </script>";
         }else{
             echo "error";
