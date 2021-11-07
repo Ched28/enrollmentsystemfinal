@@ -138,9 +138,14 @@ h1{
 <p class="data"> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
 </td>
 </tr>
-<tr> Last Name </tr>
-<tr colspan="2"> First Name </tr>
-<tr> Middle Name </tr>
+<tr> 
+  <td> Last Name </td>
+  <td> First Name </td>
+  <td> Middle Name </td> 
+
+
+</tr>
+
 </table> 
 </div>
 </main>
