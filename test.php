@@ -114,7 +114,7 @@ h1{
   text-align: left;
 }
 </style>
-<div class="content form-bg1">
+<div class="content1 form-bg1">
 <table> 
 <tr colspan="4">
 <td>

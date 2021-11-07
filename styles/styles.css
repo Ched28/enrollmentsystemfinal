@@ -120,6 +120,11 @@ main{
       flex-shrink: 1;
       flex-basis: 0;
   }
+  .content1{
+    color: black;
+    padding: 1em;
+    margin: 1em; 
+  }
   .enroll{
     color: black;
     padding: 1em;
