@@ -92,12 +92,16 @@ include_once('dbcon.php');
 tr{
     border: 1px solid black;
 }
+h1{
+    text-align: center;
+}
 </style>
 <div class="content">
 <table> 
 <tr colspan="4">
 <td>
 <h1>ENROLLMENT FORM FOR REGULAR ENROLLEES</h1>
+<hr>
 <div class="danger">
 <h3>BEFORE YOU FILL UP THE FORM:</h3>
 <ol> 
