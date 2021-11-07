@@ -105,11 +105,11 @@ h1{
 <div class="danger">
 <h3>BEFORE YOU FILL UP THE FORM:</h3>
 <ol> 
-<li>Once you submit, you are agreeing to the terms and conditions here in QCU Online Portal. </li>
+<li>Once you submit, you are agreeing that the QCU Online Portal has a right to record your personal information/datas that you entered here.</li>
 <li> Once you submit, you are confirming all the details that you entered in this online form. </li>
 </ol>
 </div>
-All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012
+<p> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
 GUIDELINES ON THE REQUIREMENTS: 
 
 1. The File should be on Portable Document Format (.pdf) and on Joint Photographic Experts Group Format (.jpeg/.jpg). Another file format should not be accepted. 
