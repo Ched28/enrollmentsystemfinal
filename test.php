@@ -123,7 +123,7 @@ h1{
 <div class="danger">
 <h3>BEFORE YOU FILL UP THE FORM:</h3>
 <ol> 
-<li>Once you submit, you are agreeing that the QCU Online Portal has a right to record your personal information/datas that you entered here.</li>
+<li> Once you submit, you are agreeing that the QCU Online Portal has a right to record your personal information/datas that you entered here.</li>
 <li> Once you submit, you are confirming all the details that you entered in this online form. </li>
 </ol>
 </div>
@@ -138,6 +138,9 @@ h1{
 <p class="data"> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
 </td>
 </tr>
+<tr> Last Name </tr>
+<tr colspan="2"> First Name </tr>
+<tr> Middle Name </tr>
 </table> 
 </div>
 </main>
