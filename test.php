@@ -99,6 +99,14 @@ h1{
   text-align: center;
   color: #e82048;
 }
+.danger{
+  background-color:#e82048;
+  padding: 1em; 
+}
+.guidelines{
+  background-color: #00AC17;  
+  padding: 1em;
+}
 </style>
 <div class="content form-bg1">
 <table> 
@@ -113,12 +121,15 @@ h1{
 <li> Once you submit, you are confirming all the details that you entered in this online form. </li>
 </ol>
 </div>
+<div class="guidelines">
+<h3>GUIDELINES ON THE REQUIREMENTS: </h3> 
+<ol>
+<li>The File should be on Portable Document Format (.pdf) and on Joint Photographic Experts Group Format (.jpeg/.jpg). Another file format should not be accepted. </li>
+<li>All of the files should name by the requiredfile_lastname_firstname.pdf (Example: PSA_ROWY_CHEDRICK.pdf) should be on the CAPITAL LETTERS. </li>
+</ol>
+
+</div>
 <p class="data"> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
-GUIDELINES ON THE REQUIREMENTS: 
-
-1. The File should be on Portable Document Format (.pdf) and on Joint Photographic Experts Group Format (.jpeg/.jpg). Another file format should not be accepted. 
-2. All of the files should name by the requiredfile_lastname_firstname.pdf (Example: PSA_ROWY_CHEDRICK.pdf) should be on the CAPITAL LETTERS. 
-
 </td>
 </tr>
 </table> 
