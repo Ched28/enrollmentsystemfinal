@@ -87,7 +87,7 @@ include_once('dbcon.php');
 //     }
 // ?>
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); ?>
-<div class="content">
+<main class="no-bg">
 <style type="text/css">
 tr{
     border: 1px solid black;
@@ -113,6 +113,7 @@ GUIDELINES ON THE REQUIREMENTS:
 </td>
 </tr>
 </table> 
+</main>
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
 
 
