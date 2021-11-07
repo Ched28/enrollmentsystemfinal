@@ -95,6 +95,10 @@ tr{
 h1{
     text-align: center;
 }
+.data{
+  text-align: center;
+  color: #e82048;
+}
 </style>
 <div class="content form-bg1">
 <table> 
@@ -109,7 +113,7 @@ h1{
 <li> Once you submit, you are confirming all the details that you entered in this online form. </li>
 </ol>
 </div>
-<p> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
+<p class="data"> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
 GUIDELINES ON THE REQUIREMENTS: 
 
 1. The File should be on Portable Document Format (.pdf) and on Joint Photographic Experts Group Format (.jpeg/.jpg). Another file format should not be accepted. 
