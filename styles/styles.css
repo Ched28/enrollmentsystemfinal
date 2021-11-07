@@ -240,7 +240,7 @@ main{
 
     background-color: #002347;
     color: white;
-  
+    display: inline-block;
     border-radius: 10px;
     text-align: center;
     padding: 1em;
