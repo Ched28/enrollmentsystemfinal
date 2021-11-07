@@ -237,12 +237,14 @@ main{
 }
 .form-bg1{
     
-    padding: 3em;
+
     background-color: #002347;
     color: white;
     display: inline-block;
     border-radius: 10px;
     text-align: center;
+    padding: 1em;
+    margin: 1em;
     
 
 }
