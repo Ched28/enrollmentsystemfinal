@@ -235,7 +235,16 @@ main{
     text-align: center;
 
 }
+.form-bg1{
+    
+    padding: 3em;
+    background-color: #002347;
+    color: white;
+    display: inline-block;
+    border-radius: 10px;
+    
 
+}
 .form-bg input, button{
     width: 100%;
     font-family: 'Poppins', sans-serif;
