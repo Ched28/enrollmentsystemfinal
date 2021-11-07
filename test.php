@@ -116,8 +116,8 @@ h1{
 </style>
 <div class="content1 form-bg1">
 <table> 
-<tr colspan="4">
-<td>
+<tr>
+<td  colspan="4">
 <h1>ENROLLMENT FORM FOR REGULAR ENROLLEES</h1>
 <hr>
 <div class="danger">
