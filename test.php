@@ -96,7 +96,7 @@ h1{
     text-align: center;
 }
 </style>
-<div class="content">
+<div class="content form-bg">
 <table> 
 <tr colspan="4">
 <td>
