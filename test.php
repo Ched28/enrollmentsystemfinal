@@ -93,6 +93,7 @@ tr{
     border: 1px solid black;
 }
 </style>
+<div class="content">
 <table> 
 <tr colspan="4">
 <td>
@@ -113,6 +114,7 @@ GUIDELINES ON THE REQUIREMENTS:
 </td>
 </tr>
 </table> 
+</div>
 </main>
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
 
