@@ -101,11 +101,14 @@ h1{
 }
 .danger{
   background-color:#e82048;
-  padding: 1em; 
+  padding: 1em;
+  border-radius: 8px;
+  margin: 1em; 
 }
 .guidelines{
   background-color: #00AC17;  
   padding: 1em;
+  border-radius: 8px;
 }
 </style>
 <div class="content form-bg1">
