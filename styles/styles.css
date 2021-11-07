@@ -242,6 +242,7 @@ main{
     color: white;
     display: inline-block;
     border-radius: 10px;
+    align-items: center;
     
 
 }

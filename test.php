@@ -109,6 +109,7 @@ h1{
   background-color: #00AC17;  
   padding: 1em;
   border-radius: 8px;
+  margin: 1em; 
 }
 </style>
 <div class="content form-bg1">
