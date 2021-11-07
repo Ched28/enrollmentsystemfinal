@@ -139,9 +139,9 @@ h1{
 </td>
 </tr>
 <tr> 
-  <td> <button type="button" style="background-color:  #e82048"> HOME </button> </td>
-  <td> <button type="button" style="background-color:  #00AC17"> ENROLL NOW! </button> </td>
-  <td> <button type="button" style="background-color:  #00AC17"> Update your Documents </button> </td> 
+  <td> <button type="button" style="background-color:  #e82048"> Home </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17"> Update your Documents </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17"> Enroll Now! </button> </td> 
 
 
 </tr>
