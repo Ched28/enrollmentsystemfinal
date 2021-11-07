@@ -103,13 +103,15 @@ h1{
   background-color:#e82048;
   padding: 1em;
   border-radius: 8px;
-  margin: 1em; 
+  margin: 1em;
+  text-align: left; 
 }
 .guidelines{
   background-color: #00AC17;  
   padding: 1em;
   border-radius: 8px;
   margin: 1em; 
+  text-align: left;
 }
 </style>
 <div class="content form-bg1">
