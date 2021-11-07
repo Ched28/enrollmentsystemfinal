@@ -259,6 +259,12 @@ main{
     padding: 12px 20px;
     border-radius: 10px;
 }
+.form-bg1 button{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
 .enrollment-form-bg input, button, select{
     width: 100%;
     font-family: 'Poppins', sans-serif;

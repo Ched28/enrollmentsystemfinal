@@ -139,9 +139,9 @@ h1{
 </td>
 </tr>
 <tr> 
-  <td> Last Name </td>
-  <td> First Name </td>
-  <td> Middle Name </td> 
+  <td> <button type="button" style="background-color:  #e82048"> HOME </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17"> ENROLL NOW! </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17"> Update your Documents </button> </td> 
 
 
 </tr>
