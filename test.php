@@ -142,9 +142,9 @@ h1{
 </td>
 </tr>
 <tr> 
-  <td> <button type="button" style="background-color:  #e82048"> <i class="fas fa-home"></i> Home </button> </td>
-  <td> <button type="button" style="background-color:  #00AC17"> <i class="fas fa-folder-plus"></i> Update your Documents </button> </td>
-  <td> <button type="button" style="background-color:  #00AC17"> <i class="fas fa-pen"></i> Enroll Now! </button> </td> 
+  <td> <button type="button" style="background-color:  #e82048"> <i class="fas fa-home"></i> &nbsp; Home </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17"> <i class="fas fa-folder-plus"></i> &nbsp; Update your Documents </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17"> <i class="fas fa-pen"></i> &nbsp; Enroll Now! </button> </td> 
 </tr>
 
 </table> 
