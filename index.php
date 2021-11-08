@@ -10,7 +10,7 @@
                   <h1>Welcome to 
                       <span style="color:#002347;font-size: 2em;font-weight: 900;">Quezon City University!</span></h1>
                   <h2>The No. 1 Local University <br>of Employable Graduates</h2>
-                  <a href="enrollnow.php" class="login-btn">Enroll Now!</a>
+                  <a href="enrollnowintro.php" class="login-btn">Enroll Now!</a>
               </div>
                   </div>
               </div>
