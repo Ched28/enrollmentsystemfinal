@@ -1,5 +1,7 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 
+session_start();
+$id = $_GET['id'];
 
 ?>
 
@@ -7,11 +9,12 @@
 
 
 <main class="no-bg full-height">
-<form method="POST" enctype="multipart/form-data" id="form" action="config/insert_datas.php?nonsense=1">
+<form method="POST" enctype="multipart/form-data" id="form" action="config/insert_datas.php?id=<?php echo $id?>"  onsubmit="onSubmit()">
 <table class="enrollment-form-table">
   <tr>
     <td colspan="4" style="padding: 1em;margin: 1em;">
       <H1>ENROLLMENT FORM FOR REGULAR/FRESHMAN</H1>
+
     </td>
 </tr>
 <tr>
@@ -277,7 +280,7 @@
 </tr>
 <tr>
   <td colspan="2"></td>
-  <td colspan="2"><button type="submit" name="submit" style="background-color: #00AC17;color: white;" > Submit </button></td>
+  <td colspan="2"><button type="submit" name="submit" class="submit" style="background-color: #00AC17;color: white;" > Submit </button></td>
 </tr>
 </table>
 </form>
@@ -315,6 +318,9 @@ function validation(){
         //text.style.color = "#ff0000";
 
     }
+}
+function onSubmit() {
+  $('.submit').attr('disabled', true);
 }
 </script> 
 

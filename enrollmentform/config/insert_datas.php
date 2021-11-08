@@ -5,7 +5,7 @@
 
 session_start();
 include_once('dbcon.php');
-
+$id = $_GET['id'];
 
 if(isset($_POST['submit'])){
     
@@ -54,6 +54,12 @@ if(isset($_POST['submit'])){
     $firstcourse = strtoupper(mysqli_real_escape_string($con,$_POST['firstcourse']));
     $secondcourse = strtoupper(mysqli_real_escape_string($con,$_POST['secondcourse']));
     $thirdcourse = strtoupper(mysqli_real_escape_string($con,$_POST['thirdcourse']));
+
+    //ExamCode
+
+    $ExamCode = $id;
+
+    
 
     //educationalinfo 
     $schoollastattended = strtoupper(mysqli_real_escape_string($con,$_POST['schoollastattended']));
@@ -139,7 +145,7 @@ if(isset($_POST['submit'])){
         }
 
     }
-
+    echo "<script> alert('$examcode');</script>";
     sleep(10);
     echo "<script> location.replace('../success.php');</script>";
 
