@@ -124,6 +124,7 @@ h1{
 <div class="danger">
 <h3>BEFORE YOU FILL UP THE FORM:</h3>
 <ol> 
+<li> Before you fill up the form you have to take an Entrance Exam first. <i> Apply as a examinee? <a href=""> Please Refer to this</a> </i>.</li>
 <li> Once you submit, you are agreeing that the QCU Online Portal has a right to record your personal information/datas that you entered here.</li>
 <li> Once you submit, you are confirming all the details that you entered in this online form. </li>
 </ol>
