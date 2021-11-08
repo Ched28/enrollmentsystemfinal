@@ -7,7 +7,7 @@
 
 
 <main class="no-bg full-height">
-<form method="POST" enctype="multipart/form-data" id="form" action="config/insert_datas.php">
+<form method="POST" enctype="multipart/form-data" id="form" action="config/insert_datas.php?nonsense=1">
 <table class="enrollment-form-table">
   <tr>
     <td colspan="4" style="padding: 1em;margin: 1em;">
