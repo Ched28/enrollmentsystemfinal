@@ -87,7 +87,10 @@ include_once('dbcon.php');
 //     }  padding: 12px 20px; 
 
 // ?>
-<?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); ?>
+<?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
+
+$iconsite = "/enrollmentsystemfinal/img/qcu.png";
+?>
 <main class="no-bg">
 <style type="text/css">
 tr{
@@ -119,7 +122,7 @@ h1{
 <table> 
 <tr>
 <td  colspan="4">
-<h1>ENROLLMENT FORM FOR REGULAR ENROLLEES</h1>
+<h1> <img src="<?php echo $iconsite?>"> ENROLLMENT FORM FOR REGULAR ENROLLEES</h1>
 <hr>
 <div class="danger">
 <h3>BEFORE YOU FILL UP THE FORM:</h3>
