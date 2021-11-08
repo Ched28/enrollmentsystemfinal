@@ -99,6 +99,9 @@ tr{
 h1{
     text-align: center;
 }
+img{
+  width: 50%;
+}
 .data{
   text-align: center;
   color: #e82048;
