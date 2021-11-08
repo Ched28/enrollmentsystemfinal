@@ -4,7 +4,7 @@
 ?>
 
 
-<a href="../login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+
 
 <main class="no-bg full-height">
 <form method="POST" enctype="multipart/form-data" id="form" action="config/insert_datas.php">

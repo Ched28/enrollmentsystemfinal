@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 }
 ?>
 
-<a href="users/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+
        <main>
         
                 <div class="loginform">
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     <input type="text" name="examcode" placeholder="Exam Code" class="one-line"> <br><br>
                     <input type="text" name="examdate" placeholder="Exam Date MM/DD/YYYY" class="one-line"> <br><br>
                     <button type="submit">Proceed </button> <!--- make this a function :)-->
-                    <button type="button" name="" style="background-color: #3366CC"> Apply as Student </button> 
+                    
                     
                 </form>
             </div>

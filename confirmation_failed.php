@@ -5,7 +5,7 @@ include_once("dbcon.php");
 ?>
 
 
-<a href="/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+
        <main>  
        <div class="loginform">
             <div class="form-bg">
