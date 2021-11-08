@@ -100,7 +100,7 @@ h1{
     text-align: center;
 }
 img{
-  width: 50%;
+  width: 25%;
 }
 .data{
   text-align: center;
