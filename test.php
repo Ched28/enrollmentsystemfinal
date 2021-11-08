@@ -136,6 +136,7 @@ h1{
 </ol>
 
 </div>
+<br><br>
 <p class="data"> <strong> <i> All of your personal information, and documents are protected by RA No. 10173 or the Data Privacy Act of 2012 </strong> </i> </p>
 </td>
 </tr>
