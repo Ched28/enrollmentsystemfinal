@@ -426,3 +426,40 @@ tr{
     font-family: 'Poppins', sans-serif;
 
   }
+  .model-confirm{
+      background-color: #3366CC;
+  }
+
+.modal-bg{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.4s;
+
+      
+  }
+  .modal_active{
+      visibility:visible;
+      opacity: 1;
+  }
+  .modal{
+      background-color: #3366CC;
+
+      width: 50%;
+      height: 50%; 
+      padding: 1em;
+      margin: 2em;
+     border-radius: 10px;
+      
+  }
+  .tab8{
+      tab-size: 8;
+  }

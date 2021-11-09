@@ -2,9 +2,13 @@
 session_start();
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 include_once("dbcon.php");
-
+include_once("enrollmentform/config/enc_dec.php");
 
 $id = $_GET['id'];
+
+
+
+
 
 function hideEmailAddress($email)
 {
@@ -47,8 +51,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         $realexamcode = $row['ExamNo'];
                         if($verifycode == $realcode && $examcode == $realexamcode){
                             //alert('$verifycode,,, $realcode,,, $examcode,,,,, $realexamcode');
+
+                            $enc = qcu_encrypt($realexamcode);
                             echo "<script> 
-                            location.replace('enrollmentform/enrollmentformchoose.php?id=$realexamcode');
+                            location.replace('enrollmentform/enrollmentformchoose.php?id=$enc');
                             
                             </script>";
                         }

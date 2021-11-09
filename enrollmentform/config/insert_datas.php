@@ -1,10 +1,9 @@
-
-
 <?php
 
 
 session_start();
 include_once('dbcon.php');
+include_once("enc_dec.php");
 $id = $_GET['id'];
 
 if(isset($_POST['submit'])){
@@ -57,8 +56,8 @@ if(isset($_POST['submit'])){
 
     //ExamCode
 
-    $ExamCode = $id;
-
+    $dec = qcu_decrypt($id);
+    $ExamCode = $dec;
     
 
     //educationalinfo 
@@ -90,10 +89,11 @@ if(isset($_POST['submit'])){
             $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
             $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
             $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
-            $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode')";
+            $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode');";
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;
+            $query .=$insertExamCodee;
             $query .=$insertfile;
             $insertqueries = $con->multi_query($query);
             
@@ -125,10 +125,11 @@ if(isset($_POST['submit'])){
         $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
         $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
         $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
-        $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode')";
+        $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode');";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
+        $query .=$insertExamCodee;
         $query .=$insertfile;
         
 
@@ -148,7 +149,6 @@ if(isset($_POST['submit'])){
         }
 
     }
-    echo "<script> alert('$examcode');</script>";
     sleep(10);
     echo "<script> location.replace('../success.php');</script>";
 

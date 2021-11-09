@@ -1,7 +1,9 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
+include_once("dbcon.php");
 
 
+$select = "SELECT * FROM admin";
 ?>
 <div class="content">
     <div class="content-admin">

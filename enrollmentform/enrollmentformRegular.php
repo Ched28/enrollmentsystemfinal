@@ -3,6 +3,8 @@
 session_start();
 $id = $_GET['id'];
 
+
+
 ?>
 
 
@@ -280,11 +282,41 @@ $id = $_GET['id'];
 </tr>
 <tr>
   <td colspan="2"></td>
-  <td colspan="2"><button type="submit" name="submit" class="submit" style="background-color: #00AC17;color: white;" > Submit </button></td>
+  <td colspan="2"><button type="button" class="model-confirm" style="background-color: #00AC17;color: white;"> Confirm </button></td>
 </tr>
 </table>
+<div class="modal-bg">
+  <div class="modal">
+  <div class="footer-title">
+<img src="<?php  echo $iconsite;?>" alt=""> &nbsp;
+<h2>CONFIRMATION</h2> 
+
+</div>
+<hr>
+  <h4>BEFORE YOU SUBMIT:</h4>
+<ol> 
+<li> Once you submit, you are agreeing that the QCU Online Portal has a right to record your personal information/datas that you entered here.</li>
+<li> Once you submit, you are confirming all the details that you entered in this online form are real. </li>
+</ol>
+<div class="br">
+  <br>
+  <br>
+</div>
+<table style="width:100%;">
+  <tr>
+    
+    <td colspan="2"><button type="submit" name="submit" class="submit" style="background-color: #00AC17;color: white;" > Submit </button> </td>
+    <td colspan="2"><button type="button" name="cancel_btn" class="cancel_btn" style="background-color: #e82048;color: white;" > Go Back </button></td>
+  </tr>
+</table>
+
+<!-- -->
+
+  </div>
+</div>
 </form>
 </main>
+
 <script type="text/javascript">
 function validation(){
     var form = document.getElementById("form");
@@ -319,9 +351,29 @@ function validation(){
 
     }
 }
-function onSubmit() {
-  $('.submit').attr('disabled', true);
-}
+
+var Confirm_btn = document.querySelector('.model-confirm');
+var ModalBg = document.querySelector('.modal-bg');
+var Cancel_btn = document.querySelector('.cancel_btn');
+var Submit_btn = document.querySelector('.submit');
+Confirm_btn.addEventListener('click', function(){
+  ModalBg.classList.add('modal_active');
+
+}); 
+Cancel_btn.addEventListener('click', function(){
+  ModalBg.classList.remove('modal_active');
+
+}); 
+Submit_btn.addEventListener('click', function(){
+  ModalBg.classList.remove('modal_active');
+
+}); 
+
+
+
+
+
+
 </script> 
 
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php"); ?>
