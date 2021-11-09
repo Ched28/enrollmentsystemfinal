@@ -90,6 +90,7 @@ if(isset($_POST['submit'])){
             $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
             $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
             $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+            $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode')";
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;
@@ -105,6 +106,7 @@ if(isset($_POST['submit'])){
                 move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
                 move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
                 move_uploaded_file($IDPicture_temp, $location.$IDPicture);
+
 
             }else{
 
@@ -123,6 +125,7 @@ if(isset($_POST['submit'])){
         $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
         $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
         $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+        $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode')";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
