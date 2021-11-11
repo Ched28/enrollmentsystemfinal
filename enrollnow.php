@@ -11,15 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $examcode = $_POST['examcode'];
     $examdate = $_POST['examdate']; 
     if(!empty($examcode) && !empty($examdate)){
-        $checkexamcode = "select * from `student_examresult` where ExamCode ='$examcode' LIMIT 1";
-        $resultcheck = mysqli_query($con, $checkexamcode);
-        if($resultcheck && mysqli_num_rows($resultcheck) > 0){
-            $enc = qcu_encrypt($examcode);
-            echo "<script>
-                        
-                        location.replace('enrollmentform/update_documents.php?id=$enc');
-                        </script>";
-        }else{
+       
         $query = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND ExamDate = '$examdate' LIMIT 1";
         $result = mysqli_query($con, $query);
         if($result){
@@ -45,9 +37,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             echo "<script>location.replace('confirmation_failed.php')</script>";
     
     }
-}
     echo "<script>alert('Please Fill Up the Form!')</script>";
 }
+   
+
 ?>
 
 

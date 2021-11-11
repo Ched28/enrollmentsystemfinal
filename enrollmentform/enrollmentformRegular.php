@@ -287,12 +287,12 @@ $id = $_GET['id'];
 </table>
 <div class="modal-bg">
   <div class="modal">
-  <div class="footer-title">
+  <div class="footer-title modal-footer">
 <img src="<?php  echo $iconsite;?>" alt=""> &nbsp;
 <h2>CONFIRMATION</h2> 
 
 </div>
-<hr>
+<div class="modal-p">
   <h4>BEFORE YOU SUBMIT:</h4>
 <ol> 
 <li> Once you submit, you are agreeing that the QCU Online Portal has a right to record your personal information/datas that you entered here.</li>
@@ -313,6 +313,7 @@ $id = $_GET['id'];
 <!-- -->
 
   </div>
+</div>
 </div>
 </form>
 </main>

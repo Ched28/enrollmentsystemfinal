@@ -40,6 +40,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $examcode = $_POST['examcode'];
         $verifycode = $_POST['verifycode'];
         if(!empty($examcode) && !empty($verifycode)){
+            $checkexamcode = "select * from `student_examresult` where ExamCode ='$examcode' LIMIT 1";
+            $resultcheck = mysqli_query($con, $checkexamcode);
+            if($resultcheck && mysqli_num_rows($resultcheck) > 0){
+                $enc = qcu_encrypt($examcode);
+                echo "<script>
+                            
+                            location.replace('enrollmentform/update_documents.php?id=$enc');
+                            </script>";
+            }else{
             $query1 = "select * from `studentexamresultstemp` where ExamNo = '$examcode' AND vcode = '$verifycode' LIMIT 1";
             $result1 = mysqli_query($con, $query1);
             if($result){
@@ -66,6 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     }
     
 }
+    }
 ?>
 
 <a href="/login.php" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>

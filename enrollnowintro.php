@@ -76,7 +76,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </tr>
 <tr> 
   <td> <button type="button" style="background-color:  #e82048" onclick="location.href='index.php'"> <i class="fas fa-home" ></i> &nbsp; Home </button> </td>
-  <td> <button type="button" style="background-color:  #00AC17" onclick="location.href='index.php'"> <i class="fas fa-folder-plus"></i> &nbsp; Update your Documents </button> </td>
+  <td> <button type="button" style="background-color:  #00AC17" onclick="location.href='enrollnow.php'"> <i class="fas fa-folder-plus"></i> &nbsp; Update your Documents </button> </td>
   <td> <button type="button" style="background-color:  #00AC17" onclick="location.href='enrollnow.php'"> <i class="fas fa-pen"></i> &nbsp; Enroll Now! </button> </td> 
 </tr>
 

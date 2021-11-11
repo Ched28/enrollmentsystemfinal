@@ -451,15 +451,28 @@ tr{
       opacity: 1;
   }
   .modal{
-      background-color: #3366CC;
-
+      background-color: white;
+     color: black;
       width: 50%;
       height: 50%; 
-      padding: 1em;
+ 
       margin: 2em;
      border-radius: 10px;
       
   }
+  .modal-p{
+    padding: .7em;
+  }
+  
   .tab8{
       tab-size: 8;
   }
+
+.modal-footer{
+    background-color: #00AC17;
+    padding: .6em;
+    
+    
+    color: white;
+   
+}
