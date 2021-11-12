@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
     $MedicalClearance_temp = $_FILES['MedicalClearance']['tmp_name'];
     $IDPicture = $_FILES['IDPicture']['name'];
     $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
-    $location = "../files/";
+    
 
     //enrollmentstatus 
 
@@ -96,7 +96,10 @@ if(isset($_POST['submit'])){
             $query .=$insertExamCodee;
             $query .=$insertfile;
             $insertqueries = $con->multi_query($query);
-            
+            $location = "../../files/$studentid/";
+            if(!file_exists($location)){
+            mkdir($location,0777,true);
+            }
             if ($insertqueries){
                 move_uploaded_file($PSA_temp, $location.$PSA);
                 move_uploaded_file($Form137_temp, $location.$Form137);
@@ -121,6 +124,7 @@ if(isset($_POST['submit'])){
     } else{
         $studentidint = 1;
         $studentid = "$enrollmentyear-000$studentidint";
+        
         $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
         $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
         $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
@@ -131,7 +135,10 @@ if(isset($_POST['submit'])){
         $query .=$insertsql3;
         $query .=$insertExamCodee;
         $query .=$insertfile;
-        
+        $location = "../../files/$studentid/";
+            if(!file_exists($location)){
+            mkdir($location,0777,true);
+            }
 
         if ($insertqueries = $con->multi_query($query)){
             move_uploaded_file($PSA_temp, $location.$PSA);

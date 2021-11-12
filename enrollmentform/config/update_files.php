@@ -30,7 +30,8 @@ if(isset($_POST['update'])){
     $MedicalClearance_temp = $_FILES['MedicalClearance']['tmp_name'];
     $IDPicture = $_FILES['IDPicture']['name'];
     $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
-    $location = "../../files/";
+    
+           
     $PSA_TEXT = "";
     $Form137_TEXT = "";
     $Form138_TEXT = "";
@@ -100,7 +101,13 @@ if(isset($_POST['update'])){
     if($cat == "REGULAR"){
         $updatefileregular = "UPDATE `regulardocumentsneed` SET `PSA`='$PSA_TEXT',`Form137`='$Form137_TEXT',`Form138`='$Form138_TEXT',`Diploma`='$Diploma_TEXT',`GoodMoral`='$GoodMoral_TEXT',`BarangayClearance`='$BarangayClearance_TEXT',`MedicalClearance`='$MedicalClearance_TEXT',`IDPicture`='$IDPicture_TEXT' WHERE `StudentID` = '$StudentID1'; ";
         $update1 = mysqli_query($con, $updatefileregular);
-        echo "<script>alert('update here')</script>";
+        
+        $location = "../../files/$StudentID1/";
+      
+        if(!file_exists($location)){
+            mkdir($location,0777,true);
+        }
+       
         if($update1){
             //PSA
             if(file_exists($location.$PSA)){
@@ -108,8 +115,8 @@ if(isset($_POST['update'])){
                 move_uploaded_file($PSA_temp, $location.$PSA);  
             }else{
             move_uploaded_file($PSA_temp, $location.$PSA);
-            if(is_file("../../files/".$PSA_prev) == "true"){ 
-                unlink("../../files/".$PSA_prev); 
+            if(is_file($location.$PSA_prev) == "true"){ 
+                unlink($location.$PSA_prev); 
                 
             }
             }
@@ -119,8 +126,8 @@ if(isset($_POST['update'])){
             move_uploaded_file($Form137_temp, $location.$Form137);  
             }else{
             move_uploaded_file($Form137_temp, $location.$Form137);
-            if(is_file("../../files/".$Form137_prev) == "true"){
-                unlink("../../files/".$Form137);     
+            if(is_file($location.$Form137_prev) == "true"){
+                unlink($location.$Form137);     
             } 
            
             }
@@ -130,8 +137,8 @@ if(isset($_POST['update'])){
             move_uploaded_file($Form138_temp, $location.$Form138);
             }else{
             move_uploaded_file($Form138_temp, $location.$Form138);
-            if(is_file("../../files/".$Form138_prev) == "true"){
-                unlink("../../files/".$Form138_prev);
+            if(is_file($location.$Form138_prev) == "true"){
+                unlink($location.$Form138_prev);
                
             }
 
@@ -144,8 +151,8 @@ if(isset($_POST['update'])){
             }else{
             
             move_uploaded_file($Diploma_temp, $location.$Diploma);
-            if(is_file("../../files/".$Diploma_prev) == "true"){
-                unlink("../../files/".$Diploma_prev);
+            if(is_file($location.$Diploma_prev) == "true"){
+                unlink($location.$Diploma_prev);
                 
                 }
      
@@ -156,8 +163,8 @@ if(isset($_POST['update'])){
              move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
             }else{
             move_uploaded_file($GoodMoral_temp, $location.$GoodMoral);
-            if(is_file("../../files/".$GoodMoral_prev) == "true"){
-                unlink("../../files/".$GoodMoral_prev);
+            if(is_file($location.$GoodMoral_prev) == "true"){
+                unlink($location.$GoodMoral_prev);
                  }
             }
             //bcert
@@ -167,8 +174,8 @@ if(isset($_POST['update'])){
             }else{
             
             move_uploaded_file($BarangayClearance_temp, $location.$BarangayClearance);
-            if(is_file("../../files/".$BarangayClearance_prev)=="true"){
-                unlink("../../files/".$BarangayClearance_prev);
+            if(is_file($location.$BarangayClearance_prev)=="true"){
+                unlink($location.$BarangayClearance_prev);
                 
              }
             }
@@ -179,8 +186,8 @@ if(isset($_POST['update'])){
             }else{
             
             move_uploaded_file($MedicalClearance_temp, $location.$MedicalClearance);
-            if(is_file("../../files/".$MedicalClearance_prev) == "true"){ 
-                unlink("../../files/".$MedicalClearance_prev);
+            if(is_file($location.$MedicalClearance_prev) == "true"){ 
+                unlink($location.$MedicalClearance_prev);
                   
                 }
             }
@@ -192,14 +199,14 @@ if(isset($_POST['update'])){
             }else{
             
             move_uploaded_file($IDPicture_temp, $location.$IDPicture);
-            if(is_file("../../files/".$IDPicture_prev) == "true"){
-                unlink("../../files/".$IDPicture_prev);
+            if(is_file($location.$IDPicture_prev) == "true"){
+                unlink($location.$IDPicture_prev);
             
             }
             }
             }
             sleep(10);
-          echo "<script> location.replace('../success.php');</script>";
+          ///echo "<script> location.replace('../success.php');</script>";
         }
     
     

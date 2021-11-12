@@ -19,3 +19,8 @@ function check_login($con) {
    
 
 }
+
+function check_login_update($con){
+    
+}
+?>
