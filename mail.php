@@ -50,17 +50,16 @@ $_SESSION['email'] = '';
 
                             $mail -> isHtml(true);
 
-                            $mail -> Body = '<body style="margin: 0px;
-                            padding:0px;">
-                      
-                       
+                            $mail -> Body = '<body style="margin: auto;
+                            padding:0px;width: 40%;">
+                                    
                             
-                            <nav style="background: #002347;
+                            <div style="background: #002347;
                             display: flex;
                             justify-content: space-around;
                             color: white;"> 
                                 <div style="padding: 1em;display: flex;">
-                                    <img style="width: 4em;height: 4em;padding: .5em;" src="/img/qcu.png"> &nbsp;&nbsp;&nbsp;
+                                    
                                         <h3>Quezon City University | <span style="font-size:15px;">  Online Portal</span></h3>
                                 </div>
                                 <ul style="text-decoration: none;">
@@ -72,8 +71,8 @@ $_SESSION['email'] = '';
                         
                                 </ul>
                               
-                        </nav>
-                        <main style="padding: 1em;
+                        </div>
+                        <div style="padding: 1em;
                         margin: 1em;">
                             <div class="header">
                             <h1>Welcome to Quezon City Univeristy!</h1>
@@ -85,30 +84,21 @@ $_SESSION['email'] = '';
                         
                                     <p> You are now on the second step to become a QCians, to procced we provide you a verification code to access our online enrollment form!</p>
                         
-                                    <div style="text-align: center;
-                                    font-size: 3em;">
-                                        <p>Code Here</p>
+                                    <div style="text-align: center;font-size: 3em;">
+                                        <p>'.$verfication_code.'</p>
                                     </div>
-                        
+                                    <p> This verification code will also be use for updating all of your requirements.</p>
                                     <p style="color: firebrick"> This verification code is highly confidential and not meant to share to anybody!</p>
-                        
+                    
                                     <p style="text-align: center;"> Visit our Official QCU Website for more info!</p>
-                                    <div style="align-items: center;
-                                    display: flex;
-                                    justify-content: center;">
-                                    <div style="padding: 1em;
-                                    margin: 1em;
-                                    background-color: forestgreen;
-                                    text-align: center;
-                                    width: 30%;
-                                    ">
-                                    <a style="text-decoration: none;
-                                    color: white;" href="http://localhost/enrollmentsystemfinal/"> Learn More</a>
+                                    <div style="align-items: center;display: flex;justify-content: center;">
+                                    <div style="padding: 1em;margin: 1em;background-color: forestgreen;text-align: center;width: 100%;">
+                                    <a style="text-decoration: none;color: white;" href="http://localhost/enrollmentsystemfinal/"> Learn More</a>
                                 </div>
                             </div>
                             </div>
                         </div>
-                        </main>
+                        </div>
                        ';
 
                             $mail -> addAddress("$emailfinal");
