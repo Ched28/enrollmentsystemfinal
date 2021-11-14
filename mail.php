@@ -38,6 +38,8 @@ $_SESSION['email'] = '';
 
                             $mail -> SMTPSecure ="tls";
 
+                            $mail-> SMTPDebug = true;
+
                             $mail -> Port ="587";
 
                             $mail -> Username ="tempqcuenroll2021@gmail.com";
