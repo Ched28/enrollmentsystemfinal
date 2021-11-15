@@ -28,17 +28,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 				                {
                                     $query2 = "SELECT * FROM `student_examresult` WHERE ExamCode = '$examcode' LIMIT 1";
                                     $result2  = mysqli_query($con, $query2);
+                                    $enc = qcu_encrypt($examcode1);
                                     if($result2){
                                         if($result2 && mysqli_num_rows($result2) > 0)
                                         {
+                                            
                                             echo "<script>
-                        
-                                            location.replace('enrollmentstatus.php?id=$id');
+                                            
+                                            location.replace('enrollmentstatus.php?id=$enc');
                                             </script>";
                                         }
                                         else{
                                                 
-                                                    $enc = qcu_encrypt($examcode1);
+                                                    
                                                     echo "<script>location.replace('enrollmentform/enrollmentformchoose.php?id=$enc')</script>";
                                                 
                                                 
