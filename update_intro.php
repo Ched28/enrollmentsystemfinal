@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 }
                                 else{
                                             
-                                    echo "<script>location.replace('mail.php?id=$id')</script>";
+                                    echo "<script>alert('Incorrect Verfication Code')</script>";
                                 
                                 }
                             
@@ -69,8 +69,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
             
             }
-            
+            else{
             echo "<script>alert('Please Fill Up the Form!')</script>";
+            }
     }
     
 

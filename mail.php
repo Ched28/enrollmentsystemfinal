@@ -38,7 +38,7 @@ $_SESSION['email'] = '';
 
                             $mail -> SMTPSecure ="tls";
 
-                            $mail-> SMTPDebug = true;
+                           // $mail-> SMTPDebug = true;
 
                             $mail -> Port ="587";
 

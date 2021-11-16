@@ -250,6 +250,14 @@ main{
     text-align: center;
 
 }
+
+.not-center{
+    text-align: right;
+}
+.white-bg{
+    background-color: white;
+    color: black;
+}
 .form-bg1{
     
 
@@ -262,6 +270,16 @@ main{
     margin: 1em;
     
 
+}
+
+.td1{
+    padding: 1em;
+    margin: 1em;
+    
+}
+
+.data1{
+    border: 1px solid white;
 }
 .form-bg input, button{
     width: 100%;
@@ -475,4 +493,17 @@ tr{
     
     color: white;
    
+}
+.status-btn{
+    background-color: #00AC17;
+    padding: 1em;
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+.status-btn-doc{
+    background-color: #e82048;
+    padding: 1em;
+    cursor: pointer;
+    border-radius: 10px;
 }
