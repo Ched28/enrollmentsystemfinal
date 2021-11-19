@@ -6,6 +6,10 @@ include_once("enrollmentform/config/enc_dec.php");
 
 $dec = $_GET['id'];
 $examcode = qcu_decrypt($dec);
+
+
+
+
 $select = "SELECT * FROM `student_examresult` WHERE ExamCode = '$examcode'";
 
 $result = mysqli_query($con, $select);
@@ -23,13 +27,14 @@ if($result && mysqli_num_rows($result) > 0)
 ?>
 
 <main class="no-bg">
-        
+  
         <div class="loginform" style="padding: 2em;">
         <div class="enrollment-form-table">
         
             <h1>Enrollment Status</h1>
             <hr>
             <table>
+
             <tr>
             <?php
                     while($row1 = mysqli_fetch_array($result2)) {
@@ -54,6 +59,9 @@ if($result && mysqli_num_rows($result) > 0)
                                     echo "<tr><td class='td1'> Category: </td> <td class='td1 data1'>$cat</td></tr>";
                                     echo "<tr><td class='td1'> First Choice: </td>   <td class='td1 data1'>$firstchoice</td></tr>";
 
+                                    if($cat = "REGULAR"){
+                                        $selectimage = "";
+                                    }
                                     $selectapproved = "SELECT * FROM `studentapprovals` WHERE StudentID = '$studentid'";
                                     $resultapproved = mysqli_query($con, $selectapproved);
 
