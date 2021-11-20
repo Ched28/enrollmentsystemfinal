@@ -80,6 +80,7 @@ if($resultreturnee){
 
 <div class="search">
     <table>
+        
     </table>
 </div>
     <div class="content-main">
