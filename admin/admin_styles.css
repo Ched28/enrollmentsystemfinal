@@ -99,10 +99,11 @@ main{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: .3fr, 1fr, 1fr, 1fr;
     grid-template-areas: 
+    
+    "search search search"
     "date date date"
     "content1 content2 content3"
     "content4 content5 content6"
-    "content7 content8 content9"
     ;
     text-align: center;
     gap: .1em;
@@ -144,14 +145,8 @@ main{
 .content6{
     grid-area: content6;
 }
-.content7{
-    grid-area: content7;
-}
-.content8{
-    grid-area: content8;
-}
-.content9{
-    grid-area: content9;
+.search{
+    grid-area: search;
 }
 
 .content-admin{

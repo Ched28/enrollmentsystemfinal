@@ -79,7 +79,7 @@ if($result && mysqli_num_rows($result) > 0)
                                     echo "<tr><td></td><td class='td1'>
                                     
                                     
-                                    <a href='' class='status-btn' style='text-decoration: none;'><i class='fas fa-eye'></i> &nbsp; View Your Info </a> &nbsp;&nbsp; 
+                                    
                                     
                                     
                                     <a href='enrollmentform/update_documents.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
@@ -110,5 +110,6 @@ if($result && mysqli_num_rows($result) > 0)
 
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/footer.php");
+//<a href='' class='status-btn' style='text-decoration: none;'><i class='fas fa-eye'></i> &nbsp; View Your Info </a> &nbsp;&nbsp; 
 ?>
 
