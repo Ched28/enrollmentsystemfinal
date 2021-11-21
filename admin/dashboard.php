@@ -27,7 +27,7 @@ function loadXMLDoc() {
       this.responseText;
     }
   };
-  xhttp.open("GET", "counting.php", true);
+  xhttp.open("POST", "config/counting.php", true);
   xhttp.send();
 }
 setInterval(() => {

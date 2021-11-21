@@ -158,6 +158,72 @@ main{
     ;
 }
 
+.enrollees{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr, 1fr, 1fr;
+    grid-template-areas:
+    "head head head"
+    "con con con"
+    "con con con"
+    
+    ; 
+    color: black;
+}
 
+.head{
+    grid-area: head;
+    color: black;
+    padding: 1em;
+    margin:1em;
+    
 
+}
 
+.head h1{
+    text-align: center;
+}
+.filter-drawer{
+    display: flex; 
+    margin: 0 -10px;
+     
+}
+
+.filter-drawer select{
+    width: 50%;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.con{
+    grid-area: con;
+    padding: 1em;
+    
+}
+
+.con a{
+    text-decoration: none;
+    color: black;
+    
+    font-size: 1em;
+}
+.con a:hover{
+    color: #00AC17;
+}
+.con .buttons{
+    text-align: center;
+
+}
+
+.con th{
+    background-color: #002347;
+    color: white;
+}
+.con th,td{
+    padding: .4em;
+}
+.con tr:hover{
+    color: darkgrey;
+}

@@ -126,17 +126,19 @@ if(isset($_POST['submit'])){
     } else{
         $studentidint = 1;
         $studentid = "$enrollmentyear-000$studentidint";
-        
+        $remarks = "Information has been recorded";
         $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
         $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
         $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
         $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
         $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode');";
+        $insertapproved = "INSERT INTO `studentapprovals`(`StudentID`,`remarks`) VALUES ('$studentid','$remarks');";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
         $query .=$insertExamCodee;
         $query .=$insertfile;
+        $query .=$insertapproved;
         $location = "../../files/$studentid/";
             if(!file_exists($location)){
             mkdir($location,0777,true);
