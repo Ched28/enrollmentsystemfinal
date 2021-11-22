@@ -176,6 +176,7 @@ main{
     color: black;
     padding: 1em;
     margin:1em;
+    font-size: .5em;
     
 
 }
@@ -186,17 +187,25 @@ main{
 .filter-drawer{
     display: flex; 
     margin: 0 -10px;
+    flex-direction: column;
      
 }
 
-.filter-drawer select{
-    width: 50%;
+.filter-drawer select, input{
+    width: 11%;
     font-family: 'Poppins', sans-serif;
     padding: 12px 20px;
     border-radius: 10px;
     margin: 0 10px;
 }
 
+.filter-drawer input{
+    width: 50%;
+}
+
+.filter-drawer button{
+    padding: 12px 20px;
+}
 .con{
     grid-area: con;
     padding: 1em;
@@ -223,7 +232,82 @@ main{
 }
 .con th,td{
     padding: .4em;
+    cursor: pointer;
 }
 .con tr:hover{
     color: darkgrey;
+}
+.modal-bg{
+    font-size: 2em;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.4s;
+
+    
+}
+.modal_active{
+    visibility:visible;
+    opacity: 1;
+}
+.modal{
+    background-color: white;
+   color: black;
+    width: 50%;
+    height: 50%; 
+
+    margin: 2em;
+   border-radius: 10px;
+    
+}
+.modal-p{
+  padding: .7em;
+}
+
+.tab8{
+    tab-size: 8;
+}
+
+.modal-footer{
+  background-color: #00AC17;
+  padding: .6em;
+  
+  
+  color: white;
+ 
+}
+.footer-title{
+    display: flex;
+
+    font-size: 1em;
+   
+}
+.footer-title img{
+    width: 4em;
+    height: 4em;
+    padding: .5em;
+    
+    
+}
+.login-btn{
+    text-decoration: none;
+    color: white;
+    background-color: #00AC17;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 6px;
+}
+
+
+.full-bg{
+    height: 90%;
+    width: 70%;
 }
