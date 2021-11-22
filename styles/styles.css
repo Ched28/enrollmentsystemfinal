@@ -84,7 +84,7 @@ main{
     background-image: url(/enrollmentsystemfinal/img/QCU_COVER.png);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     
@@ -233,13 +233,7 @@ main{
      display: flex;
      
  }
- .enrollment-form,
- .loginform{
-    margin: 2em;
-    padding: 1em;
-    
 
- }
 .form-bg{
     
     padding: 3em;
