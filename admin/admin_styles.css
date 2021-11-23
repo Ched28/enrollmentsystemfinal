@@ -39,8 +39,16 @@ main{
     height: 100vh;
 }
 
+
+
 .content{
     grid-area: content;
+}
+
+.enrollees_indi{
+    color: black;
+    padding: 1em;
+    margin: 1em;
 }
 
 .logo{

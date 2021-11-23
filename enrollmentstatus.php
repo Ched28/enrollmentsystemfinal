@@ -26,7 +26,7 @@ if($result && mysqli_num_rows($result) > 0)
    
 ?>
 
-<main class="no-bg">
+<main class="no-bg full-height">
   
         <div class="loginform" style="padding: 2em;">
         <div class="enrollment-form-table">

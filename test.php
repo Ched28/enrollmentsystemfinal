@@ -86,6 +86,40 @@ include_once('dbcon.php');
 // }
 //     }  padding: 12px 20px; 
 
+<?php  
+
+$selecteducinfo = "SELECT * FROM `studenteducationalinfo` WHERE StudentID = '$studentid' LIMIT 1";
+
+$selectei_run = mysqli_query($con, $selecteducinfo);
+if($selectei_run){
+    if($selectei_run && mysqli_num_rows($selectei_run) > 0){
+        while($row1 = mysqli_fetch_array($selectei_run)){
+            $lastschoolattend = $row1['schoollastattended'];
+            $schooladdress = $row1['schoollastattendedaddress'];
+            $level = $row1['schoollastattendedlevel'];
+
+            $selectenrollinfo = "SELECT * FROM `studentenrollmentinfo` WHERE StudentID = '$studentid' LIMIT 1";
+            $selectenin = mysqli_query($con,$selectenrollinfo);
+
+            if($selectenin){
+                if($selectenin && mysqli_num_rows($selectenin) > 0){
+                    while($row3 = mysqli_num_rows($selectenin)){
+                        $category = $row3['category'];
+                        $firstcourse = $row3['firstcourse'];
+                        $secondcourse = $row3['secondcourse'];
+                        $thirdcourse = $row3['thirdcourse'];
+
+                        ?>
+                        
+                        
+                        
+                        <?php 
+                    }
+                }
+            }
+        }
+    }
+}
 // ?>
 <?php //include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
 
