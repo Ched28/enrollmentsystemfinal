@@ -225,8 +225,9 @@ if($select_run){
                             $MedicalClearance = $row4['MedicalClearance'];
                             $IDPicture = $row4['IDPicture'];
                             ?>
+                            
                             <div id="documents">
-                                <hr>
+                               
                                 <div class="enrollees_indibody">
                                     <h3>DOCUMENTS</h3>
                                     <table>
