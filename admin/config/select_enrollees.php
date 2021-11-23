@@ -27,7 +27,7 @@ if($select_run){
                 <td><?php  echo $studentcourse;?></td>
                 <td><?php  echo $studentapproval;?></td>
                 <td><?php  echo $studentremarks;?></td>
-                <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; <a href=""> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href=""><i class="fas fa-edit"></i> </a> </td>
+                <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; </a> <a href=""><i class="fas fa-edit"></i> </a> </td>
             </tr>
 <?php 
         }

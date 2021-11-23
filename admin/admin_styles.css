@@ -36,7 +36,8 @@ nav{
 main{
     grid-area: main;
     background: #000017;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
 }
 
 
@@ -45,11 +46,7 @@ main{
     grid-area: content;
 }
 
-.enrollees_indi{
-    color: black;
-    padding: 1em;
-    margin: 1em;
-}
+
 
 .logo{
     padding: 1em;
@@ -318,4 +315,29 @@ main{
 .full-bg{
     height: 90%;
     width: 70%;
+}
+.enrollees_indi{
+    color: black;
+    padding: 1em;
+    margin: 1em;
+}
+.basic{
+   
+    text-align: center;
+}
+.enrollees_indi table{
+    width: 100%;
+}
+
+.enrollees_indi th{
+    background-color: #00AC17;
+    color: white;
+}
+.enrollees_indihead{
+    display: flex;
+    justify-content: space-between;
+}
+.enrollees_indihead a{
+    color: black;
+    text-decoration: none;
 }
