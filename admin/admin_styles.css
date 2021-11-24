@@ -234,6 +234,7 @@ main{
 .con th{
     background-color: #002347;
     color: white;
+    border-collapse: collapse;
 }
 .con th,td{
     padding: .4em;
@@ -332,6 +333,7 @@ main{
 .enrollees_indi th{
     background-color: #00AC17;
     color: white;
+    border-collapse: collapse;
 }
 .enrollees_indihead{
     display: flex;
@@ -343,4 +345,17 @@ main{
 }
 #documents{
     display: none;
+}
+
+
+.enrollees_indibody a{
+    text-decoration: none;
+    color: white;
+    padding: .4em;
+    background-color:#002347;
+    border-radius: 10px;
+
+}
+.enrollees_indibody a:hover{
+    background-color:#064a8d;
 }
