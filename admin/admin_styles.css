@@ -359,3 +359,25 @@ main{
 .enrollees_indibody a:hover{
     background-color:#064a8d;
 }
+
+.caption{
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    
+   
+}
+
+.caption a:hover{
+    background-color: #00AC17;
+    color: white;
+}
+
+.caption a{
+    padding: .5em;
+    margin: .5em;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+
+}
