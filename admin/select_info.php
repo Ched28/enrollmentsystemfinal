@@ -239,10 +239,10 @@ if($select_run){
                                         <tr>
                                             <?php 
                                             if($PSA != ""){
-                                                $inc = qcu_encrypt($PSA);
+                                                
                                                 echo "<th> PSA </th>
 
-                                                <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $PSA </a> </td>";
+                                                <td> <a href='readpdf.php?file=$PSA&id=$studentinc' target='_blank'> $PSA </a> </td>";
                                             }
                                             ?>
                                             
@@ -250,10 +250,10 @@ if($select_run){
                                         <tr>
                                              <?php 
                                             if($Form137 != ""){
-                                                $inc = qcu_encrypt($Form137);
+                                                
                                                 echo "<th> Form 137 </th>
 
-                                                <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $Form137 </a> <br></td>";
+                                                <td> <a href='readpdf.php?file=$Form137&id=$studentinc' target='_blank'> $Form137 </a> <br></td>";
                                             }
                                             ?>
                                             
@@ -261,20 +261,20 @@ if($select_run){
                                         <tr>
                                         <?php 
                                             if($Form138 != ""){
-                                                $inc = qcu_encrypt($Form138);
+                                               
                                                 echo "<th> Form 138 </th>
 
-                                                <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $Form138 </a> </td>";
+                                                <td> <a href='readpdf.php?file=$Form138&id=$studentinc' target='_blank'> $Form138 </a> </td>";
                                             }
                                             ?>
                                         </tr>
                                         <tr>
                                         <?php 
                                            if($Diploma != ""){
-                                            $inc = qcu_encrypt($Diploma);
+                                           
                                             echo "<th> Diploma </th>
 
-                                            <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $Diploma </a> </td>";
+                                            <td> <a href='readpdf.php?file=$Diploma&id=$studentinc' target='_blank'> $Diploma </a> </td>";
                                         }
                                         ?>
                                         
@@ -282,30 +282,30 @@ if($select_run){
                                         <tr>
                                          <?php 
                                             if($GoodMoral != ""){
-                                                $inc = qcu_encrypt($GoodMoral);
+                                               
                                                 echo "<th> Good Moral </th>
     
-                                                <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $GoodMoral </a> </td>";
+                                                <td> <a href='readpdf.php?file=$GoodMoral&id=$studentinc' target='_blank'> $GoodMoral </a> </td>";
                                             }
                                         ?>
                                         </tr>
                                         <tr>
                                         <?php 
                                             if($BarangayClearance != ""){
-                                                $inc = qcu_encrypt($BarangayClearance);
+                                               
                                                 echo "<th> Barangay Certificate </th>
     
-                                                <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $BarangayClearance </a> </td>";
+                                                <td> <a href='readpdf.php?file=$BarangayClearance&id=$studentinc' target='_blank'> $BarangayClearance </a> </td>";
                                             }
                                         ?>
                                         </tr>
                                         <tr>
                                         <?php 
                                             if($MedicalClearance != ""){
-                                                $inc = qcu_encrypt($MedicalClearance);
+                                               
                                                 echo "<th> Medical Clearance </th>
     
-                                                <td> <a href='readpdf.php?file=$inc&id=$studentinc' target='_blank'> $MedicalClearance </a> </td>";
+                                                <td> <a href='readpdf.php?file=$MedicalClearance&id=$studentinc' target='_blank'> $MedicalClearance </a> </td>";
                                             }
                                         ?>
                                         </tr>
