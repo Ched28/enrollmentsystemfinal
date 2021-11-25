@@ -78,16 +78,11 @@ if($resultreturnee){
 
 ?>
 
-<div class="search">
-    <table>
-        
-    </table>
-</div>
     <div class="content-main">
     <div class="content-date"> <h3> As of <?php echo date("M d Y");?> </h3></div>
     <div class="content1">
      <h1> <?php echo $_SESSION['passers'];?>  <hr> </h1> 
-     <span style="font-size: 1.3em;padding: 0;margin: 0;"> Passers </span>
+     <span style="font-size: 1.3em;padding: 0;margin: 0;"> QCUCAT Passers </span>
          </div>
     <div class="content2">
          <h1> <?php echo $_SESSION['enroll'];?>  <hr> </h1> 

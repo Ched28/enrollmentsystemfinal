@@ -44,7 +44,7 @@ if($select_run){
             <h1><?php echo $studentid."&nbsp; <span style='font-size: .7em;'>$lastname, $firstname $middlename</span>"; ?></h1>
             </div>
             <div>
-            <a onclick="myFunction()"><i class="fas fa-eye" ></i> </a> &nbsp; <a href=""> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href=""><i class="fas fa-edit"></i> </a>
+            <a href='' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href="approvals.php"><i class="fas fa-edit"></i> </a>
             </div>
             
             
@@ -236,6 +236,16 @@ if($select_run){
                                 <div class="enrollees_indibody">
                                     <h3>DOCUMENTS</h3>
                                     <table>
+                                    <tr>
+                                            <?php 
+                                            if($IDPicture != ""){
+                                                echo "<th> ID Picture </th>
+                                                
+                                                <td> <img src ='$location' style='width:200px;height:200px;'> </td>";
+                                            }
+                                            
+                                            ?>
+                                        </tr>
                                         <tr>
                                             <?php 
                                             if($PSA != ""){
@@ -289,6 +299,104 @@ if($select_run){
                                             }
                                         ?>
                                         </tr>
+                                        <tr>
+                                        <?php 
+                                            if($BarangayClearance != ""){
+                                               
+                                                echo "<th> Barangay Certificate </th>
+    
+                                                <td> <a href='readpdf.php?file=$BarangayClearance&id=$studentinc' target='_blank'> $BarangayClearance </a> </td>";
+                                            }
+                                        ?>
+                                        </tr>
+                                        <tr>
+                                        <?php 
+                                            if($MedicalClearance != ""){
+                                               
+                                                echo "<th> Medical Clearance </th>
+    
+                                                <td> <a href='readpdf.php?file=$MedicalClearance&id=$studentinc' target='_blank'> $MedicalClearance </a> </td>";
+                                            }
+                                        ?>
+                                        </tr>
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                            <?php 
+                        }
+                    }
+                }
+            }
+
+            ///another cat 
+            else if($cat == "TRANSFEREE"){
+                $selectfiletrans = "SELECT * FROM `transfeeesdocumentsneed` WHERE StudentID = '$studentid'";
+                $select_file_run1 = mysqli_query($con, $selectfiletrans);
+
+                if($select_file_run1){
+                    if($select_file_run1 && mysqli_num_rows($select_file_run1) > 0){
+                        while($row4 = mysqli_fetch_array($select_file_run1)){
+                            $PSA = $row4['PSA'];
+                            $TOR = $row4['TOR'];
+                            $TransCer = $row4['CertificateofTransferCredential'];
+                            $subject = $row4['SubjectDescription'];
+                            $BarangayClearance = $row4['BarangayClearance'];
+                            $MedicalClearance = $row4['MedicalClearance'];
+                            $IDPicture = $row4['IDPicture'];
+                            $location = "../files/$studentid/$IDPicture";
+                            $studentinc = qcu_encrypt($studentid);
+                            ?>
+                            
+                            <div id="documents">
+                               
+                                <div class="enrollees_indibody">
+                                    <h3>DOCUMENTS</h3>
+                                    <table>
+                                        <tr>
+                                            <?php 
+                                            if($PSA != ""){
+                                                
+                                                echo "<th> PSA </th>
+
+                                                <td> <a href='readpdf.php?file=$PSA&id=$studentinc' target='_blank'> $PSA </a> </td>";
+                                            }
+                                            ?>
+                                            
+                                        </tr>
+                                        <tr>
+                                             <?php 
+                                            if($TOR != ""){
+                                                
+                                                echo "<th> Transcript of Records From Previous School </th>
+
+                                                <td> <a href='readpdf.php?file=$$TOR&id=$studentinc' target='_blank'> $TOR </a> <br></td>";
+                                            }
+                                            ?>
+                                            
+                                        </tr>
+                                        <tr>
+                                        <?php 
+                                            if($subject != ""){
+                                               
+                                                echo "<th> Subject Description </th>
+
+                                                <td> <a href='readpdf.php?file=$subject&id=$studentinc' target='_blank'>$subject </a> </td>";
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr>
+                                        <?php 
+                                           if($TransCer != ""){
+                                           
+                                            echo "<th> Certificate of Transfer Credential </th>
+
+                                            <td> <a href='readpdf.php?file=$TransCer&id=$studentinc' target='_blank'> $TransCer </a> </td>";
+                                        }
+                                        ?>
+                                        
+                                        </tr>
+                                        
                                         <tr>
                                         <?php 
                                             if($BarangayClearance != ""){

@@ -38,6 +38,7 @@ main{
     background: #000017;
     height: 100%;
     min-height: 100vh;
+   
 }
 
 
@@ -105,10 +106,10 @@ main{
     grid-template-rows: .3fr, 1fr, 1fr, 1fr;
     grid-template-areas: 
     
-    "search search search"
     "date date date"
     "content1 content2 content3"
     "content4 content5 content6"
+    "content7 content8 content9"
     ;
     text-align: center;
     gap: .1em;
@@ -150,18 +151,19 @@ main{
 .content6{
     grid-area: content6;
 }
-.search{
-    grid-area: search;
+.content7{
+    grid-area: content7;
 }
 
-.content-admin{
-    display:grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: 
-    "content-admin1"
-    "content-admin2"
-    ;
+.content8{
+    grid-area: content8;
 }
+.content9{
+    grid-area: content9;
+}
+
+
+
 
 .enrollees{
     display: grid;
@@ -189,15 +191,15 @@ main{
 .head h1{
     text-align: center;
 }
-.filter-drawer{
+.filter-drawer form{
     display: flex; 
     margin: 0 -10px;
-    flex-direction: column;
+   
      
 }
 
-.filter-drawer select, input{
-    width: 11%;
+.filter-drawer select{
+    width: 35%;
     font-family: 'Poppins', sans-serif;
     padding: 12px 20px;
     border-radius: 10px;
@@ -216,7 +218,10 @@ main{
     padding: 1em;
     
 }
-
+.con table{
+    min-width: 100%;
+    min-height: 100%;
+}
 .con a{
     text-decoration: none;
     color: black;
@@ -243,66 +248,7 @@ main{
 .con tr:hover{
     color: darkgrey;
 }
-.modal-bg{
-    font-size: 2em;
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.4s;
 
-    
-}
-.modal_active{
-    visibility:visible;
-    opacity: 1;
-}
-.modal{
-    background-color: white;
-   color: black;
-    width: 50%;
-    height: 50%; 
-
-    margin: 2em;
-   border-radius: 10px;
-    
-}
-.modal-p{
-  padding: .7em;
-}
-
-.tab8{
-    tab-size: 8;
-}
-
-.modal-footer{
-  background-color: #00AC17;
-  padding: .6em;
-  
-  
-  color: white;
- 
-}
-.footer-title{
-    display: flex;
-
-    font-size: 1em;
-   
-}
-.footer-title img{
-    width: 4em;
-    height: 4em;
-    padding: .5em;
-    
-    
-}
 .login-btn{
     text-decoration: none;
     color: white;
@@ -380,4 +326,67 @@ main{
     border-radius: 10px;
     
 
+}
+.modal-bg{
+    font-size: 2em;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.4s;
+
+    
+}
+.modal_active{
+    visibility:visible;
+    opacity: 1;
+}
+.modal{
+    background-color: white;
+   color: black;
+    width: 20%;
+    height: 20%; 
+
+    margin: 2em;
+   border-radius: 10px;
+    
+}
+.modal-p{
+  padding: .7em;
+}
+
+.tab8{
+    tab-size: 8;
+}
+
+.modal-footer{
+  background-color: #00AC17;
+  padding: .6em;
+  
+  
+  color: white;
+ 
+}
+.footer-title{
+    display: flex;
+
+    font-size: 1em;
+   
+}
+.footer-title img{
+    width: 4em;
+    height: 4em;
+    padding: .5em;
+    
+    
+}
+.Confirm_btn{
+    background: none;
 }

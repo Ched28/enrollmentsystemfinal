@@ -2,7 +2,7 @@
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
 include_once("config/dbcon.php");
 session_start();
-
+$query = '';
 ?>
 <div class="content">
     <div class="enrollees">
@@ -12,7 +12,7 @@ session_start();
     <div class="filter-drawer">
       
         <form action="" class="searchbox" method="POST">
-        <input type="text" name="search" placeholder="Search...">
+   
     <select name="firstcourse" value=""> 
                         <option value=" ">ALL</option>  
                         <option value="Bachelor of Science in Information Technology">BSIT</option>
@@ -36,11 +36,11 @@ session_start();
     <select name="approval" value=" "> 
                         <option value=" ">ALL</option>  
                         <option value="APPROVED">Approved</option>
-                        <option value="TO BE APPROVED">To be Approved</option>
+                        <option value="NOT APPROVED">To be Approved</option>
                      
           
                     </select>
-                  <button type="submit"><i class="fas fa-search"></i></button>
+                  <button type="submit" name="submit"><i class="fas fa-search"></i></button>
                     </form>
     
     </div>
@@ -64,63 +64,98 @@ session_start();
 <tbody id="enrollees_data">
 <tr>
     <?php
+   
+      
+       
+        if(!isset($_POST['submit'])){
+            
 
-        $searchbar = $_POST['search'];
-        $course = $_POST['firstcourse'];
-        $category = $_POST['category'];
-        $approval = $_POST['approval'];
-        $selectenrolleesstatus = "SELECT studentinfo.StudentID, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN studentapprovals ON studentinfo.StudentID = studentapprovals.StudentID LIMIT 0,10;";
-        $select_run = mysqli_query($con, $selectenrolleesstatus);
-        if($select_run){
-            if($select_run && mysqli_num_rows($select_run) > 0){
-        
-        while($row = mysqli_fetch_array($select_run)){
-            $studentid = $row['StudentID'];
-            $studentlast = $row['FullName-Last'];
-            $studentfirst = $row['FullName-First'];
-            $studentcat = $row['category'];
-            $studentcourse =$row['firstcourse'];
-            $studentapproval = $row['Approval'];
-            $studentremarks = $row['remarks'];
-            $id = $row['ID'];
-            $_SESSION['id'] = $id;
+                $selectenrolleesstatus = "SELECT studentinfo.StudentID, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN studentapprovals ON studentinfo.StudentID = studentapprovals.StudentID";
+                $select_run = mysqli_query($con, $selectenrolleesstatus);
+                if($select_run){
+                    if($select_run && mysqli_num_rows($select_run) > 0){
+                        while($row = mysqli_fetch_array($select_run)){
+                            $studentid = $row['StudentID'];
+                            $studentlast = $row['FullName-Last'];
+                            $studentfirst = $row['FullName-First'];
+                            $studentcat = $row['category'];
+                            $studentcourse =$row['firstcourse'];
+                            $studentapproval = $row['Approval'];
+                            $studentremarks = $row['remarks'];
+                            $id = $row['ID'];
 
-    ?>  
-      <td><?php  echo $studentid;?></td>
-                <td><?php  echo $studentlast;?></td>
-                <td><?php  echo $studentfirst;?></td>
-                <td><?php  echo $studentcat;?></td>
-                <td><?php  echo $studentcourse;?></td>
-                <td><?php  echo $studentapproval;?></td>
-                <td><?php  echo $studentremarks;?></td>
-                <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; </a> <a href=""><i class="fas fa-edit"></i> </a> </td>
-            </tr>
-</tbody>
-<?php 
-        }
-    }
-}
+                            ?>  
+                            <td><?php  echo $studentid;?></td>
+                            <td><?php  echo $studentlast;?></td>
+                            <td><?php  echo $studentfirst;?></td>
+                            <td><?php  echo $studentcat;?></td>
+                            <td><?php  echo $studentcourse;?></td>
+                            <td><?php  echo $studentapproval;?></td>
+                            <td><?php  echo $studentremarks;?></td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp;<a href=''><i class="fas fa-edit"></i> </a> </td>
+                            </tr>
+ </tbody>
+ <?php 
+                        }
+            }
 
-
-?>
-</table>
-<div class="caption">
-    <?php 
-        //check how many dataa
-        $selectrows = "SELECT studentinfo.StudentID, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN studentapprovals ON studentinfo.StudentID = studentapprovals.StudentID;";
-        $countrows = mysqli_query($con, $selectrows);
-
-        $count1 = mysqli_num_rows($countrows);
-        $count1 = $count1/10;
-        $count2 = ceil($count1);
-
-        for($b = 1;$b<=$count2;$b++){
-
-        ?>  <a href='config/select_enrollees.php?page=<?php echo $b; ?>'><?php echo $b;?> </a><?php 
         }
     
-    ?>
+}else{
+   
+    $course = $_POST['firstcourse'];
+            $category = $_POST['category'];
+            $approval = $_POST['approval'];
+
+            if($course != ' ' || $category != ' ' || $approval != ' '){
+                $selectenrolleesstatus = "SELECT studentinfo.StudentID, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN studentapprovals ON studentinfo.StudentID = studentapprovals.StudentID WHERE studentenrollmentinfo.category = '$category' OR studentenrollmentinfo.firstcourse = '$course' OR studentapprovals.Approval = '$approval';";
+                $select_run = mysqli_query($con, $selectenrolleesstatus);
+                if($select_run){
+                    if($select_run && mysqli_num_rows($select_run) > 0){
+                        while($row = mysqli_fetch_array($select_run)){
+                            $studentid = $row['StudentID'];
+                            $studentlast = $row['FullName-Last'];
+                            $studentfirst = $row['FullName-First'];
+                            $studentcat = $row['category'];
+                            $studentcourse =$row['firstcourse'];
+                            $studentapproval = $row['Approval'];
+                            $studentremarks = $row['remarks'];
+                            $id = $row['ID'];
+
+                            ?>  
+                            <td><?php  echo $studentid;?></td>
+                            <td><?php  echo $studentlast;?></td>
+                            <td><?php  echo $studentfirst;?></td>
+                            <td><?php  echo $studentcat;?></td>
+                            <td><?php  echo $studentcourse;?></td>
+                            <td><?php  echo $studentapproval;?></td>
+                            <td><?php  echo $studentremarks;?></td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; <a href=''><i class="fas fa-edit"></i> </a> </td>
+                            
+                           
+                        
+                            </tr>
+ </tbody>
+ 
+ <?php 
+                        }
+            }
+
+        }
+    }
+
+}
+
+?>
+
+
+
+
+</table>
+
 </div>
 </div>
 </div>
-</div>
+
+
+
