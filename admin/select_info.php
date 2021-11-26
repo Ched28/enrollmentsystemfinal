@@ -35,7 +35,7 @@ if($select_run){
             $guardianname = $row['guardianname'];
             $relationship  = $row['relationship'];
             $guardiancontactno = $row['guardiancontactno'];
-
+            $studentinc = qcu_encrypt($studentid);
             ?>
             <div class = "enrollees_indi">
 
@@ -44,7 +44,7 @@ if($select_run){
             <h1><?php echo $studentid."&nbsp; <span style='font-size: .7em;'>$lastname, $firstname $middlename</span>"; ?></h1>
             </div>
             <div>
-            <a href='' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href="approvals.php"><i class="fas fa-edit"></i> </a>
+            <a href='' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href="approvals.php?id=<?php echo $studentinc;?>"><i class="fas fa-edit"></i> </a>
             </div>
             
             

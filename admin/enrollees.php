@@ -92,7 +92,7 @@ $query = '';
                             <td><?php  echo $studentcourse;?></td>
                             <td><?php  echo $studentapproval;?></td>
                             <td><?php  echo $studentremarks;?></td>
-                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp;<a href=''><i class="fas fa-edit"></i> </a> </td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp;<a href="approvals.php"><i class="fas fa-edit"></i> </a> </td>
                             </tr>
  </tbody>
  <?php 
@@ -130,7 +130,7 @@ $query = '';
                             <td><?php  echo $studentcourse;?></td>
                             <td><?php  echo $studentapproval;?></td>
                             <td><?php  echo $studentremarks;?></td>
-                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; <a href=''><i class="fas fa-edit"></i> </a> </td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; <a href="approvals.php"><i class="fas fa-edit"></i> </a> </td>
                             
                            
                         
