@@ -397,3 +397,65 @@ main{
     right: 0;
     transform-origin: center right;
 }
+
+.approval-form{
+    padding: 2em;
+    margin: 2em;
+    display: grid;
+    grid-template-areas: 
+    "headapp headapp headapp"
+    "appbody appbody appbody"
+    "appbody appbody appbody"   
+    ;
+}
+
+.headapp{
+    grid-area: headapp;
+    width: 100%;
+    text-align: center;
+   
+    background-color: #00AC17;
+    
+    
+}
+.headapp p{
+    font-weight: 900;
+    font-size: 2em;
+
+}
+.appbody{
+    grid-area: appbody;
+    min-height: 100vh;
+    color: black;
+    height: 100%;
+
+}
+
+.appbody input,select,button{
+    width: 50%;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 20px;
+    
+}
+.appbody table{
+    width: 100%;
+    padding: 1em;
+}
+.appbody h1{
+    padding-left: 1em;
+}
+
+.appbodyhead{
+    display: flex;
+    justify-content: space-between;
+}
+.appheadbutton{
+    padding: 3em;
+}
+.appbodyhead a{
+    color: black;
+    text-decoration: none;
+}
+.appbody button{
+    background-color: #00AC17;
+}

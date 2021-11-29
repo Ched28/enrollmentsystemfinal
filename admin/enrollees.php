@@ -1,8 +1,9 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
+session_start();
 include_once("config/dbcon.php");
 include_once("config/enc_dec.php");
-session_start();
+
 $query = '';
 
 
@@ -39,7 +40,7 @@ $query = '';
     <select name="approval" value=" "> 
                         <option value=" ">ALL</option>  
                         <option value="APPROVED">Approved</option>
-                        <option value="NOT APPROVED">To be Approved</option>
+                        <option value="TO BE APPROVED">To be Approved</option>
                      
           
                     </select>

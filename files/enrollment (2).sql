@@ -136,14 +136,10 @@ CREATE TABLE `bsit_subject` (
 --
 
 INSERT INTO `bsit_subject` (`id`, `subjectcode`, `subjecttitle`, `units`, `lec`, `lab`, `prerequisite`, `year`, `sem`) VALUES
-(1, 'MATH 1', 'Mathematics in the Modern World', '3', '3', '0', 'None', '1', '1'),
-(2, 'GEE 1 ', 'Philosophy of the Good Life', '3', '3', '0', 'None', '1', '1'),
-(3, 'GEE 2', 'Fundamentals of Creativity and Innovation ', '3', '3', '0', 'None', '1', '1'),
-(4, 'CC101', 'Introduction to Computing', '3', '2', '3', 'None', '1', '1'),
-(5, 'CC102 ', 'Fundamentals of Programming ', '3', '2', '3', 'None', '1', '1'),
-(6, 'WS101', 'Web Systems and Technologies 1 (Electives)', '3', '2', '3', 'None', '1', '1'),
-(7, 'PE 1', 'Physical Fitness and Wellness', '2', '2', '0', 'None', '1', '1'),
-(8, 'NSTP 1', 'National Service Training Program 1 ', '3', '3', '0', 'None', '1', '1');
+(1, 'CC101', 'Introduction to Computing', '3', '2', '3', 'None', '1', '1'),
+(2, 'CC102 ', 'Fundamentals of Programming ', '3', '2', '3', 'None', '1', '1'),
+(3, 'WS101', 'Web Systems and Technologies 1 (Electives)', '3', '2', '3', 'None', '1', '1');
+
 
 -- --------------------------------------------------------
 
@@ -204,6 +200,14 @@ CREATE TABLE `genacc_subject` (
   `year` varchar(11) NOT NULL,
   `sem` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `genacc_subject`(`id`, `subjectcode`, `subjecttitle`, `units`, `lec`, `lab`, `prerequisite`, `year`, `sem`) VALUES
+(1, 'MATH 1', 'Mathematics in the Modern World', '3', '3', '0', 'None', '1', '1'),
+(2, 'GEE 1 ', 'Philosophy of the Good Life', '3', '3', '0', 'None', '1', '1'),
+(3, 'GEE 2', 'Fundamentals of Creativity and Innovation ', '3', '3', '0', 'None', '1', '1'),
+(4, 'PE 1', 'Physical Fitness and Wellness', '2', '2', '0', 'None', '1', '1'),
+(5, 'NSTP 1', 'National Service Training Program 1 ', '3', '3', '0', 'None', '1', '1');
+
 
 -- --------------------------------------------------------
 
