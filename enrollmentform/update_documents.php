@@ -13,12 +13,12 @@ $selectstudent = "SELECT * FROM `student_examresult` WHERE ExamCode = $dec LIMIT
 $result_student = mysqli_query($con, $selectstudent);
 if(mysqli_num_rows($result_student)>0){
     if($row1 = mysqli_fetch_assoc($result_student)){
-        $StudentID = $row1['StudentID'];
-        $select_cat = "SELECT * FROM `studentenrollmentinfo` WHERE StudentID = '$StudentID' LIMIT 1";
+        $enrollnumber = $row1['enrollnumber'];
+        $select_cat = "SELECT * FROM `studentenrollmentinfo` WHERE enrollnumber = '$enrollnumber' LIMIT 1";
         $result_cat = mysqli_query($con, $select_cat);
         if($row2 = mysqli_fetch_assoc($result_cat)){
-            $StudentID1 = $row2['StudentID'];
-            $enc = qcu_encrypt($StudentID1);
+            $enrollnumber1 = $row2['enrollnumber'];
+            $enc = qcu_encrypt($enrollnumber1);
             $categorytemp = $row2['category'];
             $enc1 = qcu_encrypt($categorytemp);
             // echo "<script>alert('$categorytemp')</script>";
@@ -50,7 +50,7 @@ if(mysqli_num_rows($result_student)>0){
     <input type="hidden" name="hidden_cat" value="<?php echo $categorytemp?>">
 <?php 
      
-     $select_info = "SELECT * FROM `studentinfo` WHERE StudentID = '$StudentID1' LIMIT 1";
+     $select_info = "SELECT * FROM `studentinfo` WHERE enrollnumber = '$enrollnumber1' LIMIT 1";
      $result_info = mysqli_query($con, $select_info);
      if($result_info){
 
@@ -68,7 +68,7 @@ if(mysqli_num_rows($result_student)>0){
      </td>
      
         <?php 
-         $select_regular= "SELECT * FROM `regulardocumentsneed` WHERE StudentID = '$StudentID1' LIMIT 1";
+         $select_regular= "SELECT * FROM `regulardocumentsneed` WHERE enrollnumber = '$enrollnumber1' LIMIT 1";
          $result_regular= mysqli_query($con, $select_regular);
          while($row3 = mysqli_fetch_array($result_regular)){
             $PSA = $row3['PSA'];
@@ -184,9 +184,9 @@ Here are the requrirements you submitted...
             </p>
             <input type="file" name="IDPicture" id="" class="choose" value="<?php echo $IDPicture;?>" accept=".jpeg,.jpg,.png">
             <input type="hidden" name="IDPicture_prev" value="<?php echo $IDPicture;?>">
-            <input type="hidden" name="hidden_studentID" value="<?php echo $StudentID ?>">
+            <input type="hidden" name="hidden_studentID" value="<?php echo $enrollnumber ?>">
            <?php
-            $_SESSION['StudentID'] = $StudentID;
+            $_SESSION['enrollnumber'] = $enrollnumber;
             
              }
              //echo "<p> Looks like you haven't sent any documents</p>";

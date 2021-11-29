@@ -18,9 +18,9 @@ if($result && mysqli_num_rows($result) > 0)
 
 {
     while ($row = mysqli_fetch_array($result)){
-        $studentid = $row['StudentID'];
+        $enrollnumber = $row['enrollnumber'];
 
-        $select1 = "SELECT * FROM `studentinfo` WHERE StudentID = '$studentid' LIMIT 1";
+        $select1 = "SELECT * FROM `studentinfo` WHERE enrollnumber = '$enrollnumber' LIMIT 1";
         $result2 = mysqli_query($con, $select1);
         if($result2){
    
@@ -47,7 +47,7 @@ if($result && mysqli_num_rows($result) > 0)
                         echo "<tr><td colspan='1' class='td1'> Name: </td> <td colspan='3' class='td1 data1'>$fullname</td> </td><tr>";
                         echo "<tr><td colspan='1' class='td1'> Email: </td> <td colspan='3' class='td1 data1'>$email</td> </td><tr>";
            
-                        $select2 = "SELECT * FROM `studentenrollmentinfo` WHERE StudentID = '$studentid'";
+                        $select2 = "SELECT * FROM `studentenrollmentinfo` WHERE enrollnumber = '$enrollnumber'";
 
                         $result3 = mysqli_query($con, $select2);
 
@@ -62,7 +62,7 @@ if($result && mysqli_num_rows($result) > 0)
                                     if($cat = "REGULAR"){
                                         $selectimage = "";
                                     }
-                                    $selectapproved = "SELECT * FROM `studentapprovals` WHERE StudentID = '$studentid'";
+                                    $selectapproved = "SELECT * FROM `studentapprovals` WHERE enrollnumber = '$enrollnumber'";
                                     $resultapproved = mysqli_query($con, $selectapproved);
 
                                     if($resultapproved){

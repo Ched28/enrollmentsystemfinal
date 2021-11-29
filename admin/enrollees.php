@@ -1,8 +1,11 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
 include_once("config/dbcon.php");
+include_once("config/enc_dec.php");
 session_start();
 $query = '';
+
+
 ?>
 <div class="content">
     <div class="enrollees">
@@ -52,7 +55,8 @@ $query = '';
         
 
 <tr>
-    <th>Student ID</th>
+    <th>EN NO.
+    </th>
     <th>Last Name</th>
     <th>First Name</th>
     <th>Category</th>
@@ -70,12 +74,12 @@ $query = '';
         if(!isset($_POST['submit'])){
             
 
-                $selectenrolleesstatus = "SELECT studentinfo.StudentID, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN studentapprovals ON studentinfo.StudentID = studentapprovals.StudentID";
+                $selectenrolleesstatus = "SELECT studentinfo.enrollnumber, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.enrollnumber = studentenrollmentinfo.enrollnumber INNER JOIN studentapprovals ON studentinfo.enrollnumber = studentapprovals.enrollnumber";
                 $select_run = mysqli_query($con, $selectenrolleesstatus);
                 if($select_run){
                     if($select_run && mysqli_num_rows($select_run) > 0){
                         while($row = mysqli_fetch_array($select_run)){
-                            $studentid = $row['StudentID'];
+                            $enrollnumber = $row['enrollnumber'];
                             $studentlast = $row['FullName-Last'];
                             $studentfirst = $row['FullName-First'];
                             $studentcat = $row['category'];
@@ -83,16 +87,17 @@ $query = '';
                             $studentapproval = $row['Approval'];
                             $studentremarks = $row['remarks'];
                             $id = $row['ID'];
+                            $inc = qcu_encrypt($enrollnumber);
 
                             ?>  
-                            <td><?php  echo $studentid;?></td>
+                            <td><?php  echo $enrollnumber;?></td>
                             <td><?php  echo $studentlast;?></td>
                             <td><?php  echo $studentfirst;?></td>
                             <td><?php  echo $studentcat;?></td>
                             <td><?php  echo $studentcourse;?></td>
                             <td><?php  echo $studentapproval;?></td>
                             <td><?php  echo $studentremarks;?></td>
-                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp;<a href="approvals.php"><i class="fas fa-edit"></i> </a> </td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp;<a href="approvals.php?id=<?php echo $inc;?>"><i class="fas fa-edit"></i> </a> </td>
                             </tr>
  </tbody>
  <?php 
@@ -103,17 +108,17 @@ $query = '';
     
 }else{
    
-    $course = $_POST['firstcourse'];
+            $course = $_POST['firstcourse'];
             $category = $_POST['category'];
             $approval = $_POST['approval'];
 
             if($course != ' ' || $category != ' ' || $approval != ' '){
-                $selectenrolleesstatus = "SELECT studentinfo.StudentID, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN studentapprovals ON studentinfo.StudentID = studentapprovals.StudentID WHERE studentenrollmentinfo.category = '$category' OR studentenrollmentinfo.firstcourse = '$course' OR studentapprovals.Approval = '$approval';";
+                $selectenrolleesstatus = "SELECT studentinfo.enrollnumber, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.enrollnumber = studentenrollmentinfo.enrollnumber INNER JOIN studentapprovals ON studentinfo.enrollnumber = studentapprovals.enrollnumber WHERE studentenrollmentinfo.category = '$category' OR studentenrollmentinfo.firstcourse = '$course' OR studentapprovals.Approval = '$approval';";
                 $select_run = mysqli_query($con, $selectenrolleesstatus);
                 if($select_run){
                     if($select_run && mysqli_num_rows($select_run) > 0){
                         while($row = mysqli_fetch_array($select_run)){
-                            $studentid = $row['StudentID'];
+                            $enrollnumber = $row['enrollnumber'];
                             $studentlast = $row['FullName-Last'];
                             $studentfirst = $row['FullName-First'];
                             $studentcat = $row['category'];
@@ -121,22 +126,55 @@ $query = '';
                             $studentapproval = $row['Approval'];
                             $studentremarks = $row['remarks'];
                             $id = $row['ID'];
+                            $inc = qcu_encrypt($enrollnumber);
 
                             ?>  
-                            <td><?php  echo $studentid;?></td>
+                            <td><?php  echo $enrollnumber;?></td>
                             <td><?php  echo $studentlast;?></td>
                             <td><?php  echo $studentfirst;?></td>
                             <td><?php  echo $studentcat;?></td>
                             <td><?php  echo $studentcourse;?></td>
                             <td><?php  echo $studentapproval;?></td>
                             <td><?php  echo $studentremarks;?></td>
-                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; <a href="approvals.php"><i class="fas fa-edit"></i> </a> </td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp; <a href="approvals.php?id=<?php echo $inc; ?>"><i class="fas fa-edit"></i> </a> </td>
                             
                            
                         
                             </tr>
  </tbody>
  
+ <?php 
+                        }
+            }
+
+        }
+    }else{
+        $selectenrolleesstatus = "SELECT studentinfo.enrollnumber, studentinfo.ID, studentinfo.`FullName-Last`, studentinfo.`FullName-First`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentapprovals.Approval, studentapprovals.remarks FROM studentinfo INNER JOIN studentenrollmentinfo ON studentinfo.enrollnumber = studentenrollmentinfo.enrollnumber INNER JOIN studentapprovals ON studentinfo.enrollnumber = studentapprovals.enrollnumber";
+                $select_run = mysqli_query($con, $selectenrolleesstatus);
+                if($select_run){
+                    if($select_run && mysqli_num_rows($select_run) > 0){
+                        while($row = mysqli_fetch_array($select_run)){
+                            $enrollnumber = $row['enrollnumber'];
+                            $studentlast = $row['FullName-Last'];
+                            $studentfirst = $row['FullName-First'];
+                            $studentcat = $row['category'];
+                            $studentcourse =$row['firstcourse'];
+                            $studentapproval = $row['Approval'];
+                            $studentremarks = $row['remarks'];
+                            $id = $row['ID'];
+                            $inc = qcu_encrypt($enrollnumber);
+
+                            ?>  
+                            <td><?php  echo $enrollnumber;?></td>
+                            <td><?php  echo $studentlast;?></td>
+                            <td><?php  echo $studentfirst;?></td>
+                            <td><?php  echo $studentcat;?></td>
+                            <td><?php  echo $studentcourse;?></td>
+                            <td><?php  echo $studentapproval;?></td>
+                            <td><?php  echo $studentremarks;?></td>
+                            <td class='buttons'> <a href="select_info.php?id=<?php echo $id; ?>"><i class="fas fa-eye" ></i> </a> &nbsp;<a href="approvals.php?id=<?php echo $inc;?>"><i class="fas fa-edit"></i> </a> </td>
+                            </tr>
+ </tbody>
  <?php 
                         }
             }
@@ -152,7 +190,7 @@ $query = '';
 
 
 </table>
-
+<a href="enrollees.php" target="_TOP" class="fixed-button"> TOP </a>
 </div>
 </div>
 </div>

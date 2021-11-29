@@ -14,8 +14,8 @@ $select_run = mysqli_query($con, $selectinfo);
 if($select_run){
     if($select_run && mysqli_num_rows($select_run) > 0){
         while($row = mysqli_fetch_array($select_run)){
-            $studentid = $row['StudentID'];
-            $_SESSION['student'] = $studentid;
+            $enrollnumber = $row['enrollnumber'];
+            $_SESSION['enrollnumber'] = $enrollnumber;
             $lastname = $row['FullName-Last'];
             $firstname = $row['FullName-First'];
             $middlename = $row['FullName-Middle'];
@@ -35,13 +35,13 @@ if($select_run){
             $guardianname = $row['guardianname'];
             $relationship  = $row['relationship'];
             $guardiancontactno = $row['guardiancontactno'];
-            $studentinc = qcu_encrypt($studentid);
+            $studentinc = qcu_encrypt($enrollnumber);
             ?>
             <div class = "enrollees_indi">
 
             <div class="enrollees_indihead">
                 <div>
-            <h1><?php echo $studentid."&nbsp; <span style='font-size: .7em;'>$lastname, $firstname $middlename</span>"; ?></h1>
+            <h1><?php echo $enrollnumber."&nbsp; <span style='font-size: .7em;'>$lastname, $firstname $middlename</span>"; ?></h1>
             </div>
             <div>
             <a href='' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href="approvals.php?id=<?php echo $studentinc;?>"><i class="fas fa-edit"></i> </a>
@@ -129,7 +129,7 @@ if($select_run){
 
             </div>
             <?php 
-            $selecteducinfo = "SELECT * FROM `studenteducationalinfo` WHERE StudentID = '$studentid' LIMIT 1";
+            $selecteducinfo = "SELECT * FROM `studenteducationalinfo` WHERE enrollnumber = '$enrollnumber' LIMIT 1";
 
             $selectei_run = mysqli_query($con, $selecteducinfo);
             if($selectei_run){
@@ -161,7 +161,7 @@ if($select_run){
             </div>
             
             <?php 
-             $selectenrollinfo = "SELECT * FROM `studentenrollmentinfo` WHERE StudentID = '$studentid' LIMIT 1";
+             $selectenrollinfo = "SELECT * FROM `studentenrollmentinfo` WHERE enrollnumber = '$enrollnumber' LIMIT 1";
              $selectenin = mysqli_query($con,$selectenrollinfo);
  
              if($selectenin){
@@ -213,7 +213,7 @@ if($select_run){
 
                 //select regular files 
 
-                $selectfilereg = "SELECT * FROM `regulardocumentsneed` WHERE StudentID = '$studentid'";
+                $selectfilereg = "SELECT * FROM `regulardocumentsneed` WHERE enrollnumber = '$enrollnumber'";
                 $select_file_run = mysqli_query($con, $selectfilereg);
 
                 if($select_file_run){
@@ -227,8 +227,8 @@ if($select_run){
                             $BarangayClearance = $row4['BarangayClearance'];
                             $MedicalClearance = $row4['MedicalClearance'];
                             $IDPicture = $row4['IDPicture'];
-                            $location = "../files/$studentid/$IDPicture";
-                            $studentinc = qcu_encrypt($studentid);
+                            $location = "../files/ENROLLEES_FILES/$enrollnumber/$IDPicture";
+                            $studentinc = qcu_encrypt($enrollnumber);
                             ?>
                             
                             <div id="documents">
@@ -331,7 +331,7 @@ if($select_run){
 
             ///another cat 
             else if($cat == "TRANSFEREE"){
-                $selectfiletrans = "SELECT * FROM `transfeeesdocumentsneed` WHERE StudentID = '$studentid'";
+                $selectfiletrans = "SELECT * FROM `transfeeesdocumentsneed` WHERE enrollnumber = '$enrollnumber'";
                 $select_file_run1 = mysqli_query($con, $selectfiletrans);
 
                 if($select_file_run1){
@@ -344,8 +344,8 @@ if($select_run){
                             $BarangayClearance = $row4['BarangayClearance'];
                             $MedicalClearance = $row4['MedicalClearance'];
                             $IDPicture = $row4['IDPicture'];
-                            $location = "../files/$studentid/$IDPicture";
-                            $studentinc = qcu_encrypt($studentid);
+                            $location = "../files/ENROLLEES_FILES/$enrollnumber/$IDPicture";
+                            $studentinc = qcu_encrypt($enrollnumber);
                             ?>
                             
                             <div id="documents">
@@ -370,7 +370,7 @@ if($select_run){
                                                 
                                                 echo "<th> Transcript of Records From Previous School </th>
 
-                                                <td> <a href='readpdf.php?file=$$TOR&id=$studentinc' target='_blank'> $TOR </a> <br></td>";
+                                                <td> <a href='readpdf.php?file=$TOR&id=$studentinc' target='_blank'> $TOR </a> <br></td>";
                                             }
                                             ?>
                                             

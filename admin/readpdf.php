@@ -8,7 +8,7 @@
    
     $id = qcu_decrypt($enc2);
 
-    $location = "../files/$id/$file";
+    $location = "../files/ENROLLEES_FILES/$id/$file";
 
     header('Content-type:application/pdf');
     header('Content-Description:inline;filename="'.$location.'"');

@@ -35,7 +35,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 </nav>
 <main>
 <ul class="side-list">
-    <li> <div class="logo">
+    <li> <div class="logo" style="padding:0;">
                 <img class="qculogo"  src="<?php echo $iconsite;?>"> &nbsp;&nbsp;&nbsp;
                     <h3> Welcome | <span style="font-size:18px;">  Admin</span></h3>
             </div></li>

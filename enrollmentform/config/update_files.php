@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $dec = qcu_decrypt($id);
 if(isset($_POST['update'])){
     $cat = mysqli_real_escape_string($con,$_POST['hidden_cat']);
-    $StudentID1 = $dec;
+    $enrollnumber1 = $dec;
     $PSA_prev = $_POST['PSA_prev'];
     $Form137_prev = $_POST['Form137_prev'];
     $Form138_prev = $_POST['Form138_prev'];
@@ -99,10 +99,10 @@ if(isset($_POST['update'])){
     
     
     if($cat == "REGULAR"){
-        $updatefileregular = "UPDATE `regulardocumentsneed` SET `PSA`='$PSA_TEXT',`Form137`='$Form137_TEXT',`Form138`='$Form138_TEXT',`Diploma`='$Diploma_TEXT',`GoodMoral`='$GoodMoral_TEXT',`BarangayClearance`='$BarangayClearance_TEXT',`MedicalClearance`='$MedicalClearance_TEXT',`IDPicture`='$IDPicture_TEXT' WHERE `StudentID` = '$StudentID1'; ";
+        $updatefileregular = "UPDATE `regulardocumentsneed` SET `PSA`='$PSA_TEXT',`Form137`='$Form137_TEXT',`Form138`='$Form138_TEXT',`Diploma`='$Diploma_TEXT',`GoodMoral`='$GoodMoral_TEXT',`BarangayClearance`='$BarangayClearance_TEXT',`MedicalClearance`='$MedicalClearance_TEXT',`IDPicture`='$IDPicture_TEXT' WHERE `enrollnumber` = '$enrollnumber1'; ";
         $update1 = mysqli_query($con, $updatefileregular);
         
-        $location = "../../files/$StudentID1/";
+        $location = "../../files/ENROLLEES_FILES/$enrollnumber1/";
       
         if(!file_exists($location)){
             mkdir($location,0777,true);
@@ -205,7 +205,7 @@ if(isset($_POST['update'])){
             }
             }
             $remarks = "DOCUMENTS HAS BEEN PASSED // TO BE APPROVED";
-            $update_status = "UPDATE `studentapprovals` SET `remarks`='$remarks' WHERE StudentID = '$StudentID1';";
+            $update_status = "UPDATE `studentapprovals` SET `remarks`='$remarks' WHERE StudentID = '$enrollnumber1';";
             mysqli_query($con, $update_status);
             }
             sleep(10);
