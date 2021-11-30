@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 09:50 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Dec 01, 2021 at 12:36 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -140,7 +139,6 @@ INSERT INTO `bsit_subject` (`id`, `subjectcode`, `subjecttitle`, `units`, `lec`,
 (2, 'CC102 ', 'Fundamentals of Programming ', '3', '2', '3', 'None', '1', '1'),
 (3, 'WS101', 'Web Systems and Technologies 1 (Electives)', '3', '2', '3', 'None', '1', '1');
 
-
 -- --------------------------------------------------------
 
 --
@@ -149,17 +147,18 @@ INSERT INTO `bsit_subject` (`id`, `subjectcode`, `subjecttitle`, `units`, `lec`,
 
 CREATE TABLE `campus` (
   `id` int(11) NOT NULL,
-  `campus` varchar(100) NOT NULL
+  `campus_name` varchar(100) NOT NULL,
+  `campus_code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `campus`
 --
 
-INSERT INTO `campus` (`id`, `campus`) VALUES
-(1, 'SAN BARTOLOME'),
-(2, 'BATASAN'),
-(3, 'SAN FRANCISCO');
+INSERT INTO `campus` (`id`, `campus_name`, `campus_code`) VALUES
+(1, 'SAN BARTOLOME', 'SB'),
+(2, 'BATASAN', 'BA'),
+(3, 'SAN FRANCISCO', 'SF');
 
 -- --------------------------------------------------------
 
@@ -169,19 +168,20 @@ INSERT INTO `campus` (`id`, `campus`) VALUES
 
 CREATE TABLE `course` (
   `id` int(11) NOT NULL,
-  `coursename` varchar(100) NOT NULL
+  `coursename` varchar(100) NOT NULL,
+  `course_code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `coursename`) VALUES
-(1, 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY'),
-(2, 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP'),
-(3, 'BACHELOR OF SCIENCE IN INDUSTRIAL ENGINEERING'),
-(4, 'BACHELOR OF SCIENCE IN ELECTRONICS ENGINEERING'),
-(5, 'BACHELOR OF SCIENCE IN ACCOUNTANCY');
+INSERT INTO `course` (`id`, `coursename`, `course_code`) VALUES
+(1, 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY', 'IT'),
+(2, 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP', 'EN'),
+(3, 'BACHELOR OF SCIENCE IN INDUSTRIAL ENGINEERING', 'IE'),
+(4, 'BACHELOR OF SCIENCE IN ELECTRONICS ENGINEERING', 'EE'),
+(5, 'BACHELOR OF SCIENCE IN ACCOUNTANCY', 'AC');
 
 -- --------------------------------------------------------
 
@@ -196,18 +196,19 @@ CREATE TABLE `genacc_subject` (
   `units` varchar(11) NOT NULL,
   `lec` varchar(11) NOT NULL,
   `lab` varchar(11) NOT NULL,
-  `prerequisite` varchar(100) NOT NULL,
-  `year` varchar(11) NOT NULL,
-  `sem` varchar(11) NOT NULL
+  `prerequisite` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `genacc_subject`(`id`, `subjectcode`, `subjecttitle`, `units`, `lec`, `lab`, `prerequisite`, `year`, `sem`) VALUES
-(1, 'MATH 1', 'Mathematics in the Modern World', '3', '3', '0', 'None', '1', '1'),
-(2, 'GEE 1 ', 'Philosophy of the Good Life', '3', '3', '0', 'None', '1', '1'),
-(3, 'GEE 2', 'Fundamentals of Creativity and Innovation ', '3', '3', '0', 'None', '1', '1'),
-(4, 'PE 1', 'Physical Fitness and Wellness', '2', '2', '0', 'None', '1', '1'),
-(5, 'NSTP 1', 'National Service Training Program 1 ', '3', '3', '0', 'None', '1', '1');
+--
+-- Dumping data for table `genacc_subject`
+--
 
+INSERT INTO `genacc_subject` (`id`, `subjectcode`, `subjecttitle`, `units`, `lec`, `lab`, `prerequisite`) VALUES
+(1, 'MATH 1', 'Mathematics in the Modern World', '3', '3', '0', 'None'),
+(2, 'GEE 1 ', 'Philosophy of the Good Life', '3', '3', '0', 'None'),
+(3, 'GEE 2', 'Fundamentals of Creativity and Innovation ', '3', '3', '0', 'None'),
+(4, 'PE 1', 'Physical Fitness and Wellness', '2', '2', '0', 'None'),
+(5, 'NSTP 1', 'National Service Training Program 1 ', '3', '3', '0', 'None');
 
 -- --------------------------------------------------------
 
@@ -236,7 +237,6 @@ INSERT INTO `important_key` (`ID`, `KEY_ENC_DEC`) VALUES
 CREATE TABLE `regulardocumentsneed` (
   `ID` int(11) NOT NULL,
   `enrollnumber` varchar(50) NOT NULL,
-  `StudentID` varchar(11) NOT NULL,
   `PSA` text NOT NULL,
   `Form137` text NOT NULL,
   `Form138` text NOT NULL,
@@ -251,9 +251,10 @@ CREATE TABLE `regulardocumentsneed` (
 -- Dumping data for table `regulardocumentsneed`
 --
 
-INSERT INTO `regulardocumentsneed` (`ID`, `enrollnumber`, `StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES
-(1, '2021-0000001', '', 'ROWY_FORM138.pdf', '', '', 'ROWY_DIPLOMA.pdf', '', '', '', ''),
-(2, '2021-0000002', '', '', 'ROWY_FORM137.pdf', '', '', '', '', '', '');
+INSERT INTO `regulardocumentsneed` (`ID`, `enrollnumber`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES
+(1, '2021-0000001', 'ROWY_FORM138.pdf', '', '', 'ROWY_DIPLOMA.pdf', '', '', '', ''),
+(2, '2021-0000002', '', 'ROWY_FORM137.pdf', '', '', '', '', '', ''),
+(3, '2021-0000003', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -264,7 +265,6 @@ INSERT INTO `regulardocumentsneed` (`ID`, `enrollnumber`, `StudentID`, `PSA`, `F
 CREATE TABLE `returneesdocumentsneed` (
   `ID` int(11) NOT NULL,
   `enrollnumber` varchar(50) NOT NULL,
-  `StudentID` varchar(11) NOT NULL,
   `GeneralClearance` text NOT NULL,
   `Form137` text NOT NULL,
   `TrueCopyofGrades` text NOT NULL,
@@ -280,10 +280,21 @@ CREATE TABLE `returneesdocumentsneed` (
 
 CREATE TABLE `sections` (
   `ID` int(11) NOT NULL,
-  `sectionname` varchar(50) NOT NULL,
-  `campus` varchar(100) NOT NULL,
-  `studentcount` varchar(3) NOT NULL
+  `campus_code` varchar(10) NOT NULL,
+  `course_code` varchar(10) NOT NULL,
+  `year` varchar(10) NOT NULL,
+  `section_letter` char(2) NOT NULL,
+  `studentcount` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sections`
+--
+
+INSERT INTO `sections` (`ID`, `campus_code`, `course_code`, `year`, `section_letter`, `studentcount`) VALUES
+(1, 'SF', 'IT', '1', 'A', 1),
+(4, 'SB', 'IT', '1', 'A', 1),
+(10, 'BA', 'EN', '1', 'A', 3);
 
 -- --------------------------------------------------------
 
@@ -308,7 +319,7 @@ CREATE TABLE `studentapprovals` (
   `ID` int(11) NOT NULL,
   `enrollnumber` varchar(50) NOT NULL,
   `StudentID` varchar(11) NOT NULL,
-  `Approval` varchar(50) NOT NULL DEFAULT 'NOT APPROVED',
+  `Approval` varchar(50) NOT NULL DEFAULT 'TO BE APPROVED',
   `remarks` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -317,8 +328,9 @@ CREATE TABLE `studentapprovals` (
 --
 
 INSERT INTO `studentapprovals` (`ID`, `enrollnumber`, `StudentID`, `Approval`, `remarks`) VALUES
-(1, '2021-0000001', '', 'NOT APPROVED', 'Information has been recorded'),
-(2, '2021-0000002', '', 'NOT APPROVED', 'Information has been recorded');
+(1, '2021-0000001', '21-0001', 'APPROVED', ' Information has been recorded'),
+(2, '2021-0000002', '21-0004', 'APPROVED', '    Information has been recorded'),
+(3, '2021-0000003', '21-0002', 'APPROVED', '   Information has been recorded');
 
 -- --------------------------------------------------------
 
@@ -340,8 +352,9 @@ CREATE TABLE `studenteducationalinfo` (
 --
 
 INSERT INTO `studenteducationalinfo` (`ID`, `enrollnumber`, `StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES
-(1, '2021-0000001', '', 'QUEZON CITY UNIVERSITY', 'SAN BARTOLOME, NOVALICHES, Q. C.', 'GRADE 12 '),
-(2, '2021-0000002', '', 'QUEZON CITY UNIVERSITY', 'SAN BARTOLOME, NOVALICHES, Q. C.', 'GRADE 12 ');
+(1, '2021-0000001', '21-0001', 'QUEZON CITY UNIVERSITY', 'SAN BARTOLOME, NOVALICHES, Q. C.', 'GRADE 12 '),
+(2, '2021-0000002', '21-0004', 'QUEZON CITY UNIVERSITY', 'SAN BARTOLOME, NOVALICHES, Q. C.', 'GRADE 12 '),
+(3, '2021-0000003', '21-0002', 'QUEZON CITY UNIVERSITY', 'SAN BARTOLOME, NOVALICHES, Q.C', 'GRADE 12');
 
 -- --------------------------------------------------------
 
@@ -365,8 +378,9 @@ CREATE TABLE `studentenrollmentinfo` (
 --
 
 INSERT INTO `studentenrollmentinfo` (`ID`, `enrollnumber`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`, `campus`) VALUES
-(1, '2021-0000001', '', 'REGULAR', 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY', 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP', 'BACHELOR OF SCIENCE IN INDUSTRIAL ENGINEERING', ''),
-(2, '2021-0000002', '', 'REGULAR', 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP', 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY', 'BACHELOR OF SCIENCE IN ELECTRONICS ENGINEERING', '');
+(1, '2021-0000001', '21-0001', 'REGULAR', 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY', 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP', 'BACHELOR OF SCIENCE IN INDUSTRIAL ENGINEERING', 'SAN FRANCISCO'),
+(2, '2021-0000002', '21-0004', 'REGULAR', 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP', 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY', 'BACHELOR OF SCIENCE IN ELECTRONICS ENGINEERING', 'BATASAN'),
+(3, '2021-0000003', '21-0002', 'REGULAR', 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY', 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP', 'BACHELOR OF SCIENCE IN INDUSTRIAL ENGINEERING', 'SAN BARTOLOME');
 
 -- --------------------------------------------------------
 
@@ -394,7 +408,7 @@ INSERT INTO `studentexamresultstemp` (`ID`, `ExamNo`, `ExamDate`, `Last-Name`, `
 (3, 211821, '11/28/2020', 'Rowy', 'Chedrick', 'Follero', 'chedrick.follero.rowy@gmail.com', '133880', '2021-10-21'),
 (4, 211822, '11/28/2020', 'Rowy', 'Juanita', 'Follero', '8bougainvillea@gmail.com', '661482', '2021-10-21'),
 (5, 211823, '11/28/2020', 'ROWY', 'CHEDRICK', 'FOLLERO', 'rowyched28@gmail.com', '293405', '2021-11-14'),
-(7, 211824, '11/28/2020', 'Rowy', 'Ramil', 'Sace', 'rowyc.qcydoqcu@gmail.com', '', '2021-11-20');
+(7, 211824, '11/28/2020', 'Rowy', 'Ramil', 'Sace', 'rowyc.qcydoqcu@gmail.com', '210595', '2021-11-20');
 
 -- --------------------------------------------------------
 
@@ -432,8 +446,9 @@ CREATE TABLE `studentinfo` (
 --
 
 INSERT INTO `studentinfo` (`ID`, `enrollnumber`, `StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES
-(1, '2021-0000001', '', 'ROWY', 'CHEDRICK', 'FOLLERO', '21', '2000-11-28', 'MANILA CITY', 'SINGLE', 'MALE', '09086689844', 'chedrick.follero.rowy@gmail.com', 'L4 BLK4 NATIVIDAD SUBD.', '1117', 'JUANITA F. ROWY', 'HOUSE WIFE', 'RAMIL S. ROWY', 'PHOTOGRAPHER', 'RAMIL S. ROWY', 'FATHER', '09282298587'),
-(2, '2021-0000002', '', 'ROWY', 'JUANITA ', 'FOLLERO', '21', '2000-11-28', 'MANILA CITY', 'SINGLE', 'MALE', '09086689844', 'chedrick.follero.rowy@gmail.com', 'L4 BLK4 NATIVIDAD SUBD.', '1117', 'JUANITA F. ROWY', 'HOUSE WIFE', 'RAMIL S. ROWY', 'PHOTOGRAPHER', 'RAMIL S. ROWY', 'FATHER', '09282298587');
+(1, '2021-0000001', '21-0001', 'ROWY', 'CHEDRICK', 'FOLLERO', '21', '2000-11-28', 'MANILA CITY', 'SINGLE', 'MALE', '09086689844', 'chedrick.follero.rowy@gmail.com', 'L4 BLK4 NATIVIDAD SUBD.', '1117', 'JUANITA F. ROWY', 'HOUSE WIFE', 'RAMIL S. ROWY', 'PHOTOGRAPHER', 'RAMIL S. ROWY', 'FATHER', '09282298587'),
+(2, '2021-0000002', '21-0004', 'ROWY', 'JUANITA ', 'FOLLERO', '21', '2000-11-28', 'MANILA CITY', 'SINGLE', 'MALE', '09086689844', 'chedrick.follero.rowy@gmail.com', 'L4 BLK4 NATIVIDAD SUBD.', '1117', 'JUANITA F. ROWY', 'HOUSE WIFE', 'RAMIL S. ROWY', 'PHOTOGRAPHER', 'RAMIL S. ROWY', 'FATHER', '09282298587'),
+(3, '2021-0000003', '21-0002', 'ROWY', 'CHEDRICK', 'FOLLERO', '21', '2000-11-28', 'MANILA CITY', 'SINGLE', 'MALE', '09086689844', 'rowyc.qcydoqcu@gmail.com', 'L4 BLK4 NATIVIDAD SUBD. BARANGAY SANTA LUCIA, NOVALICHES, Q.C', '1117', 'JUANITA F. ROWY', 'HOUSE WIFE', 'RAMIL S. ROWY', 'PHOTOGRAPHER', 'RAMIL S. ROWY', 'FATHER', '09282298587');
 
 -- --------------------------------------------------------
 
@@ -453,8 +468,9 @@ CREATE TABLE `student_examresult` (
 --
 
 INSERT INTO `student_examresult` (`ID`, `StudentID`, `ExamCode`, `enrollnumber`) VALUES
-(1, '', '211821', '2021-0000001'),
-(2, '', '211822', '2021-0000002');
+(1, '21-0001', '211821', '2021-0000001'),
+(2, '21-0004', '211822', '2021-0000002'),
+(3, '21-0002', '211824', '2021-0000003');
 
 -- --------------------------------------------------------
 
@@ -468,6 +484,17 @@ CREATE TABLE `student_sections` (
   `sectionname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `student_sections`
+--
+
+INSERT INTO `student_sections` (`ID`, `StudentID`, `sectionname`) VALUES
+(1, '21-0001', 'SFIT-1A'),
+(8, '21-0002', 'SBIT-1A'),
+(22, '21-0003', 'BAEN-1A'),
+(23, '21-0003', 'BAEN-1A'),
+(24, '21-0004', 'BAEN-1A');
+
 -- --------------------------------------------------------
 
 --
@@ -477,7 +504,6 @@ CREATE TABLE `student_sections` (
 CREATE TABLE `transfeeesdocumentsneed` (
   `ID` int(11) NOT NULL,
   `enrollnumber` varchar(50) NOT NULL,
-  `StudentID` varchar(11) NOT NULL,
   `PSA` text NOT NULL,
   `TOR` text NOT NULL,
   `CertificateofTransferCredential` text NOT NULL,
@@ -679,13 +705,13 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `genacc_subject`
 --
 ALTER TABLE `genacc_subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `regulardocumentsneed`
 --
 ALTER TABLE `regulardocumentsneed`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `returneesdocumentsneed`
@@ -697,7 +723,7 @@ ALTER TABLE `returneesdocumentsneed`
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `studentaccount`
@@ -709,19 +735,19 @@ ALTER TABLE `studentaccount`
 -- AUTO_INCREMENT for table `studentapprovals`
 --
 ALTER TABLE `studentapprovals`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `studenteducationalinfo`
 --
 ALTER TABLE `studenteducationalinfo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `studentenrollmentinfo`
 --
 ALTER TABLE `studentenrollmentinfo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `studentexamresultstemp`
@@ -733,19 +759,19 @@ ALTER TABLE `studentexamresultstemp`
 -- AUTO_INCREMENT for table `studentinfo`
 --
 ALTER TABLE `studentinfo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student_examresult`
 --
 ALTER TABLE `student_examresult`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student_sections`
 --
 ALTER TABLE `student_sections`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `transfeeesdocumentsneed`
