@@ -106,6 +106,7 @@ if($select_idrun){
                                             $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
                                             $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
                                             mysqli_query($con, $insertsection2);
+                                            echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                     
                                     }else{
@@ -119,6 +120,7 @@ if($select_idrun){
                                             $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
                                             $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
                                             mysqli_query($con, $insertsection2);
+                                            echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                                         
                     
@@ -134,6 +136,7 @@ if($select_idrun){
                                     $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
                                     $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
                                     mysqli_query($con, $insertsection2);
+                                    echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                 }
                             }
                         }
@@ -184,9 +187,7 @@ if($select_idrun){
                                               $insertqueries = $con->multi_query($query2);
 
                                               if($insertqueries){
-                                                  echo "success";
-                                              }else{
-                                                  echo "insert error";
+                                                echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                               }
 
                                         }

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/all.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+    <link rel="icon" href="/img/qcu.png" type="image/icon type">
+    <title>Quezon City University Online Portal</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="myHeader">
+            <div class="logo">
+                <img class="qculogo" src="img/qcu.png"> &nbsp;&nbsp;&nbsp;
+                <h3>Quezon City University | <span style="font-size:15px;"> Online Portal</span></h3>
+            </div>
+            <ul class="nav-list">
+                <li class="list-items">
+                    <h3>Good Life Starts Here</h3>
+                </li>
+                <li class="list-items">
+                    <!-- <div class="nav-date"> 
+                        <script > document.write(new Date().toDateString()); </script> 
+                    </div>-->
+                </li>
+
+
+            </ul>
+
+        </nav>
+        <a href="/login.html" class="fixed-button login-btn"> <i class="fas fa-user"></i> &nbsp; Log In</a>
+        <main class="no-bg">
+
+            <div class="enrollment-form">
+                <div class="enrollment-form-bg">
+                    <form>
+                        <h2>Enrollment Form For Regular Students</h2>
+
+                        <div class="form-data1 hidden">
+                            <div class="form-data-bg">
+                                <div class="form-data-title">
+                                    <h3 style="text-align: center;">Personal Information</h3>
+                                </div>
+                                <hr>
+                                <label for="FullName-Last">Last Name:</label>
+                                <input type="text" name="" name="FullName-Last" placeholder="DELA CRUZ/DELA CRUZ JR."
+                                    class="one-line" required> <br>
+                                <label for="FullName-First">First Name:</label>
+                                <input type="text" name="" name="FullName-First" placeholder="JUAN" class="one-line"
+                                    required> <br>
+                                <label for="FullName-Middle">Middle Name:</label>
+                                <input type="text" name="" name="FullName-Middle" placeholder="LUNA" class="one-line"
+                                    required> <br>
+                                <label for="Age">Age:</label>
+                                <input type="text" name="" name="Age" placeholder="20" class="one-line" required> <br>
+                                <label for="birthday">Birthdate:</label>
+                                <input type="date" name="birthday" class="one-line">
+                                <label for="birthplace">Place of Birthdate:</label>
+                                <input type="text" name="" name="birthplace" placeholder="Quezon City" class="one-line"
+                                    required> <br> <br><br>
+                            </div>
+                        </div>
+                        <div class="form-data2 hidden">
+                            <div class="form-data-bg">
+                                <div class="form-data-title">
+                                    <h3 style="text-align: center;">Personal Information</h3>
+                                </div>
+                                <hr>
+                                <label for="civilstatus">Civil Status</label>
+                                <select name="civilstatus" id="civilstatus_id" required>
+                                    <option value="">Please Select Here</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+
+                                </select><br>
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender_id" required>
+                                    <option value="">Please Select Here</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+
+                                </select><br>
+                                <div class="form-data-title">
+                                    <h3 style="text-align: center;">Contact Information</h3>
+                                </div>
+                                <hr>
+                                <label for="contactno">Contact No:</label>
+                                <input type="text" name="" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
+                                    required> <br>
+                                <label for="email">Email:</label>
+                                <input type="email" name="" name="email" placeholder="fn.mn.ln@gmail.com"
+                                    class="one-line" required> <br><br>
+                                <button type="button" name="" style="background-color: #e82048"> Back </button>
+                            </div>
+                        </div>
+                        <div class="form-data3  hidden">
+                            <div class="form-data-bg">
+                            <div class="form-data-title">
+                                <h3 style="text-align: center;">Address</h3>
+
+                            </div>
+                            <hr>
+                            <label for="address-name"> Address: </label>
+                            <input type="text" name="" name="address-name"
+                                placeholder="LOT NO. STREET NAME SUBDIVISION NAME" class="one-line" required> <br>
+                            <label for="address-brgy"> Barangay: </label>
+                            <select name="address-brgy" id="address-brgy_id" required>
+                                <option value="">Please Select Here</option>
+                                <option value="">Sample Barangay</option>
+                            </select>
+                            <br>
+                            <label for="address-district"> District: </label>
+                            <select name="address-district" id="address-district_id" required>
+                                <option value="">Please Select Here</option>
+                                <option value="Discrict I">Discrict I</option>
+                                <option value="Discrict II">Discrict II</option>
+                                <option value="Discrict III">Discrict III</option>
+                                <option value="Discrict IV">Discrict IV</option>
+                                <option value="Discrict V">Discrict V</option>
+                                <option value="Discrict VI">Discrict VI</option>
+                            </select>
+                            <br>
+                            <button type="button" name="" style="background-color: #e82048"> Back </button>
+                            </div>
+                        </div>
+                        <div class="form-data4 hidden">
+                            <div class="form-data-bg">
+                            <div class="form-data-title">
+                                <h3 style="text-align: center;">Family Background</h3>
+
+                            </div>
+                            <hr>
+                                <label for="mothername"> Mother's Name </label>
+                                <input type="text"  name="mothername"
+                                placeholder="First Name MI Last Name" class="one-line" required> <br>
+                                <label for="motherjob"> Mother's Job </label>
+                                <input type="text"  name="motherjobs"
+                                placeholder="Mother's Job" class="one-line" required> <br>
+                                <label for="fathername"> Father's Name </label>
+                                <input type="text" name="fathername"
+                                placeholder="First Name MI Last Name" class="one-line" required> <br>
+                                <label for="fatherjobs"> Father's Job </label>
+                                <input type="text"  name="fatherjobs"
+                                placeholder="Father's Job" class="one-line" required> <br>
+                                <br>
+                            <button type="button" name="" style="background-color: #e82048"> Back </button>
+                        </div>
+                    </div>
+                        <div class="form-data5 hidden">
+                            <div class="form-data-bg">
+                            <div class="form-data-title">
+                                <h3 style="text-align: center;">Guardian</h3>
+
+                            </div>
+                            <hr>
+                            <label for="guardianname"> Guardian's Name </label>
+                            <input type="text"  name="guardianname"
+                            placeholder="First Name MI Last Name" class="one-line" required> <br>
+                            <label for="relationship">Relationship:</label>
+                            <select name="relationship" id="relationship_id" required>
+                                <option value="Father"> Father </option>
+                                <option value="Mother"> Mother </option>
+                                <option value="Brother"> Brother </option>
+                                <option value="Sister"> Sister </option>
+                                <option value="Relatives"> Other Relatives </option>
+                                <option value="Guardian"> Guardian </option>
+                            </select>
+                            <br>
+                            <label for="guardiancontactno"> Contact No. </label>
+                            <input type="text" name="guardiancontactno"
+                            placeholder="09XXXXXXXXX" class="one-line" required> <br> <br>
+                            <button type="button" name="" style="background-color: #e82048"> Back </button>
+                        </div>
+                        </div>
+                        <div class="form-data6 hidden">
+                            <div class="form-data-bg">
+                                <div class="form-data-title">
+                                    <h3 style="text-align: center;">Educational Information</h3>
+                                </div>
+                                <hr>
+                                <label for="schoollastattended"> Name of your Previous School </label>
+                                <input type="text" name="schoollastattended"
+                                placeholder="Name of the School" class="one-line" required> <br> <br>
+                                <label for="schoollastattended"> School Address </label>
+                                <input type="text" name="schoollastattendedaddress"
+                                placeholder="Address of the School" class="one-line" required> <br> <br>
+                                <label for="schoollastattendedlevel"> Highest Attained Level </label>
+                                <input type="text" name="schoollastattendedlevel"
+                                placeholder="Your Highest Year Level" class="one-line" required> <br> <br>
+                                <button type="button" name="" style="background-color: #e82048"> Back </button>
+                            </div>
+                            
+                        </div>   
+                        <div class="form-data7">
+                            <div class="form-data-bg">
+                                <div class="form-data-title">
+                                    <h3 style="text-align: center;">Course</h3>
+                                </div>
+                                <hr>
+                                <label for="firstcourse"> First Choice of Course</label>
+                                <input type="text" name="firstcourse"
+                                placeholder="First Choice" class="one-line" required readonly> <br> <br>
+                                <label for="secondcourse"> Second Choice of Course</label>
+                                <select name="secondcourse" value=""> 
+                                    <option value=" ">Second Choice of Course</option>  
+                                    <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+                                    <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
+                                    <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
+                                    <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
+                                    <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
+                      
+                                </select> <br> <br>
+                                <label for="thirdcourse"> Third Choice of Course</label>
+                                <select name="thirdcourse" value=""> 
+                                    <option value=" ">Third Choice of Course</option> 
+                                    <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+                                    <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
+                                    <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
+                                    <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
+                                    <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
+                                </select><br><br>
+                                <button type="button" name="" style="background-color: #e82048"> Back </button>
+                            </div>
+                        </div>             
+                        <button type="button" name="" style="background-color: #3366CC"> Next </button>
+                </div>
+
+                </form>
+            </div>
+    </div>
+    </main>
+    <br><br>
+    <footer>
+
+        <div class="content-footer">
+            <div class="footer-title">
+                <img src="/img/qcu.png" alt=""> &nbsp;
+                <h3>QUEZON CITY UNIVERSITY ONLINE PORTAL</h3>
+            </div>
+            <div class="content-footer-main">
+                <div class="content-footer-contact">
+                    <ul>
+                        <li>
+                            <h4>Contact Us</h4>
+                        </li>
+                        <ul>
+                            <li><i class="fas fa-location-arrow"></i> &nbsp; &nbsp; <span>673 Quirino Highway, San
+                                    Bartolome, Novaliches, Quezon City </span> </li>
+                            <li><i class="fas fa-phone-alt"></i> &nbsp; &nbsp; <span> 8806-3324 </span> </li>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> QCUniversity@quezoncity.gov.ph
+                                </span> </li>
+                        </ul>
+                </div>
+                </ul>
+                <div class="quicklinks">
+                    <ul>
+                        <li>
+                            <h4>Registar Emails</h4>
+                        </li>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> urd.bsit@qcu.edu.ph </span> </li>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> urd.bsentrep@qcu.edu.ph </span>
+                            </li>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> urd.bsa@qcu.edu.ph</span> </li>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> urd.bseng@qcu.edu.ph</span> </li>
+                        </ul>
+
+                    </ul>
+                </div>
+                <div class="quicklinks">
+                    <ul>
+
+                        <li> <b>Admissions Office:</b> </li>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> admission@qcu.edu.ph </span> </li>
+                            <li><i class="fas fa-phone-alt"></i> &nbsp; &nbsp; <span> 8806-3314 </span> </li>
+
+                        </ul>
+
+                    </ul>
+                    <ul>
+
+                        <li> <b>Student Affairs Unit For Laptops, WiFi & ID's </b></li>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> qcusasd2020@gmail.com </span> </li>
+                            <li><i class="fas fa-phone-alt"></i> &nbsp; &nbsp; <span> 8806-3165 </span> </li>
+
+                        </ul>
+
+                    </ul>
+                    <ul>
+
+                        <li><b>Student Accounts for Billings, Tuition Fee's, Statement of Account</b> </li>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> &nbsp; &nbsp; <span> studentaccount@qcu.edu.ph </span>
+                            </li>
+                            <li><i class="fas fa-phone-alt"></i> &nbsp; &nbsp; <span> 8806-3314 </span> </li>
+
+                        </ul>
+
+                    </ul>
+                </div>
+                <div class="quicklinks">
+                    <ul>
+                        <li>
+                            <h4>Quick Links</h4>
+                        </li>
+                        <ul>
+                            <li><i class="fab fa-facebook-f"></i> &nbsp; &nbsp; <span> <a
+                                        href="https://www.facebook.com/qcu1994">QCU Official Page</a> </span> </li>
+                            <li><i class="fab fa-facebook-f"></i> &nbsp; &nbsp; <span> <a
+                                        href="https://www.facebook.com/QCUSPARDiv"> QCU Scholarship, Placement, and
+                                        Alumni Relations Division </a> </span> </li>
+                            <li><i class="fab fa-facebook-f"></i></i> &nbsp; &nbsp; <span> <a
+                                        href="https://www.facebook.com/qcuregistrar"> QCU Registrar and Admissions
+                                        Division </a> </span> </li>
+                            <li><i class="fab fa-facebook-f"></i></i> &nbsp; &nbsp; <span> <a
+                                        href="https://www.facebook.com/qcuregistrar"> QCU Registrar and Admissions
+                                        Division </a> </span> </li>
+                            <li><i class="fab fa-facebook-f"></i></i> &nbsp; &nbsp; <span> <a
+                                        href="https://www.facebook.com/Quezon-City-University-Student-Affairs-and-Services-Division-108688083820550">
+                                        Quezon City University Student Affairs and Services Division </a> </span> </li>
+                        </ul>
+
+                    </ul>
+                </div>
+                <div class="quicklinks">
+                    <ul>
+                        <li>
+                            <h4>Online Portal Map</h4>
+                        </li>
+                        <ul>
+                            <li>QCU Enrollment System</li>
+                            <li>QCU Student Portal</li>
+                            <li>QCU Human Resources System</li>
+                            <li>QCU Clinic Management System</li>
+                        </ul>
+                </div>
+                </ul>
+            </div>
+        </div>
+
+
+    </footer>
+    </div>
+
+
+</body>
+
+</html>

@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
     $firstcourse = strtoupper(mysqli_real_escape_string($con,$_POST['firstcourse']));
     $secondcourse = strtoupper(mysqli_real_escape_string($con,$_POST['secondcourse']));
     $thirdcourse = strtoupper(mysqli_real_escape_string($con,$_POST['thirdcourse']));
-    $campus = strtoupper(mysqli_real_escape_string($con,$_POST['campus']));
+
     //ExamCode
 
     $dec = qcu_decrypt($id);
@@ -71,26 +71,26 @@ if(isset($_POST['submit'])){
     //$insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ();";
    // $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`ID`, `StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ();";
 //mysqli_real_escape_string($con,
-    $enrollmentyear = date("Y");
+    $enrollmentyear = date("y");
     
 
     //select student id 
-    $select1 = "SELECT * FROM `student_examresult` ORDER BY ID DESC LIMIT 1;";
+    $select1 = "SELECT * FROM `studentinfo` ORDER BY ID DESC LIMIT 1;";
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
-            $tempid = $row['enrollnumber'];
+            $tempid = $row['StudentID'];
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
             $inc_number = $get_numbers+1;
-            $get_string = str_pad($inc_number, 7, 0, STR_PAD_LEFT);
-            $enrollnumber = "$enrollmentyear-$get_string";
+            $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
+            $studentid = "$enrollmentyear-$get_string";
             $remarks = "Information has been recorded";
-            $insertsql1 = "INSERT INTO `studentinfo`(`enrollnumber`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$enrollnumber', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
-            $insertsql2 = "INSERT INTO `studenteducationalinfo`(`enrollnumber`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$enrollnumber', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
-            $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`enrollnumber`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`, `campus`) VALUES ('$enrollnumber', '$category', '$firstcourse', '$secondcourse', '$thirdcourse', '$campus');";
-            $insertfile = "INSERT INTO `regulardocumentsneed`(`enrollnumber`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
-            $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
-            $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
+            $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
+            $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
+            $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
+            $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+            $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode');";
+            $insertapproved = "INSERT INTO `studentapprovals`(`StudentID`,`remarks`) VALUES ('$studentid','$remarks');";
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;
@@ -98,7 +98,7 @@ if(isset($_POST['submit'])){
             $query .=$insertfile;
             $query .=$insertapproved;
             $insertqueries = $con->multi_query($query);
-            $location = "../../files/ENROLLEES_FILES/$enrollnumber/";
+            $location = "../../files/$studentid/";
             if(!file_exists($location)){
             mkdir($location,0777,true);
             }
@@ -124,22 +124,22 @@ if(isset($_POST['submit'])){
             echo "<script> alert('error checkresult');</script>";
         }
     } else{
-        $enrollnumberint = 1;
-        $enrollnumber = "$enrollmentyear-000000$enrollnumberint";
+        $studentidint = 1;
+        $studentid = "$enrollmentyear-000$studentidint";
         $remarks = "Information has been recorded";
-        $insertsql1 = "INSERT INTO `studentinfo`(`enrollnumber`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$enrollnumber', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
-        $insertsql2 = "INSERT INTO `studenteducationalinfo`(`enrollnumber`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$enrollnumber', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
-        $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`enrollnumber`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`, `campus`) VALUES ('$enrollnumber', '$category', '$firstcourse', '$secondcourse', '$thirdcourse', '$campus');";
-        $insertfile = "INSERT INTO `regulardocumentsneed`(`enrollnumber`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
-        $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
-        $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
+        $insertsql1 = "INSERT INTO `studentinfo`(`StudentID`, `FullName-Last`, `FullName-First`, `FullName-Middle`, `Age`, `birthday`, `birthplace`, `civilstatus`, `gender`, `contactno`, `email`, `address-name`, `zip_code`, `mothername`, `motherjob`, `fathername`, `fatherjob`, `guardianname`, `relationship`, `guardiancontactno`) VALUES ('$studentid', '$FullName_Last', '$FullName_First', '$FullName_Middle', '$Age', '$birthday', '$birthplace', '$civilstatus', '$gender', '$contactno', '$email', '$address_name', '$zip_code', '$mothername', '$motherjob', '$fathername', '$fatherjob', '$guardianname', '$relationship', '$guardiancontactno');";
+        $insertsql2 = "INSERT INTO `studenteducationalinfo`(`StudentID`, `schoollastattended`, `schoollastattendedaddress`, `schoollastattendedlevel`) VALUES ('$studentid', '$schoollastattended', '$schoollastattendedaddress', '$schoollastattendedlevel');";
+        $insertsql3 = "INSERT INTO `studentenrollmentinfo`(`StudentID`, `category`, `firstcourse`, `secondcourse`, `thirdcourse`) VALUES ('$studentid', '$category', '$firstcourse', '$secondcourse', '$thirdcourse');";
+        $insertfile = "INSERT INTO `regulardocumentsneed`(`StudentID`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$studentid', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
+        $insertExamCodee = "INSERT INTO `student_examresult`(`StudentID`, `ExamCode`) VALUES ('$studentid','$ExamCode');";
+        $insertapproved = "INSERT INTO `studentapprovals`(`StudentID`,`remarks`) VALUES ('$studentid','$remarks');";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
         $query .=$insertExamCodee;
         $query .=$insertfile;
         $query .=$insertapproved;
-        $location = "../../files/ENROLLEES_FILES/$enrollnumber/";
+        $location = "../../files/$studentid/";
             if(!file_exists($location)){
             mkdir($location,0777,true);
             }
