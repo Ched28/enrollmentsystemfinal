@@ -43,6 +43,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "passers.php")?"active":"";?>"><a href="passers.php"> <i class="fas fa-stream"></i> &nbsp; QCUCAT Results </a></li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "enrollees.php") || (basename($_SERVER['PHP_SELF']) == "select_info.php") || (basename($_SERVER['PHP_SELF']) == "approvals.php")?"active":"";?>"><a href="enrollees.php"> <i class="fas fa-list-ol"></i> &nbsp; Manage New Enrollees</a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "sections.php")?"active":"";?>"><a href="sections.php"> <i class="fas fa-user-friends"></i>&nbsp; Manage Section</a> </li>
+    <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "subjects.php")?"active":"";?>"><a href="subjects.php"> <i class="fas fa-book-open"></i> &nbsp; Manage Subject</a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "student_acc.php")?"active":"";?>"><a href="student_acc.php"> <i class="far fa-user"></i>&nbsp; Manage Student Account</a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "admin.php")?"active":"";?>"> <a href="admin.php"> <i class="fas fa-user-shield"> </i>&nbsp; Account </a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "settings.php")?"active":"";?>"><a href="settings.php"> <i class="fas fa-wrench"></i>&nbsp; Settings </a> </li>

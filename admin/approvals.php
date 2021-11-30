@@ -22,7 +22,7 @@ if($select_run){
             $approval = $row['Approval'];
             $remarks = $row['remarks'];
             $id = $row['ID'];
-
+            $inc = qcu_encrypt($enrollnumber);
 
             ?>
             <div class="content">
@@ -39,12 +39,12 @@ if($select_run){
             <h1> <?php echo $enrollnumber; ?></h1>
             </div>
             <div class="appheadbutton">
-                <a href='select_info.php?id=<?php echo $id?>' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <a href="approvals.php?id=<?php echo $studentinc;?>"><i class="fas fa-edit"></i> </a>
+                <a href='select_info.php?id=<?php echo $id?>' target="_top"><i class="fas fa-eye" ></i> </a>
             </div>
                         
             </div>
             <hr>
-            <form action="POST">
+            <form method="POST" enctype="multipart/form-data" action="config/update_approvals.php?id=<?php echo $inc ?>">
             <table>
             <tr>
                 <td> Last Name: </td>
@@ -73,19 +73,31 @@ if($select_run){
             <tr>
                 <td> Approval </td>
                 <td> <select name="approvals" value="">
-                    <option value="APPROVED" <?php if($approval == 'APPROVED'){ echo 'selected'; } ?>> APPROVED </option>
+                    <option value="APPROVED" <?php if($approval == 'APPROVED'){ echo 'selected';} ?>> APPROVED </option>
                     <option value="TO BE APPROVED" <?php if($approval == 'TO BE APPROVED'){ echo 'selected'; } ?>> TO BE APPROVED</option>
                 </select></td>
             </tr>
             <tr>
                 <td> Remarks: </td>
-                <td> <textarea rows="10" cols="50" name="remarks"> <?php echo $remarks; ?></textarea></td>
+                <td> <textarea rows="10" cols="50" name="remarks" id="txt1"> <?php echo $remarks; ?></textarea></td>
                 <td></td>
             </tr>
             <tr>
                 <td></td>
-                <td><button type="submit" name="update"> UPDATE </button></td>
+                <td class="remarksbtn"><a onclick="insertText('txt1', '/CHECKED DOCUMENTS()/');"> CHECKED DOCUMENTS('file names here') </a> &nbsp;
+                <a onclick="insertText('txt1', '/INCOMPLETE DOCUMENTS/');"> INCOMPLETE DOCUMENTS </a> &nbsp;
+                <a onclick="insertText('txt1', '/CORRUPTED  FILE()/');"> CORRUPTED  FILE('file names here') </a> &nbsp;
+                <a onclick="insertText('txt1', '/INCORRECT  FILE()/');"> INCORRECT  FILE('file names here') </a> </td>
             </tr>
+            <tr>
+                <td>
+                    
+                </td>
+                <td><button type="submit" name="update"> UPDATE </button></td>
+                
+            </tr>
+            
+           
         </table>
         </form>
     </div>
@@ -96,3 +108,10 @@ if($select_run){
     }
 }
 ?>
+<script type="text/javascript">
+      function insertText(elemID, text)
+      {
+        var elem = document.getElementById(elemID);
+        elem.innerHTML += text;
+      }
+    </script>

@@ -31,6 +31,7 @@ nav{
     background-color: #002347;
     display: flex;
     justify-content: space-around;
+    
 }
 
 main{
@@ -273,7 +274,7 @@ main{
     text-align: center;
 }
 .enrollees_indi table{
-    width: 100%;
+    max-width: 100%;
 }
 
 .enrollees_indi th{
@@ -458,4 +459,14 @@ main{
 }
 .appbody button{
     background-color: #00AC17;
+    color: white;
+    border-radius: 10px;
+}
+.remarksbtn a{
+    color: white;
+    font-size: .7em;
+    width: 10%;
+    border-radius: 10px;
+    background-color: #00AC17;
+    padding: 12px 20px;
 }
