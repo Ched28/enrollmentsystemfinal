@@ -470,3 +470,14 @@ main{
     background-color: #00AC17;
     padding: 12px 20px;
 }
+
+.section_dashboard{
+    display:grid;
+    grid-template-areas: 
+    "headsec headsec headsec"
+    "secbody secbody secbody"
+    "secbody secbody secbody"
+    "secbody secbody secbody"   
+    ;
+
+}

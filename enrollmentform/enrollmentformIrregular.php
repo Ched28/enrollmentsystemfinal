@@ -158,39 +158,71 @@ $id = $_GET['id'];
     </td>
 </tr>
 <tr>
+<?php include_once("config/dbcon.php");?>
 <td> FIRST CHOICE  </td> 
-  <td colspan="3"> <select name="firstcourse" value=""> 
-                        <option value=" ">First Choice of Course</option>  
-                        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                        <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
-                        <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
-                        <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
-                        <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
-          
+  <td colspan="3"> <select name="firstcourse" value="" required> 
+  <option value=" ">First Choice of Course</option>  
+                   <?php 
+                        $selectcourse = "SELECT * FROM course";
+                        $select_run = mysqli_query($con, $selectcourse);
+                        if($select_run){
+                          while($row = mysqli_fetch_array($select_run)){
+                              $course = $row['coursename'];
+                                  echo "<option value='$course'> $course </option>";
+                          }
+                        }
+                   ?>
                     </select>  </td>  
 </tr>
 <tr>
 <td> SECOND CHOICE  </td> 
-  <td colspan="3">  <select name="secondcourse" value=""> 
+  <td colspan="3">  <select name="secondcourse" value="" required> 
                         <option value=" ">Second Choice of Course</option>  
-                        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                        <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
-                        <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
-                        <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
-                        <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
-          
+                        <?php 
+                        $selectcourse = "SELECT * FROM course";
+                        $select_run = mysqli_query($con, $selectcourse);
+                        if($select_run){
+                          while($row = mysqli_fetch_array($select_run)){
+                              $course = $row['coursename'];
+                                  echo "<option value='$course'> $course </option>";
+                          }
+                        }
+                   ?>
                     </select>  </td>  
 </tr>
 <tr>
 <td> THIRD CHOICE  </td> 
-  <td colspan="3">  <select name="thirdcourse" value=""> 
+  <td colspan="3">  <select name="thirdcourse" value="" required> 
                         <option value=" ">Third Choice of Course</option> 
-                        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                        <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
-                        <option value="Bachelor of Science in Industrial Engineering">Bachelor of Science in Industrial Engineering</option>
-                        <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
-                        <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
-                    </select>  </td>  
+                        <?php 
+                        $selectcourse = "SELECT * FROM course";
+                        $select_run = mysqli_query($con, $selectcourse);
+                        if($select_run){
+                          while($row = mysqli_fetch_array($select_run)){
+                              $course = $row['coursename'];
+                                  echo "<option value='$course'> $course </option>";
+                          }
+                        }
+                   ?>
+                      </select>  </td>  
+</tr>
+<tr>
+  <td> CAMPUS </td>
+  <td colspan="3">
+  <select name="campus" value="" required> 
+                        <option value=" ">Select Campus</option> 
+                        <?php 
+                        $selectcourse = "SELECT * FROM campus";
+                        $select_run = mysqli_query($con, $selectcourse);
+                        if($select_run){
+                          while($row = mysqli_fetch_array($select_run)){
+                              $course = $row['campus_name'];
+                                  echo "<option value='$course'> $course </option>";
+                          }
+                        }
+                   ?>
+                      </select>
+  </td>
 </tr>
 <tr>
     <td colspan="4">

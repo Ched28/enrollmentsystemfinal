@@ -216,7 +216,7 @@ $id = $_GET['id'];
                         $select_run = mysqli_query($con, $selectcourse);
                         if($select_run){
                           while($row = mysqli_fetch_array($select_run)){
-                              $course = $row['campus'];
+                              $course = $row['campus_name'];
                                   echo "<option value='$course'> $course </option>";
                           }
                         }

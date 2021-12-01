@@ -15,7 +15,7 @@ if($resultpassers){
     }
 }
 
-$countnewenrollees = "SELECT COUNT(StudentID) as 'enrollees' FROM `studentinfo`;";
+$countnewenrollees = "SELECT COUNT(enrollnumber) as 'enrollees' FROM `studentinfo`;";
 $resultnewenrollees = mysqli_query($con, $countnewenrollees);
 
 if($resultnewenrollees){
@@ -43,7 +43,7 @@ if($resultofficial){
 
 //regular 
 
-$countregular = "SELECT COUNT(StudentID) AS cat FROM `studentenrollmentinfo` WHERE category = 'REGULAR';";
+$countregular = "SELECT COUNT(enrollnumber) AS cat FROM `studentenrollmentinfo` WHERE category = 'REGULAR';";
 $resultregular = mysqli_query($con, $countregular);
 if($resultregular){
     if($resultregular && mysqli_num_rows($resultregular) > 0){
@@ -54,7 +54,7 @@ if($resultregular){
     }
 }
 
-$counttransferee = "SELECT COUNT(StudentID) AS cat FROM `studentenrollmentinfo` WHERE category = 'TRANSFEREE';";
+$counttransferee = "SELECT COUNT(enrollnumber) AS cat FROM `studentenrollmentinfo` WHERE category = 'TRANSFEREE';";
 $resulttransferee = mysqli_query($con, $counttransferee);
 if($resulttransferee){
     if($resulttransferee && mysqli_num_rows($resulttransferee) > 0){
@@ -65,7 +65,7 @@ if($resulttransferee){
     }
 }
 
-$countreturnee = "SELECT COUNT(StudentID) AS cat FROM `studentenrollmentinfo` WHERE category = 'RETURNEE';";
+$countreturnee = "SELECT COUNT(enrollnumber) AS cat FROM `studentenrollmentinfo` WHERE category = 'RETURNEE';";
 $resultreturnee = mysqli_query($con, $countreturnee);
 if($resultreturnee){
     if($resultreturnee && mysqli_num_rows($resultreturnee) > 0){
