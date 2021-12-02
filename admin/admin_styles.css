@@ -499,6 +499,22 @@ main{
     flex-shrink: 1;
     flex-basis: 0;
 }
+.course{
+    flex-direction: column;
+    width: auto;
+    
+}
+.course div{
+    padding: .4em;
+    margin: .4em;
+    background-color: #e82048;
+    border-radius: 10px;
+}
+
+.course div a{
+    color: white;
+    text-decoration: none;
+}
 .secbody-campus div{
     padding: 1em;
     margin: 1em;
@@ -510,4 +526,41 @@ main{
     color: white;
     text-decoration: none;
     text-align: center;
+}
+
+.section div a{
+    color: white;
+    text-decoration: none;
+    text-align: left;
+
+}
+.section div{
+    padding: .4em;
+    padding-left: .9em;
+    margin: .4em;
+    background-color: #e82048;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.section div div ul li{
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: .3em;
+}
+
+.section div div ul li:hover{
+    background-color: #c72344;
+    border-radius: 10px;
+    padding: .3em;
+}
+.section{
+    flex-direction: column;
+    width: 100%;
+    padding: 1em;
+    
+    
 }
