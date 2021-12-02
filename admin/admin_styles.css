@@ -481,3 +481,33 @@ main{
     ;
 
 }
+
+.headsec{
+    grid-area: headsec;
+    color: black;
+    text-align: center;
+}
+
+.secbody{
+    grid-area: secbody;
+    width: 100%;
+    
+}
+.secbody-campus{
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+.secbody-campus div{
+    padding: 1em;
+    margin: 1em;
+    background-color: #00AC17;
+    border-radius: 10px;
+    width: 100%;
+}
+.secbody-campus div a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
