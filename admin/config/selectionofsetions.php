@@ -56,13 +56,74 @@ function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_
     $run_sum1 = mysqli_query($con, $selectsum);
     if($run_sum1){
         if($run_sum1 && mysqli_num_rows($run_sum1) > 0){
+            while($row = mysqli_fetch_array($run_sum1)){
+                $totalcount = $row['totalcount'];
+                if($totalcount >= 500){
+                    $selectsum1 = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$secondcourse_code' AND sections.`year` = '$year';";
+                    $run_sum2 = mysqli_query($con, $selectsum1);
+                    if($run_sum2 && mysqli_num_rows($run_sum2) > 0){
+                        while($row = mysqli_fetch_array($run_sum2)){
+                            $totalcount1 = $row['totalcount'];
+                            if($totalcount1 >=500){
+                                $selectsum2 = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$thirdcourse_code' AND sections.`year` = '$year';";
+                                $run_sum3 = mysqli_query($con, $selectsum2);
+                                if($run_sum3 && mysqli_num_rows($run_sum3) > 0){
+                                    while($row = mysqli_fetch_array($run_sum3)){
+                                        $totalcount2 = $row['totalcount'];
+                                        if($totalcount2 >= 500){
+                                            $msg1 = "count error";
+                                            return $msg1;
+                                        }else{
+                                            return $thirdcourse_code;
+                                        }
+                            }
+                }
+            }else{
+                return $secondcourse_code;
+            }
             
         }
     }
     
+}else{
+    return $firstcourse_code;
 }
+}
+}
+}
+}
+function update_status($con, $status, $studentid){
 
+    $selectenrollnumber = "SELECT * FROM `student_examresult` WHERE `StudentID` = '$studentid'";
+    $run_select = mysqli_query($con, $selectenrollnumber);
+    if($run_select){
+        if($run_select && mysqli_num_rows($run_select)){
+            while($row = mysqli_fetch_array($run_select)){
+                $approval = 'TO BE APPROVED';
+                $enrollnumber = $row['enrollnumber'];
+                $update1 = "UPDATE `studentinfo` SET `StudentID` = ' ' WHERE `studentinfo`.`enrollnumber` = '$enrollnumber';";
+                $update2 = "UPDATE `studentenrollmentinfo` SET `StudentID` = ' ' WHERE `studentenrollmentinfo`.`enrollnumber` = '$enrollnumber';";
+                $update3 = "UPDATE `studenteducationalinfo` SET `StudentID` = ' ' WHERE `studenteducationalinfo`.`enrollnumber` = '$enrollnumber';";
+                $update4 = "UPDATE `studentapprovals` SET `StudentID`=' ',`Approval`='$approval',`remarks`='$status' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
+                $update5 = "UPDATE `student_examresult` SET `StudentID`=' ' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";
+                $query = $update1;
+                $query .= $update2;
+                $query .= $update3;
+                $query .= $update4;
+                $query .= $update5;
+    
+    
+                $updatequeries = $con->multi_query($query);
 
+                if($updatequeries){
+                    
+                    
+                    return $updatequeries;
+                }
+            }
+        }
+    } 
+}
 $studentid = qcu_decrypt($id);
 $selectstudentid = "SELECT * FROM `student_sections` ORDER BY ID DESC LIMIT 1;";
 $select_idrun = mysqli_query($con,$selectstudentid);
@@ -95,6 +156,15 @@ if($select_idrun){
                         $campus_code = selectcampus($con, $campus);
 
                         $course_code = countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year);
+                        
+                        if($course_code == "count error"){
+                            $status = "ALL OF YOUR THREE CHOICE OF COURSE HAS BEEN EXCEED COUNT IF YOU LIKE TO CONTINUE YOUR ENROLLMENT PLEASE CLICK THIS BUTTON.";
+                            update_status($con, $status, $studentid);
+                            echo "<script>location.replace('../enrollees.php')</script>";
+
+                           
+
+                        }else{
                         $campuscode_new = compareCampusCode($campuscode, $campus_code);
 
                         $coursecode_new = compareCourseCode($coursecode, $course_code);
@@ -154,6 +224,7 @@ if($select_idrun){
                             }
                         }
 
+                        }
                         
 
                         

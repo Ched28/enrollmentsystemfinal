@@ -46,7 +46,7 @@ if($select_run){
             <h1><?php echo $enrollnumber."&nbsp; <span style='font-size: .7em;'>$lastname, $firstname $middlename</span>"; ?></h1>
             </div>
             <div>
-            <a href='' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <?php if($student_confirm != ""){ echo "<a href='select_status.php?id=$inc_student'><i class='far fa-lightbulb'></i> </a>";}else{echo "<a href='approvals.php?id=$studentinc'><i class='fas fa-edit'></i> </a>"; } ?> 
+            <a href='' target="_top"><i class="fas fa-eye" ></i> </a> &nbsp; <a onclick="myFunction()"> <i class="fas fa-folder"></i></a>  &nbsp; </a> <?php if($student_confirm != ' '){ echo "<a href='select_status.php?id=$inc_student'><i class='far fa-lightbulb'></i> </a>";}else{echo "<a href='approvals.php?id=$studentinc'><i class='fas fa-edit'></i> </a>"; } ?> 
             </div>
             
             

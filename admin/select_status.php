@@ -6,8 +6,8 @@ include_once("config/enc_dec.php");
 $id = $_GET['id'];
 $dec = qcu_decrypt($id);
 
-function selectcourse($con, $firstcourse){
-    $select_course = "SELECT * FROM `course` WHERE coursename = '$firstcourse';";
+function selectcourse($con, $course_code){
+    $select_course = "SELECT * FROM `course` WHERE course_code = '$course_code';";
             $run_course = mysqli_query($con, $select_course);
             if($run_course){
                 if($run_course && mysqli_num_rows($run_course) > 0){
@@ -34,10 +34,11 @@ if($run_select){
             $campus = $row['campus'];
             $sectionname = $row['sectionname'];
             $firstcourse = $row['firstcourse'];
-            $course = selectcourse($con, $firstcourse);
+           //  = selectcourse($con, $firstcourse);
             $year = substr($sectionname, 5,1);
             $code = substr($sectionname, 6,1);
-
+            $course_code = substr($sectionname , 2,2);
+            $course = selectcourse($con, $course_code);
             ?>
 <div class="content">
     <div class="approval-form">
