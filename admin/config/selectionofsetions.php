@@ -51,12 +51,15 @@ function compareCourseCode($coursecode, $course_code){
     }
 }
 
-function AddSection($con, $campuscode_new, $coursecode_new, $year, $code){
+function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year){
+    $selectsum = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$firstcourse_code' AND sections.`year` = '$year';";
+    $run_sum1 = mysqli_query($con, $selectsum);
+    if($run_sum1){
+        if($run_sum1 && mysqli_num_rows($run_sum1) > 0){
+            
+        }
+    }
     
-    //success now for the year and code 
-   
-    
-
 }
 
 
@@ -79,14 +82,24 @@ if($select_idrun){
                 if($select_eninrun && mysqli_num_rows($select_eninrun) > 0){
                     while($row = mysqli_fetch_array($select_eninrun)){
                         $firstcourse = $row['firstcourse'];
+                        $secondcourse = $row['secondcourse'];
+                        $thirdcourse = $row['thirdcourse'];
                         $campus = $row['campus'];
 
-                        $course_code = selectcourse($con, $firstcourse);
+
+                        //$firstcourse = countStudent($con, $firstcourse1, $secondcourse, $thirdcourse, $campus);
+
+                        $firstcourse_code = selectcourse($con, $firstcourse);
+                        $secondcourse_code = selectcourse($con, $secondcourse);
+                        $thirdcourse_code = selectcourse($con, $thirdcourse);
                         $campus_code = selectcampus($con, $campus);
 
+                        $course_code = countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year);
                         $campuscode_new = compareCampusCode($campuscode, $campus_code);
 
                         $coursecode_new = compareCourseCode($coursecode, $course_code);
+
+                        
                         $select_newsection = "SELECT * FROM `sections` WHERE campus_code = '$campuscode_new' AND course_code = '$coursecode_new' AND `year` = '$year' AND section_letter = '$code'";
                         $select_newrun = mysqli_query($con, $select_newsection);
                         if($select_newrun){
