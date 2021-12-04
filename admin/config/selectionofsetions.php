@@ -50,8 +50,19 @@ function compareCourseCode($coursecode, $course_code){
         return $coursecode;
     }
 }
-
-function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year){
+function update_count($con, $studentid){
+    $selecteninfo = "SELECT * FROM `studentenrollmentinfo` WHERE StudentID = '$studentid';";
+    $run_eninfo = mysqli_query($con, $selecteninfo);
+    if($run_eninfo){
+        if($run_eninfo && mysqli_num_rows($run_eninfo) > 0){
+            while($row6 = mysqli_fetch_array($run_eninfo)){
+                $updatecount = $row6['updatecount'];
+                return $updatecount;
+            }
+        }
+    }
+} 
+function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year, $updatecount){
     $selectsum = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$firstcourse_code' AND sections.`year` = '$year';";
     $run_sum1 = mysqli_query($con, $selectsum);
     if($run_sum1){
@@ -71,8 +82,13 @@ function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_
                                     while($row = mysqli_fetch_array($run_sum3)){
                                         $totalcount2 = $row['totalcount'];
                                         if($totalcount2 >= 500){
-                                            $msg1 = "count error";
-                                            return $msg1;
+                                            if($updatecount == 1){
+                                                return $firstcourse_code;
+                                            }else{
+                                                $msg1 = "count error";
+                                                return $msg1;
+                                            }
+                                            
                                         }else{
                                             return $thirdcourse_code;
                                         }
@@ -154,13 +170,14 @@ if($select_idrun){
                         $secondcourse_code = selectcourse($con, $secondcourse);
                         $thirdcourse_code = selectcourse($con, $thirdcourse);
                         $campus_code = selectcampus($con, $campus);
+                        $updatecount = update_count($con, $studentid);
 
-                        $course_code = countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year);
+                        $course_code = countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year, $updatecount);
                         
                         if($course_code == "count error"){
                             $status = "ALL OF YOUR THREE CHOICE OF COURSE HAS BEEN EXCEED COUNT IF YOU LIKE TO CONTINUE YOUR ENROLLMENT PLEASE CLICK THIS BUTTON.";
                             update_status($con, $status, $studentid);
-                            echo "<script>location.replace('../enrollees.php')</script>";
+                           // echo "<script>location.replace('../enrollees.php')</script>";
 
                            
 
