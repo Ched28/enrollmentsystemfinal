@@ -120,8 +120,8 @@ function update_status($con, $status, $studentid){
                 $update1 = "UPDATE `studentinfo` SET `StudentID` = ' ' WHERE `studentinfo`.`enrollnumber` = '$enrollnumber';";
                 $update2 = "UPDATE `studentenrollmentinfo` SET `StudentID` = ' ' WHERE `studentenrollmentinfo`.`enrollnumber` = '$enrollnumber';";
                 $update3 = "UPDATE `studenteducationalinfo` SET `StudentID` = ' ' WHERE `studenteducationalinfo`.`enrollnumber` = '$enrollnumber';";
-                $update4 = "UPDATE `studentapprovals` SET `StudentID`=' ',`Approval`='$approval',`remarks`='$status' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
-                $update5 = "UPDATE `student_examresult` SET `StudentID`=' ' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";
+                $update4 = "UPDATE `studentapprovals` SET `StudentID`= ' ',`Approval`='$approval',`remarks`='$status' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
+                $update5 = "UPDATE `student_examresult` SET `StudentID`= ' ' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";
                 $query = $update1;
                 $query .= $update2;
                 $query .= $update3;
@@ -177,7 +177,7 @@ if($select_idrun){
                         if($course_code == "count error"){
                             $status = "ALL OF YOUR THREE CHOICE OF COURSE HAS BEEN EXCEED COUNT IF YOU LIKE TO CONTINUE YOUR ENROLLMENT PLEASE CLICK THIS BUTTON.";
                             update_status($con, $status, $studentid);
-                            echo "<script>location.replace('../../enrollees.php');</script>";
+                            echo "<script>location.replace('../enrollees.php');</script>";
 
                            
 
