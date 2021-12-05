@@ -72,9 +72,8 @@ if($result && mysqli_num_rows($result) > 0)
                                             $remarks = $row4['remarks'];
                                             echo "<tr><td class='td1'> Status: </td>   <td class='td1 data1'>$approved</td></tr>";
                                             echo "<tr><td class='td1'> Remarks: </td>   <td class='td1 data1'>$remarks</td></tr>";
-                                        }
-                                    }
-                                    $inc = qcu_encrypt($examcode);
+                                            $inc = qcu_encrypt($examcode);
+                                    
                                    
                                     echo "<tr><td></td><td class='td1'>
                                     
@@ -85,6 +84,9 @@ if($result && mysqli_num_rows($result) > 0)
                                     <a href='enrollmentform/update_documents.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
                                    
                                     </td></tr>";
+                                        }
+                                    }
+                                    
                                     
 
                                 }

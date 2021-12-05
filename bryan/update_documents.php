@@ -199,6 +199,7 @@ Here are the requrirements you submitted...
         }
         // another cat
         // for irreg, ikaw na bahala -bry
+        ?>
         <?php 
          $select_irregular= "SELECT * FROM `transfeeesdocumentsneed` WHERE StudentID = '$StudentID1' LIMIT 1";
          $result_irregular= mysqli_query($con, $select_irregular);
@@ -336,6 +337,7 @@ Here are the requrirements you submitted...
         }
         // another cat
         // for returnee, Dont get confused -bry
+        ?>
         <?php 
          $select_irregular= "SELECT * FROM `transfeeesdocumentsneed` WHERE StudentID = '$StudentID1' LIMIT 1";
          $result_irregular= mysqli_query($con, $select_irregular);

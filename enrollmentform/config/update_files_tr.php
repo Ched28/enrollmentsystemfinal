@@ -4,24 +4,14 @@ include_once("enc_dec.php");
 $id = $_GET['id'];
 $dec = qcu_decrypt($id);
 if(isset($_POST['update'])){
-    $cat = mysqli_real_escape_string($con,$_POST['hidden_cat']);
-    $enrollnumber1 = $dec;
-    $PSA_prev = $_POST['PSA_prev'];
-    $Form137_prev = $_POST['Form137_prev'];
-    $Form138_prev = $_POST['Form138_prev'];
-    $Diploma_prev = $_POST['Diploma_prev'];
-    $GoodMoral_prev = $_POST['GoodMoral_prev'];
-    $BarangayClearance_prev = $_POST['BarangayClearance_prev'];
-    $MedicalClearance_prev = $_POST['MedicalClearance_prev'];
-    $IDPicture_prev = $_POST['IDPicture_prev'];
+    $TOR = $_FILES['TOR']['name'];
+    $TOR_temp = $_FILES['TOR']['tmp_name'];
+    $CertificateofTransferCredential = $_FILES['CertificateofTransferCredential']['name'];
+    $CertificateofTransferCredential_temp = $_FILES['CertificateofTransferCredential']['tmp_name'];
+    $SubjectDescription = $_FILES['SubjectDescription']['name'];
+    $SubjectDescription_temp = $_FILES['SubjectDescription']['tmp_name'];
     $PSA = $_FILES['PSA']['name'];
     $PSA_temp = $_FILES['PSA']['tmp_name'];
-    $Form137 = $_FILES['Form137']['name'];
-    $Form137_temp = $_FILES['Form137']['tmp_name'];
-    $Form138 = $_FILES['Form138']['name'];
-    $Form138_temp = $_FILES['Form138']['tmp_name'];
-    $Diploma = $_FILES['Diploma']['name'];
-    $Diploma_temp = $_FILES['Diploma']['tmp_name'];
     $GoodMoral = $_FILES['GoodMoral']['name'];
     $GoodMoral_temp = $_FILES['GoodMoral']['tmp_name']; 
     $BarangayClearance = $_FILES['BarangayClearance']['name'];
@@ -32,40 +22,40 @@ if(isset($_POST['update'])){
     $IDPicture_temp = $_FILES['IDPicture']['tmp_name'];
     
            
+    $TOR_TEXT = "";
+    $CertificateofTransferCredential_TEXT = "";
+    $SubjectDescription_TEXT = "";
     $PSA_TEXT = "";
-    $Form137_TEXT = "";
-    $Form138_TEXT = "";
-    $Diploma_TEXT = "";
     $GoodMoral_TEXT = "";
     $BarangayClearance_TEXT = "";
     $MedicalClearance_TEXT = "";
     $IDPicture_TEXT = "";
+    if($TOR == ""){
+        $TOR_TEXT = $TOR_prev;
+        $TOR = $TOR_prev;
+        
+    }else{
+        $TOR_TEXT = $TOR;
+    }
+    if($CertificateofTransferCredential == ""){
+        $CertificateofTransferCredential_TEXT = $CertificateofTransferCredential_prev;
+        $CertificateofTransferCredential = $CertificateofTransferCredential_prev;
+    }else{
+        $CertificateofTransferCredential_TEXT = $CertificateofTransferCredential;
+    }
+    
+    if($SubjectDescription == ""){
+        $SubjectDescription_TEXT = $SubjectDescription_prev;
+        $SubjectDescription = $SubjectDescription_prev;
+    }else{
+        $SubjectDescription_TEXT = $SubjectDescription;
+    }
+    
     if($PSA == ""){
         $PSA_TEXT = $PSA_prev;
         $PSA = $PSA_prev;
-        
     }else{
         $PSA_TEXT = $PSA;
-    }
-    if($Form137 == ""){
-        $Form137_TEXT = $Form137_prev;
-        $Form137 = $Form137_prev;
-    }else{
-        $Form137_TEXT = $Form137;
-    }
-    
-    if($Form138 == ""){
-        $Form138_TEXT = $Form138_prev;
-        $Form138 = $Form138_prev;
-    }else{
-        $Form138_TEXT = $Form138;
-    }
-    
-    if($Diploma == ""){
-        $Diploma_TEXT = $Diploma_prev;
-        $Diploma = $Diploma_prev;
-    }else{
-        $Diploma_TEXT = $Diploma;
     }
     
     if($GoodMoral == ""){
@@ -98,8 +88,8 @@ if(isset($_POST['update'])){
     
     
     
-    if($cat == "REGULAR"){
-        $updatefileregular = "UPDATE `regulardocumentsneed` SET `PSA`='$PSA_TEXT',`Form137`='$Form137_TEXT',`Form138`='$Form138_TEXT',`Diploma`='$Diploma_TEXT',`GoodMoral`='$GoodMoral_TEXT',`BarangayClearance`='$BarangayClearance_TEXT',`MedicalClearance`='$MedicalClearance_TEXT',`IDPicture`='$IDPicture_TEXT' WHERE `enrollnumber` = '$enrollnumber1'; ";
+    if($cat == "TRANSFEREE"){
+        $updatefileregular = "UPDATE `transfeeesdocumentsnee` SET `PSA`='$PSA_TEXT',`TOR`='$TOR_TEXT',`CertificateofTransferCredential`='$CertificateofTransferCredential_TEXT',`SubjectDescription`='$SubjectDescription_TEXT',`GoodMoral`='$GoodMoral_TEXT',`BarangayClearance`='$BarangayClearance_TEXT',`MedicalClearance`='$MedicalClearance_TEXT',`IDPicture`='$IDPicture_TEXT' WHERE `enrollnumber` = '$enrollnumber1'; ";
         $update1 = mysqli_query($con, $updatefileregular);
         
         $location = "../../files/ENROLLEES_FILES/$enrollnumber1/";
@@ -121,38 +111,38 @@ if(isset($_POST['update'])){
             }
             }
             //FORM137
-            if(file_exists($location.$Form137)){
+            if(file_exists($location.$TOR)){
            
-            move_uploaded_file($Form137_temp, $location.$Form137);  
+            move_uploaded_file($TOR_temp, $location.$TOR);  
             }else{
-            move_uploaded_file($Form137_temp, $location.$Form137);
-            if(is_file($location.$Form137_prev) == "true"){
-                unlink($location.$Form137_prev);     
+            move_uploaded_file($TOR_temp, $location.$TOR);
+            if(is_file($location.$TOR_prev) == "true"){
+                unlink($location.$TOR_prev);     
             } 
            
             }
             //form138
-            if(file_exists($location.$Form138)){
+            if(file_exists($location.$CertificateofTransferCredential)){
             
-            move_uploaded_file($Form138_temp, $location.$Form138);
+            move_uploaded_file($CertificateofTransferCredential_temp, $location.$CertificateofTransferCredential);
             }else{
-            move_uploaded_file($Form138_temp, $location.$Form138);
-            if(is_file($location.$Form138_prev) == "true"){
-                unlink($location.$Form138_prev);
+            move_uploaded_file($CertificateofTransferCredential_temp, $location.$CertificateofTransferCredential);
+            if(is_file($location.$CertificateofTransferCredential_prev) == "true"){
+                unlink($location.$CertificateofTransferCredential_prev);
                
             }
 
             }
             //diploma
-            if(file_exists($location.$Diploma)){
+            if(file_exists($location.$SubjectDescription)){
            
-            move_uploaded_file($Diploma_temp, $location.$Diploma);
+            move_uploaded_file($SubjectDescription_temp, $location.$SubjectDescription);
                
             }else{
             
-            move_uploaded_file($Diploma_temp, $location.$Diploma);
-            if(is_file($location.$Diploma_prev) == "true"){
-                unlink($location.$Diploma_prev);
+            move_uploaded_file($SubjectDescription_temp, $location.$SubjectDescription);
+            if(is_file($location.$SubjectDescription_prev) == "true"){
+                unlink($location.$SubjectDescription_prev);
                 
                 }
      
