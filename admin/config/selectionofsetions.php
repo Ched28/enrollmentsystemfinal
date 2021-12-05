@@ -177,7 +177,7 @@ if($select_idrun){
                         if($course_code == "count error"){
                             $status = "ALL OF YOUR THREE CHOICE OF COURSE HAS BEEN EXCEED COUNT IF YOU LIKE TO CONTINUE YOUR ENROLLMENT PLEASE CLICK THIS BUTTON.";
                             update_status($con, $status, $studentid);
-                           // echo "<script>location.replace('../enrollees.php')</script>";
+                            echo "<script>location.replace('../../enrollees.php');</script>";
 
                            
 
