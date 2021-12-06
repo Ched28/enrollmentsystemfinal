@@ -205,7 +205,7 @@ Here are the requrirements you submitted...
          $result_irregular= mysqli_query($con, $select_irregular);
          while($row3 = mysqli_fetch_array($result_irregular)){
             $PSA = $row3['PSA'];
-            $TOR = $row3['Form137'];
+            $TOR = $row3['TOR'];
             $CertificateofTransferCredential = $row3['CertificateofTransferCredential'];
             $SubjectDescription = $row3['SubjectDescription'];
             $GoodMoral = $row3['GoodMoral'];

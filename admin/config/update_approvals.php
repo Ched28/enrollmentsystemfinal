@@ -81,7 +81,7 @@ if($select_idrun){
     $update4 = "UPDATE `studentapprovals` SET `Approval`='$approval',`remarks`='$remarks' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber'";
     $update_approval = mysqli_query($con, $update4);
     if($update_approval){
-        echo "<script>location.replace('enrollees.php');</script>";
+        echo "<script>location.replace('../enrollees.php');</script>";
     }
 
 

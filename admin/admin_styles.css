@@ -178,7 +178,7 @@ main{
     ; 
     color: black;
 }
-
+.head-master,
 .head{
     grid-area: head;
     color: black;
@@ -188,6 +188,7 @@ main{
     
 
 }
+
 
 .head h1{
     text-align: center;
@@ -214,6 +215,7 @@ main{
 .filter-drawer button{
     padding: 12px 20px;
 }
+.masterlist,
 .con{
     grid-area: con;
     padding: 1em;
@@ -223,29 +225,39 @@ main{
     min-width: 100%;
     min-height: 100%;
 }
+.masterlist table{
+    width: 50%;
+    height: 50%;
+
+}
+.masterlist,
 .con a{
     text-decoration: none;
     color: black;
     
     font-size: 1em;
 }
+.masterlist,
 .con a:hover{
     color: #00AC17;
 }
+.masterlist,
 .con .buttons{
     text-align: center;
 
 }
-
+.masterlist,
 .con th{
     background-color: #002347;
     color: white;
     border-collapse: collapse;
 }
+.masterlist,
 .con th,td{
     padding: .4em;
     cursor: pointer;
 }
+.masterlist,
 .con tr:hover{
     color: darkgrey;
 }
@@ -563,4 +575,32 @@ main{
     padding: 1em;
     
     
+}
+.head-master{
+    
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.head-master{
+    font-size: 1em;
+}
+
+.head-master a{
+    color: white;
+    background-color: #c72344;
+    text-decoration: none;
+    padding: .7em;
+    
+}
+.head-master ul li{
+    list-style: none;
+    padding: .5em;
+}
+.head-master a:hover{
+    background-color: #d16c80;
+}
+.head-master ul{
+    display: flex;
 }

@@ -205,7 +205,7 @@ if(isset($_POST['update'])){
             }
             }
             $remarks = "DOCUMENTS HAS BEEN PASSED // TO BE APPROVED";
-            $update_status = "UPDATE `studentapprovals` SET `remarks`='$remarks' WHERE StudentID = '$enrollnumber1';";
+            $update_status = "UPDATE `studentapprovals` SET `remarks`='$remarks' WHERE enrollnumber = '$enrollnumber1';";
             mysqli_query($con, $update_status);
             }
             sleep(10);

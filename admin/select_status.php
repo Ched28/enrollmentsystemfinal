@@ -55,7 +55,7 @@ if($run_select){
                         <td>  LAST NAME:</td>
                         <td>  <?php echo $lastname;?></td>
                         <td>  SECTION:</td>
-                        <td> <a href="select_sections.php?sec=<?php echo $sectionname;?>"><?php echo $sectionname;?></a></td>
+                        <td> <a href="masterlist.php?sec=<?php echo $sectionname;?>"><?php echo $sectionname;?></a></td>
                         
                     </tr>
                     <tr>

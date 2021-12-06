@@ -59,9 +59,7 @@ if($result && mysqli_num_rows($result) > 0)
                                     echo "<tr><td class='td1'> Category: </td> <td class='td1 data1'>$cat</td></tr>";
                                     echo "<tr><td class='td1'> First Choice: </td>   <td class='td1 data1'>$firstchoice</td></tr>";
 
-                                    if($cat = "REGULAR"){
-                                        $selectimage = "";
-                                    }
+                                    
                                     $selectapproved = "SELECT * FROM `studentapprovals` WHERE enrollnumber = '$enrollnumber'";
                                     $resultapproved = mysqli_query($con, $selectapproved);
 
@@ -73,17 +71,20 @@ if($result && mysqli_num_rows($result) > 0)
                                             echo "<tr><td class='td1'> Status: </td>   <td class='td1 data1'>$approved</td></tr>";
                                             echo "<tr><td class='td1'> Remarks: </td>   <td class='td1 data1'>$remarks</td></tr>";
                                             $inc = qcu_encrypt($examcode);
-                                    
+                                            if($cat == "REGULAR"){
+                                                echo "<tr><td></td><td class='td1'>
+           
+                                            <a href='enrollmentform/update_documents.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
                                    
-                                    echo "<tr><td></td><td class='td1'>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    <a href='enrollmentform/update_documents.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
-                                   
-                                    </td></tr>";
+                                            </td></tr>";
+                                            }else if ($cat == "TRANSFEREE"){
+                                                $inc = qcu_encrypt($examcode);
+                                                echo "<tr><td></td><td class='td1'>
+                                                <a href='enrollmentform/update_documents_tr.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
+                                                </td></tr>";
+                                            }
+                                            
+                                            }
                                         }
                                     }
                                     
@@ -100,7 +101,7 @@ if($result && mysqli_num_rows($result) > 0)
                     }
                     }
                  }
-                }
+                
             ?>
             
             </tr>

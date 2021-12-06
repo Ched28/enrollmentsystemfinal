@@ -4,6 +4,16 @@ include_once("enc_dec.php");
 $id = $_GET['id'];
 $dec = qcu_decrypt($id);
 if(isset($_POST['update'])){
+    $cat = mysqli_real_escape_string($con,$_POST['hidden_cat']);
+    $enrollnumber1 = $dec;
+    $TOR_prev = $_POST['TOR_prev'];
+    $CertificateofTransferCredential_prev = $_POST['CertificateofTransferCredential_prev'];
+    $SubjectDescription_prev = $_POST['SubjectDescription_prev'];
+    $PSA_prev = $_POST['PSA_prev'];
+    $GoodMoral_prev = $_POST['GoodMoral_prev'];
+    $BarangayClearance_prev = $_POST['BarangayClearance_prev'];
+    $MedicalClearance_prev = $_POST['MedicalClearance_prev'];
+    $IDPicture_prev = $_POST['IDPicture_prev'];
     $TOR = $_FILES['TOR']['name'];
     $TOR_temp = $_FILES['TOR']['tmp_name'];
     $CertificateofTransferCredential = $_FILES['CertificateofTransferCredential']['name'];
@@ -88,8 +98,8 @@ if(isset($_POST['update'])){
     
     
     
-    if($cat == "TRANSFEREE"){
-        $updatefileregular = "UPDATE `transfeeesdocumentsnee` SET `PSA`='$PSA_TEXT',`TOR`='$TOR_TEXT',`CertificateofTransferCredential`='$CertificateofTransferCredential_TEXT',`SubjectDescription`='$SubjectDescription_TEXT',`GoodMoral`='$GoodMoral_TEXT',`BarangayClearance`='$BarangayClearance_TEXT',`MedicalClearance`='$MedicalClearance_TEXT',`IDPicture`='$IDPicture_TEXT' WHERE `enrollnumber` = '$enrollnumber1'; ";
+    
+        $updatefileregular = "UPDATE `transfeeesdocumentsneed` SET `PSA`='$PSA_TEXT', `TOR`='$TOR_TEXT', `CertificateofTransferCredential`= '$CertificateofTransferCredential_TEXT', `SubjectDescription`= '$SubjectDescription_TEXT', `GoodMoral`= '$GoodMoral_TEXT', `BarangayClearance`='$BarangayClearance_TEXT', `MedicalClearance`='$MedicalClearance_TEXT', `IDPicture`='$IDPicture_TEXT' WHERE `enrollnumber` = '$enrollnumber1'; ";
         $update1 = mysqli_query($con, $updatefileregular);
         
         $location = "../../files/ENROLLEES_FILES/$enrollnumber1/";
@@ -195,12 +205,12 @@ if(isset($_POST['update'])){
             }
             }
             $remarks = "DOCUMENTS HAS BEEN PASSED // TO BE APPROVED";
-            $update_status = "UPDATE `studentapprovals` SET `remarks`='$remarks' WHERE StudentID = '$enrollnumber1';";
+            $update_status = "UPDATE `studentapprovals` SET `remarks`='$remarks' WHERE enrollnumber = '$enrollnumber1';";
             mysqli_query($con, $update_status);
             }
             sleep(10);
           echo "<script> location.replace('../success.php');</script>";
-        }
+        
     
     
     
