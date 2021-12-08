@@ -11,11 +11,14 @@ $sectionname = $_GET['sec'];
     <h1><?php echo $sectionname;?> MASTERLIST</h1>
     </div>
     <div>
+    <form method="POST" action="config/exporttoexcel.php?id=<?php echo $sectionname;?>">
     <ul>
        
-    <li><a href=""><i class="fas fa-file-excel"></i> EXPORT TO EXCEL </a> </li>
-    <li> <a href=""><i class="fas fa-file-pdf"></i> PRINT AS PDF </a>  </li>
+    <li><button type="submit" name="submit"><i class="fas fa-file-excel"></i> EXPORT TO EXCEL </button> </li>
+    <li> <button type="button"><i class="fas fa-file-pdf"></i> PRINT AS PDF </button>  </li>
+       
      </ul>
+     </form>
     </div>
     </div>
     <div class="con">

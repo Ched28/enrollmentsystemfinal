@@ -587,18 +587,18 @@ main{
     font-size: 1em;
 }
 
-.head-master a{
+.head-master button{
     color: white;
     background-color: #c72344;
     text-decoration: none;
     padding: .7em;
-    
+    width: 100%;
 }
 .head-master ul li{
     list-style: none;
     padding: .5em;
 }
-.head-master a:hover{
+.head-master button:hover{
     background-color: #d16c80;
 }
 .head-master ul{
