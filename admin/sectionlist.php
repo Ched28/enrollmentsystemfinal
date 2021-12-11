@@ -27,7 +27,7 @@ $courcode = $_GET['courcode'];
                         $code = $row['section_letter'];
                         $studentcount = $row['studentcount'];
                         $sectionname="$campus_code$course_code-$year$code";
-                        echo "<div> <div><h3> $sectionname <br><span style='font-size: .8em;'> Number Of Students: &nbsp;$studentcount </span></h3></div> <div> <ul><li><a href='masterlist.php?sec=$sectionname'><i class='fas fa-list'></i> &nbsp; Master List</a></li>  <li><a href=''><i class='fas fa-book-open'></i> &nbsp; Subjects</a></li></ul></div></div>";
+                        echo "<div> <div><h3> $sectionname <br><span style='font-size: .8em;'> Number Of Students: &nbsp; $studentcount </span></h3></div> <div> <ul><li><a href='masterlist.php?sec=$sectionname'><i class='fas fa-list'></i> &nbsp; Master List</a></li>  <li><a href=''><i class='fas fa-calendar-alt'></i> &nbsp; Schedule </a></li></ul></div></div>";
                         
                     }
                 }

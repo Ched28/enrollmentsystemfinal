@@ -13,7 +13,7 @@ $id = $_GET['id'];
                 <form>
                     <h1>Choose your category</h1>
                     <button type="button" name="" onclick="location.href='enrollmentformRegular.php?id=<?php echo $id?>'"> Regular Student (Freshman, Regular Student) </button> 
-                    <button type="button" name="" style="background-color: #3366CC" onclick="location.href='Irregularformchoose.php?id=<?php echo $id?>'">> Irregular Student (Transferees and Returnees) </button> 
+                    <button type="button" name="" style="background-color: #3366CC" onclick="location.href='Irregularformchoose.php?id=<?php echo $id?>'"> Irregular Student (Transferees and Returnees) </button> 
                     <!--change button type to submit when changing the function-->
                 </form>
             </div>

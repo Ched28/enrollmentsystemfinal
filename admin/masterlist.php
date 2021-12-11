@@ -15,7 +15,7 @@ $sectionname = $_GET['sec'];
     <ul>
        
     <li><button type="submit" name="excelbtn"><i class="fas fa-file-excel"></i> EXPORT TO EXCEL </button> </li>
-    <li> <button type="submit" name="pdfbtn" formaction= "config/exporttopdfmasterlist.php?id=<?php echo $sectionname;?>"><i class="fas fa-file-pdf"></i> PRINT AS PDF </button>  </li>
+    <li> <button type="submit" name="pdfbtn" formtarget="_blank" formaction= "config/exporttopdfmasterlist.php?id=<?php echo $sectionname;?>"><i class="fas fa-file-pdf"></i> PRINT AS PDF </button>  </li>
        
      </ul>
      </form>

@@ -94,6 +94,15 @@ main{
 
 }
 
+.side-list li .submenu{
+    list-style: none;
+    display: none;
+}
+
+.side-list li:hover .submenu{
+    display: block;
+}
+
 .side-list li:hover{
     background-color: #e82048 ;
 }
