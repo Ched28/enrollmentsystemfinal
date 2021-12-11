@@ -24,9 +24,9 @@ if($run_select){
         $output .= "<th> Last Name  </th>";
         $output .= "<th> First Name </th>";
         $output .= "<th> Middle Name</th>";
-        $output .= "<th> Birthdate  </th>";
         $output .= "<th> Gender</th>";
         $output .= "<th> Email Address </th>";
+        $output .= "<th> Birthdate  </th>";
         $output .= "<th> Guardian Name </th>";
         $output .= "<th> Guardian Contact Number</th>";
         $output .= "</tr>";
@@ -45,10 +45,10 @@ if($run_select){
             $output .= "<td>$studentid</td>";
             $output .= "<td>$lastname</td>";
             $output .= "<td>$firstname</td>";
-            $output .= "<td>$middlename</td>";
-            $output .= "<td>$birthday</td>";
+            $output .= "<td>$middlename</td>";          
             $output .= "<td>$gender</td>";
             $output .= "<td>$email</td>";
+            $output .= "<td>$birthday</td>";
             $output .= "<td>$guardianname</td>";
             $output .= "<td>$guardiancontact</td>";
             $output .= "</tr>";
