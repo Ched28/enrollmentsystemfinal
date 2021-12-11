@@ -613,3 +613,64 @@ main{
 .head-master ul{
     display: flex;
 }
+.addsubject-main{
+    display: grid;
+    grid-template-areas: 
+        "addsubject-header addsubject-header addsubject-header addsubject-header"
+        "addsubject-body addsubject-body addsubject-body addsubject-body"
+        "addsubject-body addsubject-body addsubject-body addsubject-body"
+        "addsubject-body addsubject-body addsubject-body addsubject-body"
+        ;
+    color: black;
+}
+
+.addsubject-body {
+    grid-area: addsubject-body;
+    padding: 1em;
+    
+}
+.addsubject-header{
+    grid-area: addsubject-header;
+    padding: 1em;
+    margin: 1em;
+    
+}
+.addsubject-body table{
+    width: 70%;
+    
+}
+.addsubject-body input, select, button{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+.addsubject-body button{
+    background-color: #00AC17 ;
+    color: white;
+}
+
+.listsubject-main{
+    display: grid;
+    grid-template-areas: 
+    "listsubject-header listsubject-header listsubject-header listsubject-header"
+    "listsubject-body listsubject-body listsubject-body listsubject-body"
+    "listsubject-body listsubject-body listsubject-body listsubject-body"
+    "listsubject-body listsubject-body listsubject-body listsubject-body"
+    ;
+    color: black;
+}
+.listsubject-header{
+    grid-area: listsubject-header;
+    padding: .7em;
+    margin: 1em;
+}
+.listsubject-body{
+    grid-area: listsubject-body;
+    padding: 1em;
+
+
+}
+
+

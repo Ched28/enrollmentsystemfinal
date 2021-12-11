@@ -46,7 +46,6 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <li> <i class="fas fa-book-open"></i> &nbsp; Subjects</a> 
     <ul class="submenu">
     <li> <a href="/enrollmentsystemfinal/admin/subjects/addsubjects.php"><i class="fas fa-plus-square"></i> &nbsp; Add a Subject </a> </li>
-    <li> <a href="/enrollmentsystemfinal/admin/subjects/asssubjects.php"> <i class="fas fa-grip-vertical"></i> &nbsp; Assign Subjects per Level </a> </li> 
     <li> <a href="/enrollmentsystemfinal/admin/subjects/listsubjects.php"> <i class="fas fa-list"></i> &nbsp; List Of Subjects </a> </li> 
     </ul>
     </li>
