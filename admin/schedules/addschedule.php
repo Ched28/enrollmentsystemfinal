@@ -46,8 +46,7 @@ if(isset($_POST['entersched'])){
     $finallec = date('g:i a',strtotime('+'.$lechours.' hour',strtotime($lec)));
     $finallab = date('g:i a',strtotime('+'.$labhours.' hour',strtotime($lab)));
     $subj1 = $subj;
-   // $lec1 = $firstlec . "-" . $finallec;
-    //$lab1 = $firstlab . "-" . $finallab; 
+     
     $insertsched = "INSERT INTO `schedule_table`(`sectionname`, `subjectcode`, `day`, `timestart`, `timestop`, `schedule_cat`) VALUES ('$sectioname','$subj1','$day','$firstlec','$finallec', 'lec')";
     $run_insert = mysqli_query($con, $insertsched);
     if($run_insert){
@@ -64,6 +63,8 @@ if(isset($_POST['entersched'])){
     }else{
         echo "<script>alert('Error Inserted Data ');</script>";
     }
+
+    echo "<script>location.replace('section_subjlist.php?sec=$sectioname');</script>";
 }
 ?>
 <div class="content">

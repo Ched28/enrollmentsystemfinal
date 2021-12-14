@@ -50,7 +50,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <li> <a href="/enrollmentsystemfinal/admin/subjects/curriculum.php"> <i class="fas fa-book"></i> &nbsp; Curriculum </a> </li>  
     </ul>
     </li>
-    <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/student_acc.php")?"active":"";?>"><a href="/enrollmentsystemfinal/admin/student_acc.php"> <i class="far fa-user"></i>&nbsp; Manage Student Account</a> </li>
+    <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/student_acc.php")?"active":"";?>"><a href="/enrollmentsystemfinal/admin/student_acc.php"> <i class="far fa-user"></i>&nbsp; Student Accounts</a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/admin.php")?"active":"";?>"> <a href="/enrollmentsystemfinal/admin/admin.php"> <i class="fas fa-user-shield"> </i>&nbsp; Account </a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/settings.php")?"active":"";?>"><a href="/enrollmentsystemfinal/admin/settings.php"> <i class="fas fa-wrench"></i>&nbsp; Settings </a> </li>
     

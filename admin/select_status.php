@@ -21,7 +21,7 @@ function selectcourse($con, $course_code){
   
 }
 
-$select_status = "SELECT studentapprovals.StudentID, `studentinfo`.`FullName-Last`, `studentinfo`.`FullName-First`, `studentinfo`.`FullName-Middle`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentenrollmentinfo.campus, student_sections.sectionname FROM studentapprovals INNER JOIN studentinfo ON studentapprovals.StudentID = studentinfo.StudentID INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN student_sections ON studentenrollmentinfo.StudentID = student_sections.StudentID WHERE studentapprovals.StudentID = '$dec'";
+$select_status = "SELECT studentapprovals.StudentID, `studentinfo`.`FullName-Last`, `studentinfo`.`FullName-First`, `studentinfo`.`FullName-Middle`,  `studentinfo`.`email`, studentenrollmentinfo.category, studentenrollmentinfo.firstcourse, studentenrollmentinfo.campus, student_sections.sectionname FROM studentapprovals INNER JOIN studentinfo ON studentapprovals.StudentID = studentinfo.StudentID INNER JOIN studentenrollmentinfo ON studentinfo.StudentID = studentenrollmentinfo.StudentID INNER JOIN student_sections ON studentenrollmentinfo.StudentID = student_sections.StudentID WHERE studentapprovals.StudentID = '$dec'";
 $run_select = mysqli_query($con, $select_status);
 if($run_select){
     if($run_select && mysqli_num_rows($run_select) > 0){
@@ -34,6 +34,9 @@ if($run_select){
             $campus = $row['campus'];
             $sectionname = $row['sectionname'];
             $firstcourse = $row['firstcourse'];
+            $email = $row['email'];
+
+           
            //  = selectcourse($con, $firstcourse);
             $year = substr($sectionname, 5,1);
             $code = substr($sectionname, 6,1);
@@ -79,9 +82,9 @@ if($run_select){
                     </tr>
                     <tr>
                         <td> REGFORM</td>
-                        <td> <a href=""> CREATE PDF</a></td>
+                        <td> <a href="config/exporttoregformpdf.php?id=<?php echo $stid;?>"> CREATE PDF</a></td>
                         <td> SEND EMAIL</td>
-                        <td> <a href=""> SEND </a></td>
+                        <td> <a href="usermail.php?id=<?php echo $stid;?>"> SEND </a></td>
                     </tr>
                     
 
