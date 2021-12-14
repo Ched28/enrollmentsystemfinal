@@ -1,7 +1,11 @@
 <?php 
 $cssfile2 = "/enrollmentsystemfinal/styles/all.css";
 $iconsite = "/enrollmentsystemfinal/img/qcu.png";
+session_start();
 
+if($_SESSION['auth'] != 1){
+    header('location: /enrollmentsystemfinal/admin/login.php');
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
             </div>
             <ul class="nav-list">
                 <li class="list-items">
-                <a href="../login.php" class="login-btn"> Log Out &nbsp; <i class="fas fa-sign-out-alt"></i></a>
+                <a href="logout.php" class="login-btn"> Log Out &nbsp; <i class="fas fa-sign-out-alt"></i></a>
                 </li>
             </ul>
 
@@ -57,7 +61,7 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 
 </ul>
 </main>
-
+<?php }?>
 
 
 

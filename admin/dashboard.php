@@ -1,6 +1,6 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
-session_start();
+
 ?>
 
 <div class="content" id='sessions'> </div>
@@ -17,7 +17,6 @@ session_start();
         <span style="font-size: 1.3em;padding: 0;margin: 0;"> Officially Enrolled </span> 
     </div>-->
    
-
 <script>
 function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
