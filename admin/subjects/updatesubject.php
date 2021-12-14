@@ -3,6 +3,22 @@ include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
 include_once("../config/dbcon.php");
 $id = $_GET['id'];
 $course1 = $_GET['cour'];
+function selectshort($con, $course1){
+
+    if($course1 != 'genacc'){
+    $selectcourse1 = "SELECT * FROM course WHERE `courseshort` = '$course1'";
+    $select_run1 = mysqli_query($con, $selectcourse1);
+    if($select_run1){
+    while($row = mysqli_fetch_array($select_run1)){
+        $course2 = $row['course_code'];
+            return $course2;                      
+        }
+    }
+}else{
+    $course2 = 'GA';
+    return $course2;
+}
+}
 if(isset($_POST['updatesubject'])){
     $subjectcode = mysqli_real_escape_string($con,$_POST['subjectcode']);
     $subjecttitle = mysqli_real_escape_string($con,$_POST['subjecttitle']);
@@ -49,8 +65,10 @@ if(isset($_POST['updatesubject'])){
          }else{
              echo "<script>alert('Error Entering Subject Details!');</script>";
          }
-        //echo "<script>alert('$coursefinal');</script>";
+        
     }
+    $course4 = selectshort($con, $course1);
+    echo "<script>location.replace('viewsubjects.php?cour=$course4');</script>";
     
 }
 ?>
@@ -69,7 +87,7 @@ if(isset($_POST['updatesubject'])){
                         
 
                         $select_gen = "SELECT * FROM `genacc_subject` WHERE `id` = $id LIMIT 1";
-                        $run_gen = mysqli($con, $select_gen);
+                        $run_gen = mysqli_query($con, $select_gen);
                         if($run_gen){
                             if($run_gen && mysqli_num_rows($run_gen) > 0){
                                 while($row = mysqli_fetch_array($run_gen)){
@@ -140,12 +158,97 @@ if(isset($_POST['updatesubject'])){
                     }else{
                     $course_leg = "_subject";
                     $coursefinal = $course1 . $course_leg; 
-                    $select_sub_info = '';
+                    $select_sub_info = "SELECT * FROM `$coursefinal` WHERE `id` = $id LIMIT 1";
+                    $run_sub_info = mysqli_query($con, $select_sub_info);
+                    if($run_sub_info){
+                        if($run_sub_info && mysqli_num_rows($run_sub_info) > 0){
+                            while($row6 = mysqli_fetch_array($run_sub_info)){
+                                $subjectcode = $row6['subjectcode'];
+                                $subjecttitle = $row6['subjecttitle'];
+                                $units = $row6['units'];
+                                $lec = $row6['lec'];
+                                $lab = $row6['lab'];
+                                $prerequisite = $row6['prerequisite'];
+                                $year = $row6['year'];
+                                $sem = $row6['sem'];
+
+
+                                ?>
+                                 <tr>
+                        <td colspan="3"> SUBJECT CODE </td>
+                        <td colspan="3"> <input type="text"  name="subjectcode" value="<?php echo $subjectcode;?>"></td>
+                        </tr>
+                        <tr>
+                        <td colspan="3"> SUBJECT TITLE </td>
+                        <td colspan="3">  <input type="text"  name="subjecttitle" value="<?php echo $subjecttitle;?>"></td>
+                        </tr>
+                        <tr>
+                        <td colspan="3"> PREREQUISITE </td>
+                        <td colspan="3"> <input type="text"  name="prerequisite" value="<?php echo $prerequisite;?>"></td>
+                        </tr>
+                        <tr>
+                        <td> UNITS </td>
+                        <td> <input type="text"  name="units" value="<?php echo $units;?>"></td>
+                        <td> LEC </td>
+                        <td> <input type="text"  name="lec" value="<?php echo $lec;?>"></td>
+                        <td> LAB </td>
+                        <td> <input type="text"  name="lab" value="<?php echo $lab;?>"></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td> YEAR </td>
+                        <td> <input type="text"  name="year" value="<?php echo $year;?>"></td>
+                        <td> SEM </td>
+                        <td> <input type="text"  name="sem" value="<?php echo $sem;?>"></td>
+                    
+                    
+                </tr>
+                <tr>
+                <td colspan="3"> COURSE  </td> 
+                <td colspan="3"> <select name="course" value="" required>
+                <option value=" ">PLEASE SELECT COURSE</option>   
+                <option value="GENERAL ACADEMIC">GENERAL ACADEMIC</option>  
+                   <?php 
+                        $selectcourse = "SELECT * FROM course";
+                        $select_run = mysqli_query($con, $selectcourse);
+                        if($select_run){
+                          while($row = mysqli_fetch_array($select_run)){
+                              $course = $row['coursename'];
+                              $courseshort = strtolower($row['courseshort']);
+                                $outpt = "<option value='$course'";
+                                if($course1 == $courseshort){
+                                    $outpt .=" selected> $course </option>";
+                                    echo $outpt;
+                                }
+                                
+                                else{
+                                    $outpt .="> $course </option>";
+                                    echo $outpt;
+                                }
+                          }
+                        }
+                   ?>
+                    </select> </td>  
+                </tr>
+                                <?php 
+                            }
+                        }
+                    }
                     }
                 ?>
             <tr>
-                    <td colspan="3"></td>
-                    <td colspan="3"> <button type="submit" name="updatesubject"> ADD SUBJECT </button></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> <button type="submit" name="updatesubject"> UPDATE SUBJECT </button></td>
+                    <td> 
+                        <?php 
+                            $course4 = selectshort($con, $course1);
+                        ?>
+                    <button type="submit" formaction="viewsubjects.php?cour=<?php echo $course4?>" style="background-color:#c72344;color:white;"> GO BACK  </button></td>
+                    
                 </tr>
             </table>
             </form>

@@ -46,7 +46,8 @@ $iconsite = "/enrollmentsystemfinal/img/qcu.png";
     <li> <i class="fas fa-book-open"></i> &nbsp; Subjects</a> 
     <ul class="submenu">
     <li> <a href="/enrollmentsystemfinal/admin/subjects/addsubjects.php"><i class="fas fa-plus-square"></i> &nbsp; Add a Subject </a> </li>
-    <li> <a href="/enrollmentsystemfinal/admin/subjects/listsubjects.php"> <i class="fas fa-list"></i> &nbsp; List Of Subjects </a> </li> 
+    <li> <a href="/enrollmentsystemfinal/admin/subjects/listsubjects.php"> <i class="fas fa-list"></i> &nbsp; List Of Subjects </a> </li>
+    <li> <a href="/enrollmentsystemfinal/admin/subjects/curriculum.php"> <i class="fas fa-book"></i> &nbsp; Curriculum </a> </li>  
     </ul>
     </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/student_acc.php")?"active":"";?>"><a href="/enrollmentsystemfinal/admin/student_acc.php"> <i class="far fa-user"></i>&nbsp; Manage Student Account</a> </li>

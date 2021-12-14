@@ -50,6 +50,8 @@ function selectshortCourse($con, $coursecode){
                 }
             
             ?>
+            <a href='' target="_TOP" class="fixed-button" style="text-decoration: none;color:white;"> <i class="fas fa-arrow-up"></i> TOP  </a>
         </div>
 </div>
+
 </div>

@@ -118,7 +118,7 @@ function update_status($con, $status, $studentid){
                 $approval = 'TO BE APPROVED';
                 $enrollnumber = $row['enrollnumber'];
                 $update1 = "UPDATE `studentinfo` SET `StudentID` = ' ' WHERE `studentinfo`.`enrollnumber` = '$enrollnumber';";
-                $update2 = "UPDATE `studentenrollmentinfo` SET `StudentID` = ' ' WHERE `studentenrollmentinfo`.`enrollnumber` = '$enrollnumber';";
+                $update2 = "UPDATE `studentenrollmentinfo` SET `StudentID` = ' ', `needupdate` = 1 WHERE `studentenrollmentinfo`.`enrollnumber` = '$enrollnumber';";
                 $update3 = "UPDATE `studenteducationalinfo` SET `StudentID` = ' ' WHERE `studenteducationalinfo`.`enrollnumber` = '$enrollnumber';";
                 $update4 = "UPDATE `studentapprovals` SET `StudentID`= ' ',`Approval`='$approval',`remarks`='$status' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
                 $update5 = "UPDATE `student_examresult` SET `StudentID`= ' ' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";

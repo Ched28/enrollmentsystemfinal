@@ -1,6 +1,24 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
 include_once("../config/dbcon.php");
+function selectshort($con, $course){
+
+    if($course == 'GENERAL ACADEMIC'){
+        $course2 = 'GA';
+        return $course2;
+  
+}else{
+    
+    $selectcourse1 = "SELECT * FROM course WHERE `coursename` = '$course'";
+    $select_run1 = mysqli_query($con, $selectcourse1);
+    if($select_run1){
+    while($row = mysqli_fetch_array($select_run1)){
+        $course2 = $row['course_code'];
+            return $course2;                      
+        }
+    }
+}
+}
 if(isset($_POST['entersubject'])){
     $subjectcode = mysqli_real_escape_string($con,$_POST['subjectcode']);
     $subjecttitle = mysqli_real_escape_string($con,$_POST['subjecttitle']);
@@ -49,7 +67,8 @@ if(isset($_POST['entersubject'])){
          }
         //echo "<script>alert('$coursefinal');</script>";
     }
-    
+    $course5 = selectshort($con, $course);
+    echo "<script>location.replace('viewsubjects.php?cour=$course5');</script>";
 }
 ?>
 <div class="content">
@@ -63,23 +82,23 @@ if(isset($_POST['entersubject'])){
             <table>
                 <tr>
                     <td colspan="3"> SUBJECT CODE </td>
-                    <td colspan="3"> <input type="text"  name="subjectcode"></td>
+                    <td colspan="3"> <input type="text"  name="subjectcode" required></td>
                 </tr>
                 <tr>
                     <td colspan="3"> SUBJECT TITLE </td>
-                    <td colspan="3">  <input type="text"  name="subjecttitle"></td>
+                    <td colspan="3">  <input type="text"  name="subjecttitle" required></td>
                 </tr>
                 <tr>
                     <td colspan="3"> PREREQUISITE </td>
-                    <td colspan="3"> <input type="text"  name="prerequisite"></td>
+                    <td colspan="3"> <input type="text"  name="prerequisite" required></td>
                 </tr>
                 <tr>
                     <td> UNITS </td>
-                    <td> <input type="text"  name="units"></td>
+                    <td> <input type="text"  name="units" required></td>
                     <td> LEC </td>
-                    <td> <input type="text"  name="lab"></td>
+                    <td> <input type="text"  name="lec" required></td>
                     <td> LAB </td>
-                    <td> <input type="text"  name="lec"></td>
+                    <td> <input type="text"  name="lab" required></td>
                     
                 </tr>
                 <tr>

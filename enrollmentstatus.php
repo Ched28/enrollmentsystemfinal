@@ -7,7 +7,14 @@ include_once("enrollmentform/config/enc_dec.php");
 $dec = $_GET['id'];
 $examcode = qcu_decrypt($dec);
 
+function needupdate($needupdate, $inc){
 
+    if($needupdate == 1){
+        $outpt = "<a href='enrollmentform/update_enrollform.php?id=$inc' style='text-decoration: none;color:white;' class='status-btn-doc'><i class='fas fa-user-edit'></i> &nbsp; Update Your Enrollment Info </a>";
+
+        return $outpt;
+    }
+}
 
 
 $select = "SELECT * FROM `student_examresult` WHERE ExamCode = '$examcode'";
@@ -55,7 +62,7 @@ if($result && mysqli_num_rows($result) > 0)
                                 while($row3 = mysqli_fetch_array($result3)){
                                     $cat = $row3['category'];
                                     $firstchoice = $row3['firstcourse'];
-
+                                    $needupdate = $row3['needupdate'];
                                     echo "<tr><td class='td1'> Category: </td> <td class='td1 data1'>$cat</td></tr>";
                                     echo "<tr><td class='td1'> First Choice: </td>   <td class='td1 data1'>$firstchoice</td></tr>";
 
@@ -72,15 +79,21 @@ if($result && mysqli_num_rows($result) > 0)
                                             echo "<tr><td class='td1'> Remarks: </td>   <td class='td1 data1'>$remarks</td></tr>";
                                             $inc = qcu_encrypt($examcode);
                                             if($cat == "REGULAR"){
-                                                echo "<tr><td></td><td class='td1'>
+                                                $outpt = needupdate($needupdate, $inc);  
+                                                echo "<tr><td>$outpt</td>";
+                                                
+                                                echo "<td class='td1'>
            
-                                            <a href='enrollmentform/update_documents.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
+                                            <a href='enrollmentform/update_documents.php?id=$inc' style='text-decoration: none;color:white;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
                                    
                                             </td></tr>";
                                             }else if ($cat == "TRANSFEREE"){
                                                 $inc = qcu_encrypt($examcode);
-                                                echo "<tr><td></td><td class='td1'>
-                                                <a href='enrollmentform/update_documents_tr.php?id=$inc' style='text-decoration: none;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
+                                                $outpt = needupdate($needupdate, $inc);  
+                                                echo "<tr><td>$outpt</td>";
+                                                
+                                                echo "<td class='td1'>
+                                                <a href='enrollmentform/update_documents_tr.php?id=$inc' style='text-decoration: none;color:white;' class='status-btn-doc'><i class='fas fa-eye'></i> &nbsp; Update Your Documents </a>
                                                 </td></tr>";
                                             }
                                             

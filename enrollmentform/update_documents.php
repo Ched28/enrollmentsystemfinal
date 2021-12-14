@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 
 $dec = qcu_decrypt($id);
-echo "<script>alert('$dec')</script>";
+//echo "<script>alert('$dec')</script>";
 $selectstudent = "SELECT * FROM `student_examresult` WHERE ExamCode = $dec LIMIT 1";
 
 $result_student = mysqli_query($con, $selectstudent);
