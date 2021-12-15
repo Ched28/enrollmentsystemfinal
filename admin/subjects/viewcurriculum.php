@@ -141,6 +141,7 @@ function selectshortCourse($con, $coursecode){
             ?>
         </table>
     </div>
+    <?php if($_SESSION['auth'] == 2){ ?>
     <div class="view-body3">
     <form method="POST" action="editingcurriculum.php?cour=<?php echo $course1?>">
         <div class="view-table1">
@@ -217,5 +218,7 @@ function selectshortCourse($con, $coursecode){
         </form>
       
     </div>
+
+    <?php }?>
 </div>
 </div>

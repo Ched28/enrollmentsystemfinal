@@ -1,6 +1,11 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php"); 
-
+include_once("admin/config/dbcon.php");
+include_once("admin/config/enrollconfig.php");
 $iconsite = "/enrollmentsystemfinal/img/qcu.png";
+if($switchcon == 0){
+    sleep(10);
+    header('location: closed.php');
+}
 ?>
 <main class="no-bg full-height">
 

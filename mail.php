@@ -77,7 +77,7 @@ $_SESSION['email'] = '';
                         <div style="padding: 1em;
                         margin: 1em;">
                             <div class="header">
-                            <h1>Welcome to Quezon City Univeristy!</h1>
+                            <h1>Welcome to Quezon City University!</h1>
                             
                             <div class="body">
                                 <p> Dear Student, </p>

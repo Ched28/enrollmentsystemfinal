@@ -1,9 +1,27 @@
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/components/header.php");
 
 session_start();
+include_once("config/dbcon.php");
+include_once("config/enc_dec.php");
 $id = $_GET['id'];
 
+$dec = qcu_decrypt($id);
 
+
+$select = "SELECT * FROM `studentexamresultstemp` WHERE `ExamNo` = '$dec';";
+
+$run_select = mysqli_query($con, $select);
+
+if($run_select){
+  while($row = mysqli_fetch_array($run_select)){
+      $examcode = $row['ExamNo'];
+      $firstname = $row['First-Name'];
+      $lastname = $row['Last-Name'];
+      $middlename = $row['Middle-Name'];
+      $email = $row['Email'];
+      
+  }
+}
 
 ?>
 
@@ -31,9 +49,9 @@ $id = $_GET['id'];
   <td> MIDDLE NAME (OPTIONAL) </td>
 </tr>
 <tr>
-  <td> <input type="text" name="FullName-Last" placeholder="DELA CRUZ/DELA CRUZ JR." class="one-line" required></td>
-  <td colspan="2"> <input type="text" name="FullName-First" placeholder="JUAN" class="one-line" required> </td>
-  <td> <input type="text" name="FullName-Middle" placeholder="LUNA" class="one-line"> </td>
+  <td> <input type="text"   value="<?php echo $lastname;?>" name="FullName-Last" placeholder="DELA CRUZ/DELA CRUZ JR." class="one-line" required></td>
+  <td colspan="2"> <input type="text"   value="<?php echo $firstname;?>" name="FullName-First" placeholder="JUAN" class="one-line" required> </td>
+  <td> <input type="text"  value="<?php echo $middlename;?>" name="FullName-Middle" placeholder="LUNA" class="one-line"> </td>
 </tr>
 <tr>
   <td> AGE </td>
@@ -72,7 +90,7 @@ $id = $_GET['id'];
   <td> <input type="text" name="contactno" placeholder="09XXXXXXXXX" class="one-line"
                         required id="contactno" onkeydown="validation()"> </td>
   <td colspan="3"> <input type="email" name="email" placeholder="fn.mn.ln@gmail.com"
-                        class="one-line" required id="email" onkeydown="validation()">  </td>
+  value="<?php echo $email;?>" class="one-line" required id="email" onkeydown="validation()">  </td>
 </tr>
 <tr>
 <td colspan="3"> ADDRESS </td> 

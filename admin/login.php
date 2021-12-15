@@ -7,15 +7,29 @@ if(isset($_POST['login'])){
 
     $username = mysqli_real_escape_string($con,$_POST['username']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
-
+	$userfromtxtbox = $_POST['username'];
+    
     $select_admin = "SELECT * FROM `admin` WHERE  `Username` = '$username' AND `password` = '$password'";
     $run_admin = mysqli_query($con, $select_admin);
     if($run_admin){
         if($run_admin && mysqli_num_rows($run_admin) > 0){
-            $_SESSION['auth'] = 1;
+			while ($row = mysqli_fetch_array($run_admin)){
+                        $r = $row['admin_level'];
+			}
+            if($r == "0")
+			{
+			$_SESSION['auth'] = 2;
+        
+            }
+           else{
+			$_SESSION['auth'] = 1;
+          
+            }
+            $out = $_SESSION['auth'];
+            echo "<script>alert('$out')</script>";
             header('location: dashboard.php');
         }else{
-            $_SESSION['auth'] = 0;
+            $_SESSION['auth'] = NULL;
             echo "<script>alert('Innorect details')</script>";
         }
     }

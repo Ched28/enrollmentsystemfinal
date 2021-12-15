@@ -739,3 +739,42 @@ main{
 .view-table2 table, select{
     width: 100%;
 }
+
+.settings-main{
+    display: grid;
+    grid-template-areas: 
+    "settings-head settings-head settings-head settings-head"
+    "settings-body settings-body settings-body settings-body"
+    "settings-body settings-body settings-body settings-body"
+    "settings-body settings-body settings-body settings-body"
+    ;
+    color: black;
+}
+.settings-head{
+    grid-area: settings-head;
+    padding: 1em;
+   
+}
+.settings-body{
+    grid-area: settings-body;
+    padding: 1em;
+}
+.settings-body table{
+    width: 100%;
+}
+.settings-body input{
+    width: 100%;
+    padding: 1em;
+}
+input[type=file]::file-selector-button{
+    color: white;
+    display: inline-block;
+    background: #e82048 ;
+    border: 1px black;
+    padding: 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 1em; 
+  }

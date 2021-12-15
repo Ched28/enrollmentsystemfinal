@@ -15,7 +15,7 @@
                        
                         <p> While waiting, learn more about our Quezon City University! </p>
 <br>
-                        <button type="button" onclick="location.href='../index.php'">Go back Home</button>
+                        <button type="button" onclick="location.href='/qcuschoolmanagement/'">Go back Home</button>
                     
                     </div>
         </div>   

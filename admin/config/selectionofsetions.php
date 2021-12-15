@@ -2,6 +2,7 @@
 session_start();
 include_once("dbcon.php");
 include_once("enc_dec.php");
+include_once("enrollconfig.php");
 $id = $_GET['stid'];
 $year = '1';
 
@@ -62,20 +63,20 @@ function update_count($con, $studentid){
         }
     }
 } 
-function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year, $updatecount){
+function countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year, $updatecount, $countstudentcourse){
     $selectsum = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$firstcourse_code' AND sections.`year` = '$year';";
     $run_sum1 = mysqli_query($con, $selectsum);
     if($run_sum1){
         if($run_sum1 && mysqli_num_rows($run_sum1) > 0){
             while($row = mysqli_fetch_array($run_sum1)){
                 $totalcount = $row['totalcount'];
-                if($totalcount >= 500){
+                if($totalcount >= $countstudentcourse){
                     $selectsum1 = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$secondcourse_code' AND sections.`year` = '$year';";
                     $run_sum2 = mysqli_query($con, $selectsum1);
                     if($run_sum2 && mysqli_num_rows($run_sum2) > 0){
                         while($row = mysqli_fetch_array($run_sum2)){
                             $totalcount1 = $row['totalcount'];
-                            if($totalcount1 >=500){
+                            if($totalcount1 >=$countstudentcourse){
                                 $selectsum2 = "SELECT SUM(sections.studentcount) as 'totalcount' FROM sections WHERE sections.campus_code = '$campus_code' AND sections.course_code = '$thirdcourse_code' AND sections.`year` = '$year';";
                                 $run_sum3 = mysqli_query($con, $selectsum2);
                                 if($run_sum3 && mysqli_num_rows($run_sum3) > 0){
@@ -118,7 +119,7 @@ function update_status($con, $status, $studentid){
                 $approval = 'TO BE APPROVED';
                 $enrollnumber = $row['enrollnumber'];
                 $update1 = "UPDATE `studentinfo` SET `StudentID` = ' ' WHERE `studentinfo`.`enrollnumber` = '$enrollnumber';";
-                $update2 = "UPDATE `studentenrollmentinfo` SET `StudentID` = ' ', `needupdate` = 1 WHERE `studentenrollmentinfo`.`enrollnumber` = '$enrollnumber';";
+                $update2 = "UPDATE `studentenrollmentinfo` SET `StudentID` = ' '  WHERE `studentenrollmentinfo`.`enrollnumber` = '$enrollnumber';";
                 $update3 = "UPDATE `studenteducationalinfo` SET `StudentID` = ' ' WHERE `studenteducationalinfo`.`enrollnumber` = '$enrollnumber';";
                 $update4 = "UPDATE `studentapprovals` SET `StudentID`= ' ',`Approval`='$approval',`remarks`='$status' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
                 $update5 = "UPDATE `student_examresult` SET `StudentID`= ' ' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";
@@ -172,10 +173,10 @@ if($select_idrun){
                         $campus_code = selectcampus($con, $campus);
                         $updatecount = update_count($con, $studentid);
 
-                        $course_code = countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year, $updatecount);
+                        $course_code = countStudent($con, $firstcourse_code, $secondcourse_code, $thirdcourse_code, $campus_code, $year, $updatecount, $countstudentcourse);
                         
                         if($course_code == "count error"){
-                            $status = "ALL OF YOUR THREE CHOICE OF COURSE HAS BEEN EXCEED COUNT IF YOU LIKE TO CONTINUE YOUR ENROLLMENT PLEASE CLICK THIS BUTTON.";
+                            $status = "Sorry all of choices of course are all exceed in its capacity...";
                             update_status($con, $status, $studentid);
                           echo "<script>location.replace('../enrollees.php');</script>";
 
@@ -195,7 +196,7 @@ if($select_idrun){
                                     $studentcount = $row5['studentcount'];
                                     $section_code = $row5['section_letter'];
                                     echo $studentcount;
-                                    if($studentcount <= 29){
+                                    if($studentcount <= $countstudentsection){
                                         $studentcount_new = $studentcount + 1;
                                         $studentcount = $studentcount_new;
                     
@@ -206,7 +207,7 @@ if($select_idrun){
                                             $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
                                             $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
                                             mysqli_query($con, $insertsection2);
-                                            echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                           echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                     
                                     }else{
@@ -220,7 +221,7 @@ if($select_idrun){
                                             $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
                                             $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
                                             mysqli_query($con, $insertsection2);
-                                            echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                           echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                                         
                     
@@ -236,7 +237,7 @@ if($select_idrun){
                                     $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
                                     $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
                                     mysqli_query($con, $insertsection2);
-                                    echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                  echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                 }
                             }
                         }

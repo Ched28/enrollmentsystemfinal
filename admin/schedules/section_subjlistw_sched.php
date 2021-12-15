@@ -4,7 +4,7 @@ include_once("../config/dbcon.php");
 
 
 $sectionname = $_GET['sec'];
-$sem = 1;
+$sem = $sem1;
 function selectshortCourse($con, $coursecode){
     if($coursecode == "GA"){
         $course1 = "genacc";
@@ -65,7 +65,7 @@ function selectshortCourse($con, $coursecode){
     <?php 
     $course_code = substr($sectionname, 2,2);
     $year = substr($sectionname, 5,1);
-    $sem = 1;
+    $sem = $sem1;
         $select_genacc = "SELECT `genacc_year`.`subjectcode`, `genacc_subject`.`subjecttitle`, `genacc_subject`.`units`, `schedule_table`.`day`, `schedule_table`.`timestart`, `schedule_table`.`timestop`, `schedule_table`.`schedule_cat` FROM `schedule_table` INNER JOIN `genacc_subject` ON `schedule_table`.`subjectcode` = `genacc_subject`.`subjectcode` INNER JOIN `genacc_year` ON `genacc_subject`.`subjectcode` = `genacc_year`.`subjectcode` WHERE `schedule_table`.`sectionname` = '$sectionname' AND `genacc_year`.`year` = '$year' AND `genacc_year`.`sem` = '$sem';";
         $run_selectgenacc = mysqli_query($con, $select_genacc);
         if($run_selectgenacc){

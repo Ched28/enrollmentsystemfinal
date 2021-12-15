@@ -1,7 +1,7 @@
 <?php 
 include_once("$_SERVER[DOCUMENT_ROOT]/enrollmentsystemfinal/admin/header.php");
 include_once("../config/dbcon.php");
-
+include_once("../config/enrollconfig.php");
 
 $sectionname = $_GET['sec'];
 $sem = 1;
@@ -31,7 +31,7 @@ function selectshortCourse($con, $coursecode){
     <div class="head-master">
     <div>
     <h1><?php echo $sectionname;?> SUBJECTS </h1>
-    | <span style="font-size: 1em;"> Semester: <?php echo $sem?></span> 
+    | <span style="font-size: 1em;"> Semester: <?php echo $sem1?></span> 
     | <span style="font-size: 1em;">      <a href="section_subjlistw_sched.php?sec=<?php echo $sectionname;?>" style="text-decoration:none;color: black;">  Go to Schedules</a></span>
     </div>
    
@@ -53,7 +53,7 @@ function selectshortCourse($con, $coursecode){
     <?php 
     $course_code = substr($sectionname, 2,2);
     $year = substr($sectionname, 5,1);
-    $sem = 1;
+    $sem = $sem1;
         $select_genacc = "SELECT `genacc_year`.`subjectcode`, `genacc_subject`.`subjecttitle`, `genacc_subject`.`units` FROM `genacc_year` INNER JOIN `genacc_subject` ON `genacc_year`.`subjectcode` = `genacc_subject`.`subjectcode` WHERE `genacc_year`.`course_code` = '$course_code' AND `genacc_year`.`year` = '$year' AND `genacc_year`.`sem` = '$sem';";
         $run_selectgenacc = mysqli_query($con, $select_genacc);
         if($run_selectgenacc){

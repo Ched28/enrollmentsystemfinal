@@ -3,7 +3,7 @@ $cssfile2 = "/enrollmentsystemfinal/styles/all.css";
 $iconsite = "/enrollmentsystemfinal/img/qcu.png";
 session_start();
 
-if($_SESSION['auth'] != 1){
+if($_SESSION['auth'] == NULL){
     header('location: /enrollmentsystemfinal/admin/login.php');
 }else{
 ?>
@@ -32,7 +32,7 @@ if($_SESSION['auth'] != 1){
             </div>
             <ul class="nav-list">
                 <li class="list-items">
-                <a href="logout.php" class="login-btn"> Log Out &nbsp; <i class="fas fa-sign-out-alt"></i></a>
+                <a href="/enrollmentsystemfinal/admin/logout.php" class="login-btn"> Log Out &nbsp; <i class="fas fa-sign-out-alt"></i></a>
                 </li>
             </ul>
 
@@ -55,9 +55,14 @@ if($_SESSION['auth'] != 1){
     </ul>
     </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/student_acc.php")?"active":"";?>"><a href="/enrollmentsystemfinal/admin/student_acc.php"> <i class="far fa-user"></i>&nbsp; Student Accounts</a> </li>
+    <?php 
+    if($_SESSION['auth'] == 2){
+    ?>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/admin.php")?"active":"";?>"> <a href="/enrollmentsystemfinal/admin/admin.php"> <i class="fas fa-user-shield"> </i>&nbsp; Account </a> </li>
     <li class="<?php echo (basename($_SERVER['PHP_SELF']) == "/enrollmentsystemfinal/admin/settings.php")?"active":"";?>"><a href="/enrollmentsystemfinal/admin/settings.php"> <i class="fas fa-wrench"></i>&nbsp; Settings </a> </li>
-    
+    <?php 
+    }
+    ?>
 
 </ul>
 </main>
