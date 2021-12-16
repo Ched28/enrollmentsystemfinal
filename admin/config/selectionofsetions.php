@@ -4,7 +4,19 @@ include_once("dbcon.php");
 include_once("enc_dec.php");
 include_once("enrollconfig.php");
 $id = $_GET['stid'];
-$year = '1';
+
+function selectYear($con, $studentid){
+    
+$selectyr = "SELECT `student_year`.`year` FROM `student_year` WHERE = `student_year`.`StudentID` = '$studentid';";
+$run_yr = mysqli_query($con, $selectyr);
+if($run_yr){
+    while($row = mysqli_fetch_array($run_yr)){
+        $year = $row['year'];
+
+         return $year;
+    }
+}
+}
 
 function selectcourse($con, $firstcourse){
     $select_course = "SELECT * FROM `course` WHERE coursename = '$firstcourse';";
@@ -142,6 +154,7 @@ function update_status($con, $status, $studentid){
     } 
 }
 $studentid = qcu_decrypt($id);
+$year = selectYear($con, $studentid);
 $selectstudentid = "SELECT * FROM `student_sections` ORDER BY ID DESC LIMIT 1;";
 $select_idrun = mysqli_query($con,$selectstudentid);
 if($select_idrun){
@@ -253,7 +266,7 @@ if($select_idrun){
         }
     }else{
 
-    $year = 1;
+
     $code = 'A';
     $select_enrollmentinfo = "SELECT * FROM `studentenrollmentinfo` WHERE studentenrollmentinfo.StudentID = '$studentid';";
 

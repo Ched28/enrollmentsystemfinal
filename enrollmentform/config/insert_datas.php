@@ -4,6 +4,7 @@
 session_start();
 include_once('dbcon.php');
 include_once("enc_dec.php");
+include_once("/enrollmentsystemfinal/admin/config/enrollconfig.php");
 $id = $_GET['id'];
 
 if(isset($_POST['submit'])){
@@ -91,12 +92,14 @@ if(isset($_POST['submit'])){
             $insertfile = "INSERT INTO `regulardocumentsneed`(`enrollnumber`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
             $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
             $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
+            $insertenyr = "INSERT INTO `student_year`(`enrollnumber`, `year`, `sem`) VALUES ('$enrollnumber','$year','$sem1');";
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;
             $query .=$insertExamCodee;
             $query .=$insertfile;
             $query .=$insertapproved;
+            $query .=$insertenyr;
             $insertqueries = $con->multi_query($query);
             $location = "../../files/ENROLLEES_FILES/$enrollnumber/";
             if(!file_exists($location)){
@@ -124,6 +127,7 @@ if(isset($_POST['submit'])){
             echo "<script> alert('error checkresult');</script>";
         }
     } else{
+        $year = 1;
         $enrollnumberint = 1;
         $enrollnumber = "$enrollmentyear-000000$enrollnumberint";
         $remarks = "Information has been recorded";
@@ -133,12 +137,14 @@ if(isset($_POST['submit'])){
         $insertfile = "INSERT INTO `regulardocumentsneed`(`enrollnumber`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
         $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
         $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
+        $insertenyr = "INSERT INTO `student_year`(`enrollnumber`, `year`, `sem`) VALUES ('$enrollnumber','$year','$sem1');";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
         $query .=$insertExamCodee;
         $query .=$insertfile;
         $query .=$insertapproved;
+        $query .=$insertenyr;
         $location = "../../files/ENROLLEES_FILES/$enrollnumber/";
             if(!file_exists($location)){
             mkdir($location,0777,true);

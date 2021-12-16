@@ -30,6 +30,7 @@ if($select_idrun){
             $update3 = "UPDATE `studenteducationalinfo` SET `StudentID` = '$studentid' WHERE `studenteducationalinfo`.`enrollnumber` = '$enrollnumber';";
             $update4 = "UPDATE `studentapprovals` SET `StudentID`='$studentid',`Approval`='$approval',`remarks`='$remarks' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
             $update5 = "UPDATE `student_examresult` SET `StudentID`='$studentid' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";
+            $update6 = "UPDATE `student_year` SET `StudentID`='$studentid' WHERE `student_year`.`enrollnumber` = '$enrollnumber'";
             $query = $update1;
             $query .= $update2;
             $query .= $update3;

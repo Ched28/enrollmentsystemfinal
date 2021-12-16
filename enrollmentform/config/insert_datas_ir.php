@@ -93,12 +93,15 @@ if(isset($_POST['submit'])){
             $insertfile = "INSERT INTO `transfeeesdocumentsneed`(`enrollnumber`, `PSA`, `TOR`, `CertificateofTransferCredential`, `SubjectDescription`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$TOR', '$CertificateofTransferCredential', '$SubjectDescription', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
             $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
             $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
+            $insertenyr = "INSERT INTO `student_year`(`enrollnumber`, `year`, `sem`) VALUES ('$enrollnumber','$year','$sem1');";
+            
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;
             $query .=$insertExamCodee;
             $query .=$insertfile;
             $query .=$insertapproved;
+            $query .=$insertenyr;
             $insertqueries = $con->multi_query($query);
             $location = "../../files/ENROLLEES_FILES/$enrollnumber/";
             if(!file_exists($location)){
@@ -135,13 +138,14 @@ if(isset($_POST['submit'])){
         $insertfile = "INSERT INTO `transfeeesdocumentsneed`(`enrollnumber`, `PSA`, `TOR`, `CertificateofTransferCredential`, `SubjectDescription`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$TOR', '$CertificateofTransferCredential', '$SubjectDescription', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
         $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
         $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
+        $insertenyr = "INSERT INTO `student_year`(`enrollnumber`, `year`, `sem`) VALUES ('$enrollnumber','$year','$sem1');";
         $query = $insertsql1;
         $query .=$insertsql2;
         $query .=$insertsql3;
         $query .=$insertExamCodee;
         $query .=$insertfile;
         $query .=$insertapproved;
-
+        $query .=$insertenyr;
         $insertqueries = $con->multi_query($query);
 
         $location = "../../files/ENROLLEES_FILES/$enrollnumber/";

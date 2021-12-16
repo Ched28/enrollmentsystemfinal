@@ -31,7 +31,7 @@ function selectshortCourse($con, $coursecode){
     <div class="head-master">
     <div>
     <h1><?php echo $sectionname;?> SUBJECTS </h1>
-    | <span style="font-size: 1em;"> Semester: <?php echo $sem1?></span> 
+    | <span style="font-size: 1em;"> Semester: <?php echo $sem1;?></span> 
     | <span style="font-size: 1em;">      <a href="section_subjlistw_sched.php?sec=<?php echo $sectionname;?>" style="text-decoration:none;color: black;">  Go to Schedules</a></span>
     </div>
    
