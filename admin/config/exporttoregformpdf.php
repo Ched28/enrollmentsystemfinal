@@ -1,6 +1,7 @@
 <?php 
 require('../../FPDF/fpdf.php');
 include_once("dbcon.php");
+include_once("enrollconfig.php");
 $stid = $_GET['id'];
 
 function selectYear($con, $stid){
@@ -173,33 +174,92 @@ class RegFormPdf extends FPDF{
     }
     function headertop1(){
         $this->setFont('Arial', 'B', 8);
-        $this->Cell(60, 45, 'SUBJECT CODE', 0, 0, 'C');   
-        $this->Cell(10, 45, 'SUBJECT TITLE', 0, 0, 'R'); 
-        $this->Cell(100, 45, 'UNIT', 0, 0, 'C');   
-        $this->Cell(-70, 45, 'ROOM', 0, 0, 'C');    
-        $this->Cell(100, 45, 'DAY', 0, 0, 'C');
-        $this->Cell(-27, 45, 'SCHEDULE', 0, 0, 'R');
-        $this->Ln();
-    }
-    function headerbody(){
-        
-        $this->setFont('Arial', '', 8);
-        $this->Cell(60, -30, 'SUBJECT CODE', 0, 0, 'C');   
-        $this->Cell(10, -30, 'SUBJECT TITLE', 0, 0, 'R'); 
-        $this->Cell(100, -30, 'UNIT', 0, 0, 'C');   
-        $this->Cell(-70, -30, 'ROOM', 0, 0, 'C');    
-        $this->Cell(100, -30, 'DAY', 0, 0, 'C');
-        $this->Cell(-27, -30, 'SCHEDULE', 0, 0, 'R');
-        
-        $this->Ln();
         $this->Cell(60, 40, 'SUBJECT CODE', 0, 0, 'C');   
-        $this->Cell(10, 40, 'SUBJECT TITLE', 0, 0, 'R'); 
+        $this->Cell(10, 40, 'SUBJECT TITLE', 0, 0, 'C'); 
         $this->Cell(100, 40, 'UNIT', 0, 0, 'C');   
         $this->Cell(-70, 40, 'ROOM', 0, 0, 'C');    
         $this->Cell(100, 40, 'DAY', 0, 0, 'C');
-        $this->Cell(-27, 40, 'SCHEDULE', 0, 0, 'R');
-      
-
+        $this->Cell(-27, 40, 'SCHEDULE', 0, 0, 'C');
+        $this->Ln();
+    }
+    function headerbody($con,$stid,$sem1){
+        $sectionname = selectsection($con, $stid);
+        $coursecode = substr($sectionname, 2,2);
+        $course = selectcourseShort($con,$coursecode);
+        $year = selectYear($con, $stid);
+        $course_leg = "_subject";
+        $coursefinal = $course . $course_leg;
+        $select_genacc = "SELECT `$coursefinal`.`subjectcode`, `$coursefinal`.`subjecttitle`, `$coursefinal`.`units`, `schedule_table`.`day`, `schedule_table`.`timestart`, `schedule_table`.`timestop`, `schedule_table`.`schedule_cat` FROM `schedule_table` INNER JOIN `$coursefinal` ON `schedule_table`.`subjectcode` = `$coursefinal`.`subjectcode` WHERE `schedule_table`.`sectionname` = '$sectionname' AND `$coursefinal`.`year` = '$year' AND `$coursefinal`.`sem` = '$sem1';";
+        $run_selectgenacc = mysqli_query($con, $select_genacc);
+        if($run_selectgenacc){
+            if($run_selectgenacc && mysqli_num_rows($run_selectgenacc) > 0){
+                while($row4 = mysqli_fetch_array($run_selectgenacc)){
+                    $i = 0;
+                    $subjectcode = $row4['subjectcode'];
+                    $subjecttitle = $row4['subjecttitle'];
+                    $units = $row4['units'];
+                    $day = $row4['day'];
+                    $timestart = $row4['timestart'];
+                    $timestop = $row4['timestop'];
+                    $schedule_cat = $row4['schedule_cat'];
+                    $schedule = "$timestart - $timestop";
+                    $this->setFont('Arial', '', 8);
+                     if($i%2 == 0)
+                     {
+                        $this->Cell(60, -4, $subjectcode, 0, 0, 'C');   
+                        $this->Cell(10, -4, $subjecttitle, 0, 0, 'C'); 
+                        $this->Cell(100, -4, $units, 0, 0, 'C');   
+                        $this->Cell(-70, -4, $schedule_cat, 0, 0, 'C');    
+                        $this->Cell(100, -4, $day, 0, 0, 'C');
+                        $this->Cell(-27, -4, $schedule, 0, 0, 'C');
+                        $this->Ln();
+                     }else{
+                        $this->Cell(60, -10, $subjectcode, 0, 0, 'C');   
+                        $this->Cell(10, -10, $subjecttitle, 0, 0, 'C'); 
+                        $this->Cell(100, -10, $units, 0, 0, 'C');   
+                        $this->Cell(-70, -10, $schedule_cat, 0, 0, 'C');    
+                        $this->Cell(100, -10, $day, 0, 0, 'C');
+                        $this->Cell(-27, -10, $schedule, 0, 0, 'C');
+                        $this->Ln();
+                        
+                    
+                     }
+                     
+                     $i++;
+                    // $this->Cell(60, -30, 'SUBJECT CODE', 0, 0, 'C');   
+                    // $this->Cell(10, -30, 'SUBJECT TITLEFDSFSDFDFDSFDS', 0, 0, 'C'); 
+                    // $this->Cell(100, -30, 'UNIT', 0, 0, 'C');   
+                    // $this->Cell(-70, -30, 'ROOM', 0, 0, 'C');    
+                    // $this->Cell(100, -30, 'DAY', 0, 0, 'C');
+                    // $this->Cell(-27, -30, 'SCHEDULE', 0, 0, 'R');
+                    
+                    // $this->Ln();
+                    // $this->Cell(60, 40, 'SUBJECT CODE', 0, 0, 'C');   
+                    // $this->Cell(10, 40, 'SUBJECT TITLDFSDFDSFSDFDSFDE', 0, 0, 'C'); 
+                    // $this->Cell(100, 40, 'UNIT', 0, 0, 'C');   
+                    // $this->Cell(-70, 40, 'ROOM', 0, 0, 'C');    
+                    // $this->Cell(100, 40, 'DAY', 0, 0, 'C');
+                    // $this->Cell(-27, 40, 'SCHEDULE', 0, 0, 'R');
+                    // $this->Ln();
+                    // $this->Cell(60, -30, 'SUBJECT CODE', 0, 0, 'C');   
+                    // $this->Cell(10, -30, 'SUBJECT TITSDFDSFDSFDSFDSFDSLE', 0, 0, 'C'); 
+                    // $this->Cell(100, -30, 'UNIT', 0, 0, 'C');   
+                    // $this->Cell(-70, -30, 'ROOM', 0, 0, 'C');    
+                    // $this->Cell(100, -30, 'DAY', 0, 0, 'C');
+                    // $this->Cell(-27, -30, 'SCHEDULE', 0, 0, 'R');
+                    
+                    // $this->Ln();
+                    // $this->Cell(60, 40, 'SUBJECT CODE', 0, 0, 'C');   
+                    // $this->Cell(10, 40, 'SUBJECT DFSDFSDFSDFDSFSDFDSFDSFSDFSDFDSFDTITLE', 0, 0, 'C'); 
+                    // $this->Cell(100, 40, 'UNIT', 0, 0, 'C');   
+                    // $this->Cell(-70, 40, 'ROOM', 0, 0, 'C');    
+                    // $this->Cell(100, 40, 'DAY', 0, 0, 'C');
+                   // $this->Cell(-27, 40, 'SCHEDULE', 0, 0, 'R');
+                }
+            }//else{
+              //  echo "<script>alert('Error');</script>";
+           // }
+        }
     }
 }
 
@@ -211,7 +271,8 @@ $pdf->AddPage('P', 'A4', 0);
 $pdf->header1($con,$stid);
 $pdf->headertop($con, $stid);
 $pdf->headertop1();
-$pdf->headerbody();
+
+$pdf->headerbody($con,$stid,$sem1);
 
 $pdf->Output();
 
