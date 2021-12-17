@@ -255,7 +255,7 @@ if($select_idrun){
                                             $query4 .= $insertstudentschoolinfo;
 
                                             $con->multi_query($query4);
-                                          // echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                           echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                     
                                     }else{
@@ -274,7 +274,7 @@ if($select_idrun){
                                             $query4 .= $insertstudentschoolinfo;
 
                                             $con->multi_query($query4);
-                                      //     echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                           echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                                         
                     
@@ -295,7 +295,7 @@ if($select_idrun){
                                             $query4 .= $insertstudentschoolinfo;
 
                                             $con->multi_query($query4);
-                         //         echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                  echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                 }
                             }
                         }

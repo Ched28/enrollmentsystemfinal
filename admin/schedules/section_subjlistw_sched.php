@@ -36,14 +36,7 @@ function selectshortCourse($con, $coursecode){
     | <span style="font-size: 1em;">      <a href="section_subjlist.php?sec=<?php echo $sectionname;?>" style="text-decoration:none;color: black;">  Go to Subject List</a></span>
     </div>
     <div>
-    <form method="POST" action="config/exporttoexcel.php?id=<?php echo $sectionname;?>">
-    <ul>
-       
-    <li><button type="submit" name="excelbtn"><i class="fas fa-file-excel"></i> EXPORT TO EXCEL </button> </li>
-    <li> <button type="submit" name="pdfbtn" formtarget="_blank" formaction= "config/exporttopdfmasterlist.php?id=<?php echo $sectionname;?>"><i class="fas fa-file-pdf"></i> PRINT AS PDF </button>  </li>
-       
-     </ul>
-     </form>
+    
     </div>
     </div>
     <div class="con">
