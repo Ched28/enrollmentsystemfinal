@@ -251,6 +251,9 @@ class RegFormPdf extends FPDF{
                 
             }
         }
+        function listofInfo(){
+            
+        }
     
 }
 

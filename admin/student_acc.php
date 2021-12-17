@@ -29,10 +29,10 @@ include_once("config/dbcon.php");
                 $username = $row['Username'];
                 
                 ?>
-                
+                <tr>
                 <td> <?php echo $studentid; ?> </td>
                 <td> <?php echo $username; ?> </td> 
-               
+                </tr>
                 <?php
             }
         }

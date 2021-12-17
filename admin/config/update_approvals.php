@@ -5,6 +5,8 @@ $id = $_GET['id'];
 
 $enrollnumber = qcu_decrypt($id);
 $enrollmentyear = date("y");
+
+
 if(isset($_POST['update'])){
 $approval = mysqli_real_escape_string($con,$_POST['approvals']);
 $remarks = mysqli_real_escape_string($con,$_POST['remarks']);
@@ -36,7 +38,7 @@ if($select_idrun){
             $query .= $update3;
             $query .= $update4;
             $query .= $update5;
-
+            $query .= $update6;
 
             $updatequeries = $con->multi_query($query);
 
@@ -61,13 +63,14 @@ if($select_idrun){
         $update3 = "UPDATE `studenteducationalinfo` SET `StudentID` = '$studentid' WHERE `studenteducationalinfo`.`enrollnumber` = '$enrollnumber';";
         $update4 = "UPDATE `studentapprovals` SET `StudentID`='$studentid',`Approval`='$approval',`remarks`='$remarks' WHERE `studentapprovals`.`enrollnumber` = '$enrollnumber';";
         $update5 = "UPDATE `student_examresult` SET `StudentID`='$studentid' WHERE `student_examresult`.`enrollnumber` = '$enrollnumber';";
-
+        $update6 = "UPDATE `student_year` SET `StudentID`='$studentid' WHERE `student_year`.`enrollnumber` = '$enrollnumber'";
+        
         $query1 = $update1;
         $query1 .= $update2;
         $query1 .= $update3;
         $query1 .= $update4;
         $query1 .= $update5;
-
+        $query .= $update6;
 
         $updatequeries1 = $con->multi_query($query1);
 

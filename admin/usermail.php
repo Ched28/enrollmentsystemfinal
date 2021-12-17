@@ -10,6 +10,17 @@ $_SESSION['stid'] = '';
                             require 'includes/SMTP.php';
                             require 'includes/Exception.php';
                             
+                            function getenrollnumber($con, $id){
+                                $select1 = "SELECT * FROM `student_examresult` WHERE `StudentID` = '$id'";
+                                $run_select1 = mysqli_query($con, $select1);
+                                if($run_select1){
+                                    while($row3 = mysqli_fetch_array($run_select1)){
+                                        $enrollnumber = $row3['enrollnumber'];
+
+                                        return $enrollnumber;
+                                    }
+                                }
+                            }
                             $id = $_GET['id'];
                             $inc = qcu_encrypt($id);
                             $query = "select * from `studentinfo` where `StudentID` = '$id' LIMIT 1";
@@ -33,7 +44,8 @@ $_SESSION['stid'] = '';
                             $emailfinal = $_SESSION['email1'];
                             $username = $_SESSION['un'];
                             $stid = $_SESSION['stid'];
-                            $query1 = "INSERT INTO `studentaccount`(`StudentID`, `Username`, `Password`, `user_status`) VALUES ('$stid','$username','$temp_code','NEW ACCOUNT')";
+                            $enrollnumber = getenrollnumber($con, $stid);
+                            $query1 = "INSERT INTO `studentaccount`(`enrollnumber`, `StudentID`, `Username`, `Password`, `user_status`) VALUES ('$enrollnumber','$stid','$username','$temp_code','NEW ACCOUNT')";
                             mysqli_query($con, $query1);
 
                             use PHPMailer\PHPMailer\PHPMailer;

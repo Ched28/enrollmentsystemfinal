@@ -80,6 +80,8 @@ if(isset($_POST['submit'])){
     $checkresult = mysqli_query($con, $select1);
     if(mysqli_num_rows($checkresult)>0){
         if($row = mysqli_fetch_assoc($checkresult)){
+            $sem = 1;
+            $year = 1;
             $tempid = $row['enrollnumber'];
             $get_numbers = str_replace("$enrollmentyear-", "", $tempid);
             $inc_number = $get_numbers+1;
@@ -92,7 +94,7 @@ if(isset($_POST['submit'])){
             $insertfile = "INSERT INTO `regulardocumentsneed`(`enrollnumber`, `PSA`, `Form137`, `Form138`, `Diploma`, `GoodMoral`, `BarangayClearance`, `MedicalClearance`, `IDPicture`) VALUES ('$enrollnumber', '$PSA', '$Form137', '$Form138', '$Diploma', '$GoodMoral', '$BarangayClearance', '$MedicalClearance', '$IDPicture');";
             $insertExamCodee = "INSERT INTO `student_examresult`(`enrollnumber`, `ExamCode`) VALUES ('$enrollnumber','$ExamCode');";
             $insertapproved = "INSERT INTO `studentapprovals`(`enrollnumber`,`remarks`) VALUES ('$enrollnumber','$remarks');";
-            $insertenyr = "INSERT INTO `student_year`(`enrollnumber`, `year`, `sem`) VALUES ('$enrollnumber','$year','$sem1');";
+            $insertenyr = "INSERT INTO `student_year`(`enrollnumber`, `year`, `sem`) VALUES ('$enrollnumber','$year','$sem');";
             $query = $insertsql1;
             $query .=$insertsql2;
             $query .=$insertsql3;

@@ -46,6 +46,34 @@ function selectcampus($con, $campus){
             }
 
 }
+function selectcourseID($con, $firstcourse){
+    $select_course = "SELECT * FROM `course` WHERE course_code = '$firstcourse';";
+            $run_course = mysqli_query($con, $select_course);
+            if($run_course){
+                if($run_course && mysqli_num_rows($run_course) > 0){
+                    while($row2 = mysqli_fetch_array($run_course)){
+                        $courseid = $row2['id'];
+
+                        return $courseid;
+                    }
+                }
+            }
+  
+}
+function selectcampusID($con, $campus){
+    $select_campus = "SELECT * FROM `campus` WHERE campus_code = '$campus';";
+    $run_campus = mysqli_query($con, $select_campus);
+            if($run_campus){
+                if($run_campus && mysqli_num_rows($run_campus) > 0){
+                    while($row4 = mysqli_fetch_array($run_campus)){
+                        $campusid = $row4['id'];
+
+                        return $campusid;
+                    }
+                }
+            }
+
+}
 
 function compareCampusCode($campuscode, $campus_code){
     if($campuscode == $campus_code){
@@ -199,7 +227,9 @@ if($select_idrun){
                         $campuscode_new = compareCampusCode($campuscode, $campus_code);
 
                         $coursecode_new = compareCourseCode($coursecode, $course_code);
-
+                        
+                        $courseid = selectcourseID($con, $coursecode_new);
+                        $campusid = selectcampusID($con, $campuscode_new);
                         
                         $select_newsection = "SELECT * FROM `sections` WHERE campus_code = '$campuscode_new' AND course_code = '$coursecode_new' AND `year` = '$year' AND section_letter = '$code'";
                         $select_newrun = mysqli_query($con, $select_newsection);
@@ -218,9 +248,14 @@ if($select_idrun){
                     
                                         if($insertrun){       
                                             $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
-                                            $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
-                                            mysqli_query($con, $insertsection2);
-                                           echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                            $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";
+                                            $insertstudentschoolinfo = "INSERT INTO `studentschoolinfo`(`StudentID`, `Course`, `year`, `campus`) VALUES ('$studentid','$courseid','$year','$campusid');";              
+                                            
+                                            $query4 = $insertsection2;
+                                            $query4 .= $insertstudentschoolinfo;
+
+                                            $con->multi_query($query4);
+                                          // echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                     
                                     }else{
@@ -232,9 +267,14 @@ if($select_idrun){
                                         $insertsectionrun = mysqli_query($con, $insertsection);
                                         if($insertsectionrun){       
                                             $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
-                                            $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
-                                            mysqli_query($con, $insertsection2);
-                                           echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                            $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";
+                                            $insertstudentschoolinfo = "INSERT INTO `studentschoolinfo`(`StudentID`, `Course`, `year`, `campus`) VALUES ('$studentid','$courseid','$year','$campusid');";              
+                                            
+                                            $query4 = $insertsection2;
+                                            $query4 .= $insertstudentschoolinfo;
+
+                                            $con->multi_query($query4);
+                                      //     echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                         }
                                         
                     
@@ -248,9 +288,14 @@ if($select_idrun){
                                 $insertsectionrun = mysqli_query($con, $insertsection);
                                 if($insertsectionrun){       
                                     $sectionname = "$campuscode_new$coursecode_new-$year$section_code";               
-                                    $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";              
-                                    mysqli_query($con, $insertsection2);
-                                  echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                    $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";
+                                            $insertstudentschoolinfo = "INSERT INTO `studentschoolinfo`(`StudentID`, `Course`, `year`, `campus`) VALUES ('$studentid','$courseid','$year','$campusid');";              
+                                            
+                                            $query4 = $insertsection2;
+                                            $query4 .= $insertstudentschoolinfo;
+
+                                            $con->multi_query($query4);
+                         //         echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                 }
                             }
                         }
@@ -276,6 +321,7 @@ if($select_idrun){
         while($row = mysqli_fetch_array($select_eninrun)){
             $firstcourse = $row['firstcourse'];
             $campus = $row['campus'];
+            
 
             $select_course = "SELECT * FROM `course` WHERE coursename = '$firstcourse';";
             $run_course = mysqli_query($con, $select_course);
@@ -289,20 +335,23 @@ if($select_idrun){
                                     if($run_campus && mysqli_num_rows($run_campus) > 0){
                                         while($row4 = mysqli_fetch_array($run_campus)){
                                             $campus_code = $row4['campus_code'];
-
+                                            $courseid = selectcourseID($con, $coursecode);
+                                            $campusid = selectcampusID($con, $campuscode);
                                             $sectionname = "$campus_code$coursecode-$year$code";
                                             $studentcount = 1;
                                             $insertsection3 = "INSERT INTO `sections`(`campus_code`, `course_code`, `year`, `section_letter`, `studentcount`) VALUES ('$campus_code','$coursecode','$year','$code',$studentcount);";
 
                                             $insertsection2 = "INSERT INTO `student_sections`(`StudentID`, `sectionname`) VALUES ('$studentid','$sectionname');";
+                                            $insertstudentschoolinfo = "INSERT INTO `studentschoolinfo`(`StudentID`, `Course`, `year`, `campus`) VALUES ('$studentid','$courseid','$year','$campusid');";   
                                                          
                                                          
                                               $query2 = $insertsection3;
                                               $query2 .= $insertsection2;
+                                              $query2 .= $insertstudentschoolinfo;
                                               $insertqueries = $con->multi_query($query2);
 
                                               if($insertqueries){
-                                                echo "<script>location.replace('../select_status.php?id=$id');</script>";
+                                 //               echo "<script>location.replace('../select_status.php?id=$id');</script>";
                                               }
 
                                         }
