@@ -52,7 +52,7 @@ if(isset($_POST['login'])){
             <input type="text" name="username" placeholder="Username" class="one-line"> <br><br>
             <input type="password" name="password" placeholder="Password" class="one-line"> <br><br>
             <button type="submit"  name="login" class="login-btn-login"> Log In </button>
-            <button type="button" style="background-color: #e82048;" onclick="location.href='index.php'" class="login-btn-login"> Back to Home </button>
+            <button type="button" style="background-color: #e82048;" onclick="location.href='/qcuschoolmanagement/'" class="login-btn-login"> Back to Home </button>
         </form>
     </div>
 </div>        

@@ -12,7 +12,7 @@ include_once("dbcon.php");
                 <h1>CONFIRMATION</h1>
 
                 <h4>Sorry you are not qualified..</h4>
-                <button type="button" onclick="location.href='index.php'">Go back Home</button>
+                <button type="button" onclick="location.href='/qcuschoolmanagement/'">Go back Home</button>
             
         </div>
     </div>   
